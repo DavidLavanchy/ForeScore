@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202110211841121_InitialMigration.Designer.cs">
       <DependentUpon>202110211841121_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110212212068_HoleNumbertoHoleEntity.cs" />
+    <Compile Include="Migrations\202110212212068_HoleNumbertoHoleEntity.Designer.cs">
+      <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110211841121_InitialMigration.resx">
       <DependentUpon>202110211841121_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110212212068_HoleNumbertoHoleEntity.resx">
+      <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
