@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ForeScore.Data
 {
-    public class UserCareer : ApplicationUser
+    public class UserCareer 
     {
         [Key]
         public int UserCareerId { get; set; }
