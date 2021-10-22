@@ -19,7 +19,7 @@ namespace ForeScore.Data
         public int Birdies { get; set; }
         public int Pars { get; set; }
         public float AverageDrivingDistance { get; set; }
-        public int AveragePutts { get; set; }
+        public float AveragePutts { get; set; }
         public int RoundsPlayed { get; set; }
         public List<Round> Rounds { get; set; }
         public List<UserCareer> UserCareersFollowed { get; set; }

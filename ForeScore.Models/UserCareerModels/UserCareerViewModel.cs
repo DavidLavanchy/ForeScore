@@ -97,7 +97,7 @@ namespace ForeScore.Models.UserCareerModels
                 {
                     var hole = round.Course.Holes;
 
-                    foreach(var item in hole)
+                    foreach (var item in hole)
                     {
                         overallAverage.Add(item.Score);
                         overallPar.Add(item.Par);
@@ -113,13 +113,184 @@ namespace ForeScore.Models.UserCareerModels
                 return averageScore;
             }
         }
-        public int Aces { get; set; }
-        public int Eagles { get; set; }
-        public int Birdies { get; set; }
-        public int Pars { get; set; }
-        public float AverageDrivingDistance { get; set; }
-        public int AveragePutts { get; set; }
-        public int RoundsPlayed { get; set; }
+        public int Aces
+        {
+            get
+            {
+                int aces = 0;
+
+                foreach (var round in Rounds)
+                {
+
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        if (item.Score == 1)
+                        {
+                            aces += 1;
+                        }
+                    }
+                }
+                return aces;
+            }
+        }
+        public int Eagles
+        {
+            get
+            {
+                int eagles = 0;
+
+                foreach (var round in Rounds)
+                {
+
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        if (item.Par == 4 && item.Score == 2)
+                        {
+                            eagles += 1;
+                        }
+
+                        if (item.Par == 5 && item.Score == 3)
+                        {
+                            eagles += 1;
+                        }
+                    }
+                }
+                return eagles;
+            }
+        }
+        public int Birdies
+        {
+            get
+            {
+                int birdies = 0;
+
+                foreach (var round in Rounds)
+                {
+
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        if (item.Par == 3 && item.Score == 2)
+                        {
+                            birdies += 1;
+                        }
+
+                        if (item.Par == 4 && item.Score == 3)
+                        {
+                            birdies += 1;
+                        }
+
+                        if (item.Par == 5 && item.Score == 4)
+                        {
+                            birdies += 1;
+                        }
+                    }
+                }
+                return birdies;
+            }
+        }
+        public int Pars
+        {
+            get
+            {
+                int pars = 0;
+
+                foreach (var round in Rounds)
+                {
+
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        if (item.Par == 3 && item.Score == 3)
+                        {
+                            pars += 1;
+                        }
+
+                        if (item.Par == 4 && item.Score == 4)
+                        {
+                            pars += 1;
+                        }
+
+                        if (item.Par == 5 && item.Score == 5)
+                        {
+                            pars += 1;
+                        }
+                    }
+                }
+                return pars;
+            }
+        }
+        public float AverageDrivingDistance
+        {
+            get
+            {
+                float drivingdistance = 0;
+                List<Hole> overallHoles = new List<Hole>();
+
+                foreach (var round in Rounds)
+                {
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        drivingdistance += item.DrivingDistance;
+                        overallHoles.Add(item);
+                    }
+                }
+
+                var averageDrivingDistance = drivingdistance / overallHoles.Count();
+
+                return averageDrivingDistance;
+            }
+        }
+        public float AveragePutts
+        {
+            get
+            {
+                float putts = 0;
+                List<Hole> overallHoles = new List<Hole>();
+
+                foreach (var round in Rounds)
+                {
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        putts += item.Putts;
+                        overallHoles.Add(item);
+                    }
+                }
+
+                var averagePutts = putts / overallHoles.Count();
+
+                return averagePutts;
+            }
+        }
+        public int RoundsPlayed
+        {
+            get
+            {
+                List<Hole> overallHoles = new List<Hole>();
+
+                foreach (var round in Rounds)
+                {
+                    var hole = round.Course.Holes;
+
+                    foreach (var item in hole)
+                    {
+                        overallHoles.Add(item);
+                    }
+                }
+
+                return overallHoles.Count();
+            }
+        }
         public List<Round> Rounds { get; set; }
         public List<UserCareer> UserCareersFollowed { get; set; }
         public List<UserCareer> UserCareersFollowing { get; set; }

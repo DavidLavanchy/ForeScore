@@ -71,6 +71,14 @@
     <Compile Include="Migrations\202110212212068_HoleNumbertoHoleEntity.Designer.cs">
       <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.cs" />
+    <Compile Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.Designer.cs">
+      <DependentUpon>202110220104051_ChangedAverageScoreToParToFloat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110220125354_changedAveragePuttsToFloat.cs" />
+    <Compile Include="Migrations\202110220125354_changedAveragePuttsToFloat.Designer.cs">
+      <DependentUpon>202110220125354_changedAveragePuttsToFloat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110212212068_HoleNumbertoHoleEntity.resx">
       <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.resx">
+      <DependentUpon>202110220104051_ChangedAverageScoreToParToFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110220125354_changedAveragePuttsToFloat.resx">
+      <DependentUpon>202110220125354_changedAveragePuttsToFloat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
