@@ -17,8 +17,6 @@ namespace ForeScore.Data
         public float Slope { get; set; }
         public float Rating { get; set; }
         public int Par { get; set; }
-        [MinLength(9)]
-        [MaxLength(18)]
         public List<Hole> Holes { get; set; }
 
     }

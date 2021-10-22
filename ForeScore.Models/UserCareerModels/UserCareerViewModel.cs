@@ -85,7 +85,34 @@ namespace ForeScore.Models.UserCareerModels
                 return default;
             }
         }
-        public int AverageScoreOverPar { get; set; }
+        public float AverageScoreToPar
+        {
+            get
+            {
+                List<float> overallAverage = new List<float>();
+                List<Hole> overallHoles = new List<Hole>();
+                List<int> overallPar = new List<int>();
+
+                foreach (var round in Rounds)
+                {
+                    var hole = round.Course.Holes;
+
+                    foreach(var item in hole)
+                    {
+                        overallAverage.Add(item.Score);
+                        overallPar.Add(item.Par);
+                        overallHoles.Add(item);
+                    }
+                }
+
+                var sumScore = overallAverage.Sum();
+                var sumPar = overallPar.Sum();
+                var sumHoles = overallHoles.Count();
+
+                var averageScore = (sumScore - sumPar) / sumHoles;
+                return averageScore;
+            }
+        }
         public int Aces { get; set; }
         public int Eagles { get; set; }
         public int Birdies { get; set; }

@@ -13,7 +13,7 @@ namespace ForeScore.Data
         public int UserCareerId { get; set; }
         public string Username { get; set; }
         public float Handicap { get; set; }
-        public int AverageScoreOverPar { get; set; }
+        public float AverageScoreToPar { get; set; }
         public int Aces { get; set; }
         public int Eagles { get; set; }
         public int Birdies { get; set; }
