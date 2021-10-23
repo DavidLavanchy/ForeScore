@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,7 +23,7 @@ namespace ForeScore.Data
         public DateTimeOffset? Modified { get; set; }
         [Required]
         [ForeignKey(nameof(UserCareer))]
-        public int CareerUserId { get; set; }
-        public virtual UserCareer UserCareer { get; set; }
+        public string CareerUserId { get; set; }
+        public virtual ApplicationUser UserCareer { get; set; }
     }
 }

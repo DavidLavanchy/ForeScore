@@ -292,8 +292,8 @@ namespace ForeScore.Models.UserCareerModels
             }
         }
         public List<Round> Rounds { get; set; }
-        public List<UserCareer> UserCareersFollowed { get; set; }
-        public List<UserCareer> UserCareersFollowing { get; set; }
+        public List<ApplicationUser> UserCareersFollowed { get; set; }
+        public List<ApplicationUser> UserCareersFollowing { get; set; }
         public List<Post> Posts { get; set; }
     }
 }

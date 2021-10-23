@@ -54,7 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseModels\CourseCreate.cs" />
+    <Compile Include="CourseModels\CourseDetail.cs" />
+    <Compile Include="CourseModels\CourseEdit.cs" />
+    <Compile Include="CourseModels\CourseListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundModels\CreateRoundModel.cs" />
+    <Compile Include="RoundModels\RoundDetail.cs" />
+    <Compile Include="RoundModels\RoundEdit.cs" />
+    <Compile Include="RoundModels\RoundListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

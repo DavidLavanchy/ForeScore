@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -11,6 +12,22 @@ namespace ForeScore.Data
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string Username { get; set; }
+        public float Handicap { get; set; }
+        public float AverageScoreToPar { get; set; }
+        public int Aces { get; set; }
+        public int Eagles { get; set; }
+        public int Birdies { get; set; }
+        public int Pars { get; set; }
+        public float AverageDrivingDistance { get; set; }
+        public float AveragePutts { get; set; }
+        public int RoundsPlayed { get; set; }
+        public List<Round> Rounds { get; set; }
+        public List<ApplicationUser> UserCareersFollowed { get; set; }
+        public List<ApplicationUser> UserCareersFollowing { get; set; }
+        public List<Post> Posts { get; set; }
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -32,7 +49,6 @@ namespace ForeScore.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<UserCareer> UserCareers { get; set; }
         public DbSet<Round> Rounds { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Hole> Holes { get; set; }
