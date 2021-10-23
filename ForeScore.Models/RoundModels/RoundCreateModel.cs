@@ -15,6 +15,12 @@ namespace ForeScore.Models.RoundModels
         public string Description { get; set; }
         [Required]
         public int Score { get; set; }
-        public Hole MyProperty { get; set; }
+        public bool IsPublic { get; set; }
+        [Required]
+        public DateTimeOffset DateOfRound { get; set; }
+        [Required]
+        [Range(9, 18)]
+        public List<HoleData> HoleData { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }

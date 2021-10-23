@@ -88,6 +88,10 @@
     <Compile Include="Migrations\202110231703019_HoleData.Designer.cs">
       <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110231727543_GuidForRound.cs" />
+    <Compile Include="Migrations\202110231727543_GuidForRound.Designer.cs">
+      <DependentUpon>202110231727543_GuidForRound.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110231703019_HoleData.resx">
       <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110231727543_GuidForRound.resx">
+      <DependentUpon>202110231727543_GuidForRound.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
