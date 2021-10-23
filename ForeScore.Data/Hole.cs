@@ -15,11 +15,6 @@ namespace ForeScore.Data
         public int HoleNumber { get; set; }
         public int Par { get; set; }
         public int Distance { get; set; }
-        public int Score { get; set; }
-        public float DrivingDistance { get; set; }
-        public int Putts { get; set; }
-        public bool Penalty { get; set; }
-        public bool FairwayHit { get; set; }
 
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }

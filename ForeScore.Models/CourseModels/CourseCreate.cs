@@ -11,11 +11,16 @@ namespace ForeScore.Models.CourseModels
 {
     public class CourseCreate : ContactInformation
     {
+        [Required]
         public string Name { get; set; }
+        [Required]
         public float Slope { get; set; }
+        [Required]
         public float Rating { get; set; }
+        [Required]
         [Range(69,74)]
         public int Par { get; set; }
+        [Required]
         [Range(9,18)]
         public List<Hole> Holes { get; set; }
     }

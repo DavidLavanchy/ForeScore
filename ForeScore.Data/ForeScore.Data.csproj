@@ -57,6 +57,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Hole.cs" />
+    <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Like.cs" />
     <Compile Include="Migrations\202110211839126_InitialCreate.cs" />
@@ -82,6 +83,10 @@
     <Compile Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.cs" />
     <Compile Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.Designer.cs">
       <DependentUpon>202110231429049_MovedUserCareerToApplicationUserClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110231703019_HoleData.cs" />
+    <Compile Include="Migrations\202110231703019_HoleData.Designer.cs">
+      <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -117,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.resx">
       <DependentUpon>202110231429049_MovedUserCareerToApplicationUserClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110231703019_HoleData.resx">
+      <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -21,6 +21,7 @@ namespace ForeScore.Data
         public int Score { get; set; }
         public bool IsPublic { get; set; }
         public DateTimeOffset DateOfRound { get; set; }
+        public List<HoleData> HoleData { get; set; }
         [Required]
         [ForeignKey(nameof(UserCareer))]
         public string CareerUserId { get; set; }

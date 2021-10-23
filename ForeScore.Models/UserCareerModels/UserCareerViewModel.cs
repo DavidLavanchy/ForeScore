@@ -96,10 +96,15 @@ namespace ForeScore.Models.UserCareerModels
                 foreach (var round in Rounds)
                 {
                     var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
+
+                    foreach (var item in holeData)
+                    {
+                        overallAverage.Add(item.Score);
+                    }
 
                     foreach (var item in hole)
                     {
-                        overallAverage.Add(item.Score);
                         overallPar.Add(item.Par);
                         overallHoles.Add(item);
                     }
@@ -123,12 +128,23 @@ namespace ForeScore.Models.UserCareerModels
                 {
 
                     var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
 
-                    foreach (var item in hole)
+                    foreach (var item in holeData)
                     {
-                        if (item.Score == 1)
+                        var score = item.Score;
+                        var id = item.HoleId;
+
+                        foreach (var item2 in hole)
                         {
-                            aces += 1;
+                            var holePar = item2.Par;
+                            var holeId = item2.HoleId;
+
+                            if (id == holeId && score == 1)
+                            {
+                                aces = +1;
+
+                            }
                         }
                     }
                 }
@@ -145,17 +161,28 @@ namespace ForeScore.Models.UserCareerModels
                 {
 
                     var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
 
-                    foreach (var item in hole)
+                    foreach (var item in holeData)
                     {
-                        if (item.Par == 4 && item.Score == 2)
-                        {
-                            eagles += 1;
-                        }
+                        var score = item.Score;
+                        var id = item.HoleId;
 
-                        if (item.Par == 5 && item.Score == 3)
+                        foreach (var item2 in hole)
                         {
-                            eagles += 1;
+                            var holePar = item2.Par;
+                            var holeId = item2.HoleId;
+
+                            if (id == holeId && holePar == 3 && score == 1)
+                            {
+                                eagles = +0;
+                            }
+
+                            if (id == holeId && holePar == score - 2)
+                            {
+                                eagles += 1;
+                            }
+
                         }
                     }
                 }
@@ -172,22 +199,22 @@ namespace ForeScore.Models.UserCareerModels
                 {
 
                     var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
 
-                    foreach (var item in hole)
+                    foreach (var item in holeData)
                     {
-                        if (item.Par == 3 && item.Score == 2)
-                        {
-                            birdies += 1;
-                        }
+                        var score = item.Score;
+                        var id = item.HoleId;
 
-                        if (item.Par == 4 && item.Score == 3)
+                        foreach (var item2 in hole)
                         {
-                            birdies += 1;
-                        }
+                            var holePar = item2.Par;
+                            var holeId = item2.HoleId;
 
-                        if (item.Par == 5 && item.Score == 4)
-                        {
-                            birdies += 1;
+                            if (id == holeId && holePar == score - 1)
+                            {
+                                birdies += 1;
+                            }
                         }
                     }
                 }
@@ -198,32 +225,32 @@ namespace ForeScore.Models.UserCareerModels
         {
             get
             {
-                int pars = 0;
+                int par = 0;
 
                 foreach (var round in Rounds)
                 {
 
                     var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
 
-                    foreach (var item in hole)
+                    foreach (var item in holeData)
                     {
-                        if (item.Par == 3 && item.Score == 3)
-                        {
-                            pars += 1;
-                        }
+                        var score = item.Score;
+                        var id = item.HoleId;
 
-                        if (item.Par == 4 && item.Score == 4)
+                        foreach (var item2 in hole)
                         {
-                            pars += 1;
-                        }
+                            var holePar = item2.Par;
+                            var holeId = item2.HoleId;
 
-                        if (item.Par == 5 && item.Score == 5)
-                        {
-                            pars += 1;
+                            if (id == holeId && holePar == score)
+                            {
+                                par += 1;
+                            }
                         }
                     }
                 }
-                return pars;
+                return par;
             }
         }
         public float AverageDrivingDistance
@@ -235,12 +262,23 @@ namespace ForeScore.Models.UserCareerModels
 
                 foreach (var round in Rounds)
                 {
-                    var hole = round.Course.Holes;
 
-                    foreach (var item in hole)
+                    var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
+
+                    foreach (var item in holeData)
                     {
-                        drivingdistance += item.DrivingDistance;
-                        overallHoles.Add(item);
+                        var id = item.HoleId;
+
+                        foreach (var item2 in hole)
+                        {
+                            var holeId = item2.HoleId;
+                            if (id == holeId)
+                            {
+                                drivingdistance += item.DrivingDistance;
+                                overallHoles.Add(item2);
+                            }
+                        }
                     }
                 }
 
@@ -258,12 +296,23 @@ namespace ForeScore.Models.UserCareerModels
 
                 foreach (var round in Rounds)
                 {
-                    var hole = round.Course.Holes;
 
-                    foreach (var item in hole)
+                    var hole = round.Course.Holes;
+                    var holeData = round.HoleData;
+
+                    foreach (var item in holeData)
                     {
-                        putts += item.Putts;
-                        overallHoles.Add(item);
+                        var id = item.HoleId;
+
+                        foreach (var item2 in hole)
+                        {
+                            var holeId = item2.HoleId;
+                            if (id == holeId)
+                            {
+                                putts+= item.Putts;
+                                overallHoles.Add(item2);
+                            }
+                        }
                     }
                 }
 
