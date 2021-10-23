@@ -69,13 +69,19 @@
     <Compile Include="RoundModels\RoundDetail.cs" />
     <Compile Include="RoundModels\RoundEdit.cs" />
     <Compile Include="RoundModels\RoundListItem.cs" />
+    <Compile Include="TeeTimeModels\TeeTimeCreate.cs" />
+    <Compile Include="TeeTimeModels\TeeTimeDetail.cs" />
+    <Compile Include="TeeTimeModels\TeeTimeEdit.cs" />
+    <Compile Include="TeeTimeModels\TeeTimeListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PostModels\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForeScore.Contracts\ForeScore.Contracts.csproj">
       <Project>{7E1EADF4-E576-4291-8DB3-326144AC15F2}</Project>

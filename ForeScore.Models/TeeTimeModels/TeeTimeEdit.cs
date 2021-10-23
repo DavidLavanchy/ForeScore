@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForeScore.Data
+namespace ForeScore.Models.TeeTimeModels
 {
-    public class TeeTime
+    public class TeeTimeEdit
     {
-        [Key]
-        public int TeeTimeId { get; set; }
         [Required]
-        [ForeignKey(nameof(Course))]
+        public int TeeTimeId { get; set; }
         public int CourseId { get; set; }
-        public Course Course { get; set; }
         public DateTimeOffset DateOfTeeTime { get; set; }
     }
 }
