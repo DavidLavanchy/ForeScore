@@ -58,6 +58,9 @@
     <Compile Include="CourseModels\CourseDetail.cs" />
     <Compile Include="CourseModels\CourseEdit.cs" />
     <Compile Include="CourseModels\CourseListItem.cs" />
+    <Compile Include="HoleDataModels\HoleDataCreate.cs" />
+    <Compile Include="HoleDataModels\HoleDataDetail.cs" />
+    <Compile Include="HoleDataModels\HoleDataEdit.cs" />
     <Compile Include="HoleModels\HoleCreate.cs" />
     <Compile Include="HoleModels\HoleDetail.cs" />
     <Compile Include="HoleModels\HoleEdit.cs" />
