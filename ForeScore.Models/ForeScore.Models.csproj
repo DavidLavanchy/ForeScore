@@ -71,6 +71,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ForeScore.Contracts\ForeScore.Contracts.csproj">
+      <Project>{7E1EADF4-E576-4291-8DB3-326144AC15F2}</Project>
+      <Name>ForeScore.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ForeScore.Data\ForeScore.Data.csproj">
       <Project>{D13C3DA6-DF0C-4F47-930A-081A4BA2E2CF}</Project>
       <Name>ForeScore.Data</Name>
