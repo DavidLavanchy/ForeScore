@@ -64,6 +64,10 @@
     <Compile Include="HoleModels\HoleCreate.cs" />
     <Compile Include="HoleModels\HoleDetail.cs" />
     <Compile Include="HoleModels\HoleEdit.cs" />
+    <Compile Include="PostModels\PostCreate.cs" />
+    <Compile Include="PostModels\PostDetail.cs" />
+    <Compile Include="PostModels\PostEdit.cs" />
+    <Compile Include="PostModels\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundModels\RoundCreateModel.cs" />
     <Compile Include="RoundModels\RoundDetail.cs" />
@@ -79,9 +83,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PostModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ForeScore.Contracts\ForeScore.Contracts.csproj">
       <Project>{7E1EADF4-E576-4291-8DB3-326144AC15F2}</Project>

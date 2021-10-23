@@ -21,9 +21,6 @@ namespace ForeScore.Data
         public List<Like> Likes { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Modified { get; set; }
-        [Required]
-        [ForeignKey(nameof(UserCareer))]
-        public string CareerUserId { get; set; }
-        public virtual ApplicationUser UserCareer { get; set; }
+
     }
 }
