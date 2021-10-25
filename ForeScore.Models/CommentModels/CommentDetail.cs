@@ -9,5 +9,6 @@ namespace ForeScore.Models.CommentModels
     public class CommentDetail
     {
         public string Content { get; set; }
+        public int PostId { get; set; }
     }
 }

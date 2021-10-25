@@ -104,6 +104,22 @@
     <Compile Include="Migrations\202110251417441_RemoveFK.Designer.cs">
       <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110251442081_UpdatedUserProperties.cs" />
+    <Compile Include="Migrations\202110251442081_UpdatedUserProperties.Designer.cs">
+      <DependentUpon>202110251442081_UpdatedUserProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251601569_update-database.cs" />
+    <Compile Include="Migrations\202110251601569_update-database.Designer.cs">
+      <DependentUpon>202110251601569_update-database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251608485_Username.cs" />
+    <Compile Include="Migrations\202110251608485_Username.Designer.cs">
+      <DependentUpon>202110251608485_Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251610126_RemoveUserName.cs" />
+    <Compile Include="Migrations\202110251610126_RemoveUserName.Designer.cs">
+      <DependentUpon>202110251610126_RemoveUserName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +169,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110251417441_RemoveFK.resx">
       <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251442081_UpdatedUserProperties.resx">
+      <DependentUpon>202110251442081_UpdatedUserProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251601569_update-database.resx">
+      <DependentUpon>202110251601569_update-database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251608485_Username.resx">
+      <DependentUpon>202110251608485_Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251610126_RemoveUserName.resx">
+      <DependentUpon>202110251610126_RemoveUserName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

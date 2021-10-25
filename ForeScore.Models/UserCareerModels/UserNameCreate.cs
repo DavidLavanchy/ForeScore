@@ -5,13 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForeScore.Models.CommentModels
+namespace ForeScore.Models.UserCareerModels
 {
-    public class CommentCreate
+    public class UserNameCreate
     {
         [Required]
-        public string Content{ get; set; }
-        [Required]
-        public int PostId { get; set; }
+        public string Username { get; set; }
     }
 }
