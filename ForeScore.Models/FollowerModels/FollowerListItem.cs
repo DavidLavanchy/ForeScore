@@ -9,7 +9,7 @@ namespace ForeScore.Models.FollowerModels
 {
     public class FollowerListItem
     {
-        [Required]
         public string Email { get; set; }
+        public string FullName { get; set; }
     }
 }

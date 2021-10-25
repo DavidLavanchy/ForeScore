@@ -14,7 +14,7 @@ namespace ForeScore.Data
         public int FollowingId { get; set; }
         [Required]
         public string Email { get; set; }
-
+        public string FullName { get; set; }
         [Required]
         [ForeignKey(nameof(User))]
         public string Id { get; set; }
