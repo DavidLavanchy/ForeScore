@@ -62,6 +62,7 @@
     <Compile Include="CourseModels\CourseDetail.cs" />
     <Compile Include="CourseModels\CourseEdit.cs" />
     <Compile Include="CourseModels\CourseListItem.cs" />
+    <Compile Include="FollowerModels\FollowerCreate.cs" />
     <Compile Include="FollowerModels\FollowerDetail.cs" />
     <Compile Include="FollowerModels\FollowerListItem.cs" />
     <Compile Include="FollowingModels\FollowingAdd.cs" />

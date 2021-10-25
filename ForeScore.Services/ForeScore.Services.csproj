@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FollowerServices.cs" />
     <Compile Include="FollowingServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCareerServices.cs" />
