@@ -61,5 +61,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ForeScore.Data\ForeScore.Data.csproj">
+      <Project>{D13C3DA6-DF0C-4F47-930A-081A4BA2E2CF}</Project>
+      <Name>ForeScore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ForeScore.Models\ForeScore.Models.csproj">
+      <Project>{D63964AD-E882-41B5-8153-FE1C2D414EEC}</Project>
+      <Name>ForeScore.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

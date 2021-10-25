@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace ForeScore.Data
 {
-    public class Comment
+    public class Following
     {
         [Key]
-        public int CommentId { get; set; }
-        public string OwnerId { get; set; }
-        public string Content { get; set; }
+        public int FollowingId { get; set; }
         [Required]
-        [ForeignKey(nameof(Post))]
-        public int PostId { get; set; }
-        public virtual Post Post { get; set; }
+        public string Email { get; set; }
 
+        [Required]
+        [ForeignKey(nameof(User))]
+        public string Id { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

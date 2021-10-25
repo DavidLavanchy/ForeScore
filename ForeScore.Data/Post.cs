@@ -22,6 +22,6 @@ namespace ForeScore.Data
         public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Modified { get; set; }
-        public Guid OwnerId { get; set; }
+        public string OwnerId { get; set; }
     }
 }

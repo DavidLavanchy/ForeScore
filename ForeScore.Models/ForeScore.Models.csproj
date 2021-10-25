@@ -62,6 +62,11 @@
     <Compile Include="CourseModels\CourseDetail.cs" />
     <Compile Include="CourseModels\CourseEdit.cs" />
     <Compile Include="CourseModels\CourseListItem.cs" />
+    <Compile Include="FollowerModels\FollowerDetail.cs" />
+    <Compile Include="FollowerModels\FollowerListItem.cs" />
+    <Compile Include="FollowingModels\FollowingAdd.cs" />
+    <Compile Include="FollowingModels\FollowingListItem.cs" />
+    <Compile Include="FollowingModels\FollowingRemove.cs" />
     <Compile Include="HoleDataModels\HoleDataCreate.cs" />
     <Compile Include="HoleDataModels\HoleDataDetail.cs" />
     <Compile Include="HoleDataModels\HoleDataEdit.cs" />
@@ -83,10 +88,6 @@
     <Compile Include="TeeTimeModels\TeeTimeDetail.cs" />
     <Compile Include="TeeTimeModels\TeeTimeEdit.cs" />
     <Compile Include="TeeTimeModels\TeeTimeListItem.cs" />
-    <Compile Include="UserCareerModels\UserCareerFollowCreate.cs" />
-    <Compile Include="UserCareerModels\UserCareerFollowDelete.cs" />
-    <Compile Include="UserCareerModels\UserCareerFollowersListItem.cs" />
-    <Compile Include="UserCareerModels\UserCareersFollowingListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

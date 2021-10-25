@@ -32,8 +32,8 @@ namespace ForeScore.Data
         public float AveragePutts { get; set; }
         public int RoundsPlayed { get; set; }
         public virtual ICollection<Round> Rounds { get; set; } = new List<Round>();
-        public ICollection<ApplicationUser> UserCareersFollowed { get; set; } = new List<ApplicationUser>();
-        public ICollection<ApplicationUser> UserCareersFollowing { get; set; } = new List<ApplicationUser>();
+        public virtual ICollection<FollowedBy> FollowedBy { get; set; } = new List<FollowedBy>();
+        public virtual ICollection<Following> Following { get; set; } = new List<Following>();
         public virtual ICollection<TeeTime> TeeTimes { get; set; } = new List<TeeTime>();
 
 
@@ -66,7 +66,8 @@ namespace ForeScore.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<HoleData> HoleData { get; set; }
-
+        public DbSet<Following> Following { get; set; }
+        public DbSet<FollowedBy> FollowedBy { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

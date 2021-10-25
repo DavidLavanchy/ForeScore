@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForeScore.Models.UserCareerModels
+namespace ForeScore.Models.FollowerModels
 {
-    public class UserCareerFollowDelete
+    public class FollowerListItem
     {
         [Required]
         public string Email { get; set; }

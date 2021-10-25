@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForeScore.Models.UserCareerModels
+namespace ForeScore.Models.FollowerModels
 {
-    public class UserCareersFollowingListItem
+    public class FollowerDetail
     {
-        public string FullName { get; set; }
         public string Email { get; set; }
+        public string FullName { get; set; }
     }
 }

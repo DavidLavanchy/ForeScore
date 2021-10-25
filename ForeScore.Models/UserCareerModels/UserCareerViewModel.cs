@@ -83,6 +83,7 @@ namespace ForeScore.Models.UserCareerModels
                 }
                 return default;
             }
+            set { }
         }
         public float AverageScoreToPar
         {
@@ -116,6 +117,7 @@ namespace ForeScore.Models.UserCareerModels
                 var averageScore = (sumScore - sumPar) / sumHoles;
                 return averageScore;
             }
+            set { }
         }
         public int Aces
         {
@@ -149,6 +151,7 @@ namespace ForeScore.Models.UserCareerModels
                 }
                 return aces;
             }
+            set { }
         }
         public int Eagles
         {
@@ -187,6 +190,7 @@ namespace ForeScore.Models.UserCareerModels
                 }
                 return eagles;
             }
+            set { }
         }
         public int Birdies
         {
@@ -219,6 +223,7 @@ namespace ForeScore.Models.UserCareerModels
                 }
                 return birdies;
             }
+            set { }
         }
         public int Pars
         {
@@ -251,6 +256,7 @@ namespace ForeScore.Models.UserCareerModels
                 }
                 return par;
             }
+            set { }
         }
         public float AverageDrivingDistance
         {
@@ -285,6 +291,7 @@ namespace ForeScore.Models.UserCareerModels
 
                 return averageDrivingDistance;
             }
+            set { }
         }
         public float AveragePutts
         {
@@ -319,6 +326,7 @@ namespace ForeScore.Models.UserCareerModels
 
                 return averagePutts;
             }
+            set { }
         }
         public int RoundsPlayed
         {
@@ -338,9 +346,11 @@ namespace ForeScore.Models.UserCareerModels
 
                 return overallHoles.Count();
             }
+            set { }
         }
         public List<Round> Rounds { get; set; }
         public List<ApplicationUser> UserCareersFollowed { get; set; }
         public List<ApplicationUser> UserCareersFollowing { get; set; }
+        public List<TeeTime> TeeTimes { get; set; }
     }
 }
