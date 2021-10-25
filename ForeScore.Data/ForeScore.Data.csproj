@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202110251800276_InitialMigration.Designer.cs">
       <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110251928079_IsFeaturedProperty.cs" />
+    <Compile Include="Migrations\202110251928079_IsFeaturedProperty.Designer.cs">
+      <DependentUpon>202110251928079_IsFeaturedProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202110251800276_InitialMigration.resx">
       <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251928079_IsFeaturedProperty.resx">
+      <DependentUpon>202110251928079_IsFeaturedProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

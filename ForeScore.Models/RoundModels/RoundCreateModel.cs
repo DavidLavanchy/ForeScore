@@ -15,7 +15,19 @@ namespace ForeScore.Models.RoundModels
         public string Description { get; set; }
         [Required]
         public int Score { get; set; }
-        public bool IsPublic { get; set; }
+        public bool IsPublic
+        {
+            get
+            {
+                return IsPublic;
+            }
+            set
+            {
+                if (IsFeatured == true)  
+                    IsPublic = true; 
+            }
+        }
+        public bool IsFeatured { get; set; }
         [Required]
         public DateTimeOffset DateOfRound { get; set; }
         [Required]
