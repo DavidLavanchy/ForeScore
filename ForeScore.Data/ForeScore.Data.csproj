@@ -96,6 +96,14 @@
     <Compile Include="Migrations\202110231750294_TeeTimeEntity.Designer.cs">
       <DependentUpon>202110231750294_TeeTimeEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110251408501_pendingmigrations.cs" />
+    <Compile Include="Migrations\202110251408501_pendingmigrations.Designer.cs">
+      <DependentUpon>202110251408501_pendingmigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251417441_RemoveFK.cs" />
+    <Compile Include="Migrations\202110251417441_RemoveFK.Designer.cs">
+      <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +147,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110231750294_TeeTimeEntity.resx">
       <DependentUpon>202110231750294_TeeTimeEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251408501_pendingmigrations.resx">
+      <DependentUpon>202110251408501_pendingmigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251417441_RemoveFK.resx">
+      <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

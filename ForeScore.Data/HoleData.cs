@@ -21,5 +21,6 @@ namespace ForeScore.Data
         [ForeignKey(nameof(Hole))]
         public int HoleId { get; set; }
         public virtual Hole Hole { get; set; }
+
     }
 }
