@@ -83,10 +83,11 @@
     <Compile Include="TeeTimeModels\TeeTimeDetail.cs" />
     <Compile Include="TeeTimeModels\TeeTimeEdit.cs" />
     <Compile Include="TeeTimeModels\TeeTimeListItem.cs" />
+    <Compile Include="UserCareerModels\UserCareerFollowCreate.cs" />
+    <Compile Include="UserCareerModels\UserCareerFollowDelete.cs" />
+    <Compile Include="UserCareerModels\UserCareerFollowersListItem.cs" />
     <Compile Include="UserCareerModels\UserCareersFollowingListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
-    <Compile Include="UserCareerModels\UserNameCreate.cs" />
-    <Compile Include="UserCareerModels\UsernameEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

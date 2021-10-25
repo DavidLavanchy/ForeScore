@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForeScore.Models.UserCareerModels
 {
-    public class UserCareersFollowingListItem
+    public class UserCareerFollowersListItem
     {
         public string FullName { get; set; }
         public string Email { get; set; }

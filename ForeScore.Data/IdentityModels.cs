@@ -13,6 +13,7 @@ namespace ForeScore.Data
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public override string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName { 
@@ -30,10 +31,10 @@ namespace ForeScore.Data
         public float AverageDrivingDistance { get; set; }
         public float AveragePutts { get; set; }
         public int RoundsPlayed { get; set; }
-        public List<Round> Rounds { get; set; }
-        public List<ApplicationUser> UserCareersFollowed { get; set; }
-        public List<ApplicationUser> UserCareersFollowing { get; set; }
-        public List<Post> Posts { get; set; }
+        public virtual ICollection<Round> Rounds { get; set; } = new List<Round>();
+        public ICollection<ApplicationUser> UserCareersFollowed { get; set; } = new List<ApplicationUser>();
+        public ICollection<ApplicationUser> UserCareersFollowing { get; set; } = new List<ApplicationUser>();
+        public virtual ICollection<TeeTime> TeeTimes { get; set; } = new List<TeeTime>();
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

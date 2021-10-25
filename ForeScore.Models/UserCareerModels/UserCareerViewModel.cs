@@ -10,8 +10,6 @@ namespace ForeScore.Models.UserCareerModels
     public class UserCareerViewModel
     {
         public string FullName { get; set; }
-        public int UserCareerId { get; set; }
-        public string Username { get; set; }
         public float Handicap
         {
             get

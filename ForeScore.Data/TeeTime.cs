@@ -17,5 +17,10 @@ namespace ForeScore.Data
         public int CourseId { get; set; }
         public Course Course { get; set; }
         public DateTimeOffset DateOfTeeTime { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(User))]
+        public string Id { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

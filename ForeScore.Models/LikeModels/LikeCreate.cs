@@ -10,7 +10,7 @@ namespace ForeScore.Models.LikeModels
     public class LikeCreate
     {
         [Required]
-        public int Id { get; set; }
+        public int LikeId { get; set; }
         [Required]
         public int PostId { get; set; }
     }

@@ -60,65 +60,9 @@
     <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Like.cs" />
-    <Compile Include="Migrations\202110211839126_InitialCreate.cs" />
-    <Compile Include="Migrations\202110211839126_InitialCreate.Designer.cs">
-      <DependentUpon>202110211839126_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110211841121_InitialMigration.cs" />
-    <Compile Include="Migrations\202110211841121_InitialMigration.Designer.cs">
-      <DependentUpon>202110211841121_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110212212068_HoleNumbertoHoleEntity.cs" />
-    <Compile Include="Migrations\202110212212068_HoleNumbertoHoleEntity.Designer.cs">
-      <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.cs" />
-    <Compile Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.Designer.cs">
-      <DependentUpon>202110220104051_ChangedAverageScoreToParToFloat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110220125354_changedAveragePuttsToFloat.cs" />
-    <Compile Include="Migrations\202110220125354_changedAveragePuttsToFloat.Designer.cs">
-      <DependentUpon>202110220125354_changedAveragePuttsToFloat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.cs" />
-    <Compile Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.Designer.cs">
-      <DependentUpon>202110231429049_MovedUserCareerToApplicationUserClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110231703019_HoleData.cs" />
-    <Compile Include="Migrations\202110231703019_HoleData.Designer.cs">
-      <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110231727543_GuidForRound.cs" />
-    <Compile Include="Migrations\202110231727543_GuidForRound.Designer.cs">
-      <DependentUpon>202110231727543_GuidForRound.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110231750294_TeeTimeEntity.cs" />
-    <Compile Include="Migrations\202110231750294_TeeTimeEntity.Designer.cs">
-      <DependentUpon>202110231750294_TeeTimeEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251408501_pendingmigrations.cs" />
-    <Compile Include="Migrations\202110251408501_pendingmigrations.Designer.cs">
-      <DependentUpon>202110251408501_pendingmigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251417441_RemoveFK.cs" />
-    <Compile Include="Migrations\202110251417441_RemoveFK.Designer.cs">
-      <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251442081_UpdatedUserProperties.cs" />
-    <Compile Include="Migrations\202110251442081_UpdatedUserProperties.Designer.cs">
-      <DependentUpon>202110251442081_UpdatedUserProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251601569_update-database.cs" />
-    <Compile Include="Migrations\202110251601569_update-database.Designer.cs">
-      <DependentUpon>202110251601569_update-database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251608485_Username.cs" />
-    <Compile Include="Migrations\202110251608485_Username.Designer.cs">
-      <DependentUpon>202110251608485_Username.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110251610126_RemoveUserName.cs" />
-    <Compile Include="Migrations\202110251610126_RemoveUserName.Designer.cs">
-      <DependentUpon>202110251610126_RemoveUserName.cs</DependentUpon>
+    <Compile Include="Migrations\202110251800276_InitialMigration.cs" />
+    <Compile Include="Migrations\202110251800276_InitialMigration.Designer.cs">
+      <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -137,50 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110211839126_InitialCreate.resx">
-      <DependentUpon>202110211839126_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110211841121_InitialMigration.resx">
-      <DependentUpon>202110211841121_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110212212068_HoleNumbertoHoleEntity.resx">
-      <DependentUpon>202110212212068_HoleNumbertoHoleEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110220104051_ChangedAverageScoreToParToFloat.resx">
-      <DependentUpon>202110220104051_ChangedAverageScoreToParToFloat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110220125354_changedAveragePuttsToFloat.resx">
-      <DependentUpon>202110220125354_changedAveragePuttsToFloat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110231429049_MovedUserCareerToApplicationUserClass.resx">
-      <DependentUpon>202110231429049_MovedUserCareerToApplicationUserClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110231703019_HoleData.resx">
-      <DependentUpon>202110231703019_HoleData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110231727543_GuidForRound.resx">
-      <DependentUpon>202110231727543_GuidForRound.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110231750294_TeeTimeEntity.resx">
-      <DependentUpon>202110231750294_TeeTimeEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251408501_pendingmigrations.resx">
-      <DependentUpon>202110251408501_pendingmigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251417441_RemoveFK.resx">
-      <DependentUpon>202110251417441_RemoveFK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251442081_UpdatedUserProperties.resx">
-      <DependentUpon>202110251442081_UpdatedUserProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251601569_update-database.resx">
-      <DependentUpon>202110251601569_update-database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251608485_Username.resx">
-      <DependentUpon>202110251608485_Username.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251610126_RemoveUserName.resx">
-      <DependentUpon>202110251610126_RemoveUserName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110251800276_InitialMigration.resx">
+      <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

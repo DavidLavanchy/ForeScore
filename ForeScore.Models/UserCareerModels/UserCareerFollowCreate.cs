@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ForeScore.Models.UserCareerModels
 {
-    public class UserNameCreate
+    public class UserCareerFollowCreate
     {
         [Required]
-        public string Username { get; set; }
+        public string Email { get; set; }
     }
 }

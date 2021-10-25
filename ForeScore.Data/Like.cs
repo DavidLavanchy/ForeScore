@@ -16,6 +16,6 @@ namespace ForeScore.Data
         [ForeignKey(nameof(Post))]
         public int PostId { get; set; }
         public virtual Post Post { get; set; }
-        public Guid OwnerId { get; set; }
+
     }
 }

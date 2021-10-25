@@ -13,14 +13,15 @@ namespace ForeScore.Data
     {
         [Key]
         public int PostId { get; set; }
-        public Guid OwnerId { get; set; }
         public string Title { get; set; }
-        public Round Round { get; set; }
+        [ForeignKey(nameof(Round))]
+        public int RoundId { get; set; }
+        public virtual Round Round { get; set; }
         public string Content { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<Like> Likes { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Modified { get; set; }
-
+        public Guid OwnerId { get; set; }
     }
 }
