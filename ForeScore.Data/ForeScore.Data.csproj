@@ -78,6 +78,10 @@
     <Compile Include="Migrations\202110252147261_AddedFullNameToFollowingEntities.Designer.cs">
       <DependentUpon>202110252147261_AddedFullNameToFollowingEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110260014475_DataLayerEdits.cs" />
+    <Compile Include="Migrations\202110260014475_DataLayerEdits.Designer.cs">
+      <DependentUpon>202110260014475_DataLayerEdits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110252147261_AddedFullNameToFollowingEntities.resx">
       <DependentUpon>202110252147261_AddedFullNameToFollowingEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110260014475_DataLayerEdits.resx">
+      <DependentUpon>202110260014475_DataLayerEdits.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
