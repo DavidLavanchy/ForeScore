@@ -94,6 +94,46 @@ namespace ForeScore.Services
                 return query.ToArray();
             }
         }
+
+        public bool EditCourse(CourseEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Courses
+                    .Single(e => e.CourseId == model.CourseId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+                entity.Holes = model.Holes;
+                entity.Par = model.Par;
+                entity.Slope = model.Slope;
+                entity.Rating = model.Rating;
+                entity.Address = model.Address;
+                entity.ZipCode = model.ZipCode;
+                entity.City = model.City;
+                entity.StateOfResidence = model.StateOfResidence;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.Website = model.Website;
+                entity.EmailAddress = model.EmailAddress;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteCourse(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Courses
+                    .Single(e => e.CourseId == id && e.OwnerId == _userId);
+
+                ctx.Courses.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 
