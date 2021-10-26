@@ -20,6 +20,7 @@ namespace ForeScore.Data
         [Required]
         [Range(9,18)]
         public ICollection<Hole> Holes { get; set; }
+        public string OwnerId { get; set; }
 
     }
 }

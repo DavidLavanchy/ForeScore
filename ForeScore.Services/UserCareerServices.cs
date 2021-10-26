@@ -17,7 +17,7 @@ namespace ForeScore.Services
             _userId = userId;
         }
 
-        public UserCareerViewModel ViewCareerStats(string _userId)
+        public UserCareerViewModel ViewCareerStats()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -42,30 +42,5 @@ namespace ForeScore.Services
 
             }
         }
-
-        //public IEnumerable<UserCareersFollowingListItem> GetUsersFollowing(string _userId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .Users
-        //            .Where(e => e.Id == _userId)
-        //            .Select(e => e.UserCareersFollowing.ToList());
-
-        //        var following = 
-        //            query
-        //            .Select(e=> 
-        //            new UserCareersFollowingListItem
-        //            {
-        //                Email = e.
-        //            })
-
-
-
-        //        return query;
-        //    }
-        //}
-
     }
 }

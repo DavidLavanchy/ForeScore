@@ -1,0 +1,99 @@
+﻿using ForeScore.Data;
+using ForeScore.Models.CourseModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace ForeScore.Services
+{
+    public class CourseServices
+    {
+        private readonly string _userId;
+
+        public CourseServices(string userId)
+        {
+            _userId = userId;
+        }
+
+        public bool CreateCourse(CourseCreate model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = new Course();
+
+                entity.Holes = model.Holes;
+                entity.Name = model.Name;
+                entity.OwnerId = _userId;
+                entity.Par = model.Par;
+                entity.Rating = model.Rating;
+                entity.Slope = model.Slope;
+                entity.Address = model.Address;
+                entity.City = model.City;
+                entity.StateOfResidence = model.StateOfResidence;
+                entity.ZipCode = model.ZipCode;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.EmailAddress = model.EmailAddress;
+                entity.Website = model.Website;
+
+                ctx.Courses.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public CourseDetail GetCourseById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Courses
+                    .Single(e => id == e.CourseId && e.OwnerId == _userId);
+
+                var course = new CourseDetail
+                {
+                    Address = entity.Address,
+                    EmailAddress = entity.EmailAddress,
+                    City = entity.City,
+                    Holes = entity.Holes,
+                    Name = entity.Name,
+                    Par = entity.Par,
+                    PhoneNumber = entity.PhoneNumber,
+                    Rating = entity.Rating,
+                    Slope = entity.Slope,
+                    StateOfResidence = entity.StateOfResidence,
+                    Website = entity.Website,
+                    ZipCode = entity.ZipCode
+                };
+
+                return course;
+            }
+        }
+
+        public IEnumerable<CourseListItem> GetAllCourses()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Courses
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(e =>
+                    new CourseListItem
+                    {
+                        City = e.City,
+                        StateOfResidence = e.StateOfResidence,
+                        Name = e.Name,
+                        Slope = e.Slope,
+                        Rating = e.Rating,
+                        Par = e.Par
+                    });
+
+                return query.ToArray();
+            }
+        }
+    }
+}
+

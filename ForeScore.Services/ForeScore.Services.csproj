@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseServices.cs" />
     <Compile Include="FollowerServices.cs" />
     <Compile Include="FollowingServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ForeScore.Contracts\ForeScore.Contracts.csproj">
+      <Project>{7e1eadf4-e576-4291-8db3-326144ac15f2}</Project>
+      <Name>ForeScore.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ForeScore.Data\ForeScore.Data.csproj">
       <Project>{D13C3DA6-DF0C-4F47-930A-081A4BA2E2CF}</Project>
       <Name>ForeScore.Data</Name>

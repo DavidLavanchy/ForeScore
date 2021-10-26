@@ -145,16 +145,6 @@ namespace ForeScore.Contracts
         [DisplayName("Website")]
         public string Website { get; set; }
 
-        public ContactInformation(string address, string city, string zipCode, State stateOfResidence, string phoneNumber, string emailAddress)
-        {
-            Address = address;
-            City = city;
-            StateOfResidence = stateOfResidence;
-            ZipCode = zipCode;
-            PhoneNumber = phoneNumber;
-            EmailAddress = emailAddress;
-        }
-        public ContactInformation() { }
 
     }
 }
