@@ -10,9 +10,9 @@ namespace ForeScore.Models.PostModels
     public class PostDetail
     {
         public string Title { get; set; }
-        public Round Round { get; set; }
+        public int RoundId { get; set; }
         public string Content { get; set; }
-        public List<Comment> Comments { get; set; }
-        //public List<Like> Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ForeScore.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace ForeScore.Models.PostModels
     {
         public string Title { get; set; }
         public string Content { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

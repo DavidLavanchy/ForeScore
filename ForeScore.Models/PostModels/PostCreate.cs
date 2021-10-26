@@ -14,6 +14,6 @@ namespace ForeScore.Models.PostModels
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
-        public Round Round { get; set; }
+        public int RoundId { get; set; }
     }
 }
