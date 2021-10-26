@@ -86,6 +86,14 @@
     <Compile Include="Migrations\202110261339346_OwnerIdToCourseEntity.Designer.cs">
       <DependentUpon>202110261339346_OwnerIdToCourseEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110261505248_HoleData.cs" />
+    <Compile Include="Migrations\202110261505248_HoleData.Designer.cs">
+      <DependentUpon>202110261505248_HoleData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261540132_RequiredRoundId.cs" />
+    <Compile Include="Migrations\202110261540132_RequiredRoundId.Designer.cs">
+      <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110261339346_OwnerIdToCourseEntity.resx">
       <DependentUpon>202110261339346_OwnerIdToCourseEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261505248_HoleData.resx">
+      <DependentUpon>202110261505248_HoleData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261540132_RequiredRoundId.resx">
+      <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

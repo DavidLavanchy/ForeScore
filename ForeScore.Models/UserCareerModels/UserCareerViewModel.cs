@@ -134,14 +134,13 @@ namespace ForeScore.Models.UserCareerModels
                     foreach (var item in holeData)
                     {
                         var score = item.Score;
-                        var id = item.HoleId;
+                        var holeNumber = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
-                            var holePar = item2.Par;
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
 
-                            if (id == holeId && score == 1)
+                            if (holeNumber == holeId && score == 1)
                             {
                                 aces = +1;
 
@@ -168,12 +167,12 @@ namespace ForeScore.Models.UserCareerModels
                     foreach (var item in holeData)
                     {
                         var score = item.Score;
-                        var id = item.HoleId;
+                        var id = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
                             var holePar = item2.Par;
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
 
                             if (id == holeId && holePar == 3 && score == 1)
                             {
@@ -207,12 +206,12 @@ namespace ForeScore.Models.UserCareerModels
                     foreach (var item in holeData)
                     {
                         var score = item.Score;
-                        var id = item.HoleId;
+                        var id = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
                             var holePar = item2.Par;
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
 
                             if (id == holeId && holePar == score - 1)
                             {
@@ -240,12 +239,12 @@ namespace ForeScore.Models.UserCareerModels
                     foreach (var item in holeData)
                     {
                         var score = item.Score;
-                        var id = item.HoleId;
+                        var id = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
                             var holePar = item2.Par;
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
 
                             if (id == holeId && holePar == score)
                             {
@@ -273,11 +272,11 @@ namespace ForeScore.Models.UserCareerModels
 
                     foreach (var item in holeData)
                     {
-                        var id = item.HoleId;
+                        var id = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
                             if (id == holeId)
                             {
                                 drivingdistance += item.DrivingDistance;
@@ -308,11 +307,11 @@ namespace ForeScore.Models.UserCareerModels
 
                     foreach (var item in holeData)
                     {
-                        var id = item.HoleId;
+                        var id = item.HoleNumber;
 
                         foreach (var item2 in hole)
                         {
-                            var holeId = item2.HoleId;
+                            var holeId = item2.HoleNumber;
                             if (id == holeId)
                             {
                                 putts+= item.Putts;

@@ -165,6 +165,37 @@ namespace ForeScore.Services
 
 
                 ctx.Rounds.Remove(entity);
+
+                DeleteAllHoleDataWithinRound(entity.RoundId);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        private bool DeleteAllHoleDataWithinRound(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .HoleData
+                    .Where(e => e.RoundId == id)
+                    .Select(e => new HoleData
+                    {
+                        DrivingDistance = e.DrivingDistance,
+                        FairwayHit = e.FairwayHit,
+                        HoleDataId = e.HoleDataId,
+                        HoleNumber = e.HoleNumber,
+                        Penalty = e.Penalty,
+                        Putts = e.Putts,
+                        RoundId = e.RoundId,
+                        Score = e.Score,
+                    });
+
+                foreach(var hole in query)
+                {
+                    ctx.HoleData.Remove(hole);
+                }
+
                 return ctx.SaveChanges() == 1;
             }
         }
