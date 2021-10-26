@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ForeScore.Models.LikeModels
 {
-    public class LikeCreate
+    public class LikeListItem
     {
-
-        [Required]
+        public int Id { get; set; }
         public int PostId { get; set; }
+        public int NumberOfLikesOnPost { get; set; }
     }
 }
