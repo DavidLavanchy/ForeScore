@@ -18,10 +18,6 @@ namespace ForeScore.Data
         public int Putts { get; set; }
         public bool Penalty { get; set; }
         public bool FairwayHit { get; set; }
-        //[Required]
-        //[ForeignKey(nameof(Hole))]
-        //public int HoleId { get; set; }
-        //public virtual Hole Hole { get; set; }
         [Required]
         [ForeignKey(nameof(Round))]
         public int RoundId { get; set; }
