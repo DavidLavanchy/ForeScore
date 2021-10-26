@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentServices.cs" />
     <Compile Include="CourseServices.cs" />
     <Compile Include="FollowerServices.cs" />
     <Compile Include="FollowingServices.cs" />
