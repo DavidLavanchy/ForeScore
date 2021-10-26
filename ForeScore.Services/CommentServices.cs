@@ -39,7 +39,7 @@ namespace ForeScore.Services
             {
                 var query =
                     ctx
-                    .Posts
+                    .Comments
                     .Where(e => e.PostId == id)
                     .Select(e =>
                     new CommentListItem
@@ -61,6 +61,21 @@ namespace ForeScore.Services
                     .Single(e => e.PostId == model.PostId && e.CommentId == model.CommentId);
 
                 entity.Content = model.Content;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteComment(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Comments
+                    .Single(e => e.CommentId == id);
+
+                ctx.Comments.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
