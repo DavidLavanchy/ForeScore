@@ -154,6 +154,19 @@ namespace ForeScore.Services
             }
         }
 
+        public bool RemoveRound(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Rounds
+                    .Single(e => id == e.RoundId);
 
+
+                ctx.Rounds.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
