@@ -1,0 +1,98 @@
+﻿@model ForeScore.Models.UserCareerModels.UserCareerViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>UserCareerViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Handicap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Handicap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageScoreToPar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageScoreToPar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eagles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eagles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birdies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birdies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageDrivingDistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageDrivingDistance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePutts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePutts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoundsPlayed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoundsPlayed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

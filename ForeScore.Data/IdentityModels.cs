@@ -19,7 +19,7 @@ namespace ForeScore.Data
         public string FullName { 
             get 
             {
-                return $"{FirstName} + {LastName}";
+                return $"{FirstName} {LastName}";
             } 
         }
         public float Handicap { get; set; }

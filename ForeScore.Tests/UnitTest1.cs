@@ -9,6 +9,7 @@ namespace ForeScore.Tests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

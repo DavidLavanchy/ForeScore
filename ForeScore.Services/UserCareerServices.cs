@@ -37,7 +37,9 @@ namespace ForeScore.Services
                     AverageScoreToPar = entity.AverageScoreToPar,
                     Birdies = entity.Birdies,
                     Pars = entity.Pars,
-                    RoundsPlayed = entity.RoundsPlayed
+                    Rounds = entity.Rounds,
+                    RoundsPlayed = entity.RoundsPlayed,
+                    TeeTimes = entity.TeeTimes,
                 };
 
             }

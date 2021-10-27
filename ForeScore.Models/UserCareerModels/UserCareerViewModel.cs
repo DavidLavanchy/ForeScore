@@ -14,6 +14,10 @@ namespace ForeScore.Models.UserCareerModels
         {
             get
             {
+                if(Rounds.Count == 0)
+                {
+                    return default;
+                }
                 if (Rounds.Count < 5)
                 {
                     return default;
@@ -347,9 +351,9 @@ namespace ForeScore.Models.UserCareerModels
             }
             set { }
         }
-        public List<Round> Rounds { get; set; }
-        public List<ApplicationUser> UserCareersFollowed { get; set; }
-        public List<ApplicationUser> UserCareersFollowing { get; set; }
-        public List<TeeTime> TeeTimes { get; set; }
+        public ICollection<Round> Rounds { get; set; }
+        public ICollection<ApplicationUser> UserCareersFollowed { get; set; }
+        public ICollection<ApplicationUser> UserCareersFollowing { get; set; }
+        public ICollection<TeeTime> TeeTimes { get; set; }
     }
 }
