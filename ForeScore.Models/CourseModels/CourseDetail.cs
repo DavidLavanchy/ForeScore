@@ -10,6 +10,7 @@ namespace ForeScore.Models.CourseModels
 {
     public class CourseDetail : ContactInformation
     {
+        public int CourseId { get; set; }
         public string Name { get; set; }
         public float Slope { get; set; }
         public float Rating { get; set; }

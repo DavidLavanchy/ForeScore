@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserCareerController.cs" />
@@ -239,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Course\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -254,6 +256,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ForeScore.Contracts\ForeScore.Contracts.csproj">
+      <Project>{7E1EADF4-E576-4291-8DB3-326144AC15F2}</Project>
+      <Name>ForeScore.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ForeScore.Data\ForeScore.Data.csproj">
       <Project>{d13c3da6-df0c-4f47-930a-081a4ba2e2cf}</Project>
       <Name>ForeScore.Data</Name>

@@ -65,7 +65,9 @@ namespace ForeScore.Services
                     Slope = entity.Slope,
                     StateOfResidence = entity.StateOfResidence,
                     Website = entity.Website,
-                    ZipCode = entity.ZipCode
+                    ZipCode = entity.ZipCode,
+                    CourseId = entity.CourseId
+                    
                 };
 
                 return course;
@@ -116,6 +118,7 @@ namespace ForeScore.Services
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Website = model.Website;
                 entity.EmailAddress = model.EmailAddress;
+                entity.CourseId = model.CourseId;
 
                 return ctx.SaveChanges() == 1;
             }

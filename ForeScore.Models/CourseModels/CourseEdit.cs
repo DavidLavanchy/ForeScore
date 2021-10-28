@@ -17,6 +17,6 @@ namespace ForeScore.Models.CourseModels
         public float Slope { get; set; }
         public float Rating { get; set; }
         public int Par { get; set; }
-        public List<Hole> Holes { get; set; }
+        public ICollection<Hole> Holes { get; set; }
     }
 }
