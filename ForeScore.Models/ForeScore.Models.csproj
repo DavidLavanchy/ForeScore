@@ -91,6 +91,7 @@
     <Compile Include="TeeTimeModels\TeeTimeEdit.cs" />
     <Compile Include="TeeTimeModels\TeeTimeListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
+    <Compile Include="ViewModels\CourseAndHoleCreate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

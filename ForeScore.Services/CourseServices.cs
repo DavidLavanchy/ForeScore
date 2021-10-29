@@ -1,5 +1,6 @@
 ﻿using ForeScore.Data;
 using ForeScore.Models.CourseModels;
+using ForeScore.Models.HoleModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,28 @@ namespace ForeScore.Services
                     
                 };
 
+                List<HoleCreate> _holes = new List<HoleCreate>();
+
+                foreach(var hole in course.Holes)
+                {
+                    var newHole = new HoleCreate
+                    {
+                        HoleNumber = hole.HoleNumber,
+                        CourseId = course.CourseId,
+                        Distance = hole.Distance,
+                        Par = hole.Par,
+                    };
+
+                    _holes.Add(newHole);
+                }
+
+                var service = CreateHoleService();
+
+                foreach(var hole in _holes)
+                {
+                    service.CreateHole(hole);
+                }
+
                 return course;
             }
         }
@@ -136,6 +159,12 @@ namespace ForeScore.Services
                 ctx.Courses.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public HoleServices CreateHoleService()
+        {
+            var service = new HoleServices();
+            return service;
         }
     }
 }
