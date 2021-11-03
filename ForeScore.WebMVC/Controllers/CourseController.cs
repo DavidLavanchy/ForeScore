@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ForeScore.Contracts;
 using System.Net;
+using ForeScore.Models.ViewModels;
 
 namespace ForeScore.WebMVC.Controllers
 {
@@ -24,11 +25,14 @@ namespace ForeScore.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var service = new HoleServices();
+            CourseAndHoleCreate course = new CourseAndHoleCreate();
+            course.HoleCreateModel = service.NullHoleCreateList();
+            return View(course);
         }
 
         [HttpPost]
-        public ActionResult Create(CourseCreate course)
+        public ActionResult Create(CourseAndHoleCreate course)
         {
             var service = CreateCourseService();
 

@@ -12,6 +12,8 @@ namespace ForeScore.Models.CourseModels
     public class CourseCreate : ContactInformation
     {
         [Required]
+        public int CourseId { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         public float Slope { get; set; }

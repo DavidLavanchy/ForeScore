@@ -1,5 +1,6 @@
 ﻿using ForeScore.Data;
 using ForeScore.Models.HoleModels;
+using ForeScore.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,23 @@ namespace ForeScore.Services
                 ctx.Holes.Add(hole);
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public IEnumerable<HoleCreate> NullHoleCreateList()
+        {
+            List<HoleCreate> _holes = new List<HoleCreate>();
+
+            for (int i = 1; i < 19; i++)
+            {
+                HoleCreate nullHole = new HoleCreate();
+
+                nullHole.Distance = 0;
+                nullHole.Par = 0;
+                nullHole.HoleNumber = i;
+                _holes.Add(nullHole);
+            }
+
+            return _holes;
         }
 
         public HoleDetail GetHoleById(int id)

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForeScore.Models.HoleModels
+namespace ForeScore.Models.ViewModels
 {
-    public class HoleCreate
+    public class HoleCreateViewModel
     {
         [Required]
         public int HoleNumber { get; set; }
@@ -15,7 +15,5 @@ namespace ForeScore.Models.HoleModels
         public int Par { get; set; }
         [Required]
         public int Distance { get; set; }
-        public int CourseId { get; set; }
-
     }
 }
