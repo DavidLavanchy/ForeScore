@@ -85,7 +85,6 @@ namespace ForeScore.Services
                     Address = entity.Address,
                     EmailAddress = entity.EmailAddress,
                     City = entity.City,
-                    Holes = entity.Holes,
                     Name = entity.Name,
                     Par = entity.Par,
                     PhoneNumber = entity.PhoneNumber,
@@ -94,7 +93,8 @@ namespace ForeScore.Services
                     StateOfResidence = entity.StateOfResidence,
                     Website = entity.Website,
                     ZipCode = entity.ZipCode,
-                    CourseId = entity.CourseId
+                    CourseId = entity.CourseId,
+                    Holes = entity.Holes.ToList()
                     
                 };
 
