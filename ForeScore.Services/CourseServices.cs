@@ -136,7 +136,6 @@ namespace ForeScore.Services
                     .Single(e => e.CourseId == model.CourseId && e.OwnerId == _userId);
 
                 entity.Name = model.Name;
-                entity.Holes = model.Holes;
                 entity.Par = model.Par;
                 entity.Slope = model.Slope;
                 entity.Rating = model.Rating;
@@ -149,7 +148,16 @@ namespace ForeScore.Services
                 entity.EmailAddress = model.EmailAddress;
                 entity.CourseId = model.CourseId;
 
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+
+                foreach (var hole in model.Holes)
+                {
+                    var service = new HoleServices();
+                    service.EditHole(hole);
+                }
+
+                return true;
             }
         }
 

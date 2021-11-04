@@ -1,5 +1,7 @@
 ﻿using ForeScore.Contracts;
 using ForeScore.Data;
+using ForeScore.Models.HoleModels;
+using ForeScore.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,7 @@ namespace ForeScore.Models.CourseModels
         public float Slope { get; set; }
         public float Rating { get; set; }
         public int Par { get; set; }
-        public ICollection<Hole> Holes { get; set; }
+        public List<HoleEdit> Holes { get; set; }
         [DisplayName("Address")]
         public string Address { get; set; }
 

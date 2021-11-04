@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ForeScore.Contracts;
 using System.Net;
 using ForeScore.Models.ViewModels;
+using ForeScore.Models.HoleModels;
 
 namespace ForeScore.WebMVC.Controllers
 {
@@ -75,14 +76,29 @@ namespace ForeScore.WebMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
 
+            var _holes = new List<HoleEdit>();
+
+            foreach (var hole in entity.Holes)
+            {
+                HoleEdit newHole = new HoleEdit();
+
+                newHole.HoleId = hole.HoleId;
+                newHole.Distance = hole.Distance;
+                newHole.Par = hole.Par;
+                newHole.HoleNumber = hole.HoleNumber;
+
+                _holes.Add(newHole);
+
+            }
+
             var model = new CourseEdit
             {
                 Address = entity.Address,
                 EmailAddress = entity.EmailAddress,
                 City = entity.City,
                 ZipCode = entity.ZipCode,
-                Holes = entity.Holes,
                 Name = entity.Name,
+                Holes = _holes,
                 Par = entity.Par,
                 PhoneNumber = entity.PhoneNumber,
                 Rating = entity.Rating,
