@@ -26,13 +26,13 @@ namespace ForeScore.WebMVC.Controllers
         public ActionResult Create()
         {
             var service = new HoleServices();
-            CourseAndHoleCreate course = new CourseAndHoleCreate();
-            course.HoleCreateModel = service.NullHoleCreateList();
+            var course = service.NullHoleCreateList();
             return View(course);
         }
 
         [HttpPost]
-        public ActionResult Create(CourseAndHoleCreate course)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CourseCreate course)
         {
             var service = CreateCourseService();
 

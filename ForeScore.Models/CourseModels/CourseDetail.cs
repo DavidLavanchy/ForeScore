@@ -2,13 +2,16 @@
 using ForeScore.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ForeScore.Data.Course;
 
 namespace ForeScore.Models.CourseModels
 {
-    public class CourseDetail : ContactInformation
+    public class CourseDetail
     {
         public int CourseId { get; set; }
         public string Name { get; set; }
@@ -16,5 +19,29 @@ namespace ForeScore.Models.CourseModels
         public float Rating { get; set; }
         public int Par { get; set; }
         public ICollection<Hole> Holes { get; set; }
+        [DisplayName("Address")]
+        public string Address { get; set; }
+
+        [DisplayName("City")]
+        public string City { get; set; }
+
+      
+        [DisplayName("State")]
+        public State StateOfResidence { get; set; }
+
+        [DisplayName("Zip Code")]
+        public string ZipCode { get; set; }
+
+        [DisplayName("Phone Number")]
+        [Phone]
+        public string PhoneNumber { get; set; }
+
+        [EmailAddress]
+        [DisplayName("Email Address")]
+        public string EmailAddress { get; set; }
+
+        [Url]
+        [DisplayName("Website")]
+        public string Website { get; set; }
     }
 }

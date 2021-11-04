@@ -9,7 +9,7 @@ namespace ForeScore.Models.HoleModels
 {
     public class HoleCreate
     {
-        [Required]
+        public int HoleId { get; set; }
         public int HoleNumber { get; set; }
         [Required]
         public int Par { get; set; }

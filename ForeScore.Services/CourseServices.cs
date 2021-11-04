@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using static ForeScore.Data.Course;
 
 namespace ForeScore.Services
 {
@@ -20,36 +20,35 @@ namespace ForeScore.Services
             _userId = userId;
         }
 
-        public bool CreateCourse(CourseAndHoleCreate model)
+        public bool CreateCourse(CourseCreate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = new Course();
 
-                entity.Holes = model.CourseCreateModel.Holes;
-                entity.Name = model.CourseCreateModel.Name;
+                entity.Name = model.Name;
                 entity.OwnerId = _userId;
-                entity.Par = model.CourseCreateModel.Par;
-                entity.Rating = model.CourseCreateModel.Rating;
-                entity.Slope = model.CourseCreateModel.Slope;
-                entity.Address = model.CourseCreateModel.Address;
-                entity.City = model.CourseCreateModel.City;
-                entity.StateOfResidence = model.CourseCreateModel.StateOfResidence;
-                entity.ZipCode = model.CourseCreateModel.ZipCode;
-                entity.PhoneNumber = model.CourseCreateModel.PhoneNumber;
-                entity.EmailAddress = model.CourseCreateModel.EmailAddress;
-                entity.Website = model.CourseCreateModel.Website;
-                
-
+                entity.Par = model.Par;
+                entity.Rating = model.Rating;
+                entity.Slope = model.Slope;
+                entity.Address = model.Address;
+                entity.City = model.City;
+                entity.StateOfResidence = model.StateOfResidence;
+                entity.ZipCode = model.ZipCode;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.EmailAddress = model.EmailAddress;
+                entity.Website = model.Website;
+   
                 ctx.Courses.Add(entity);
+                ctx.SaveChanges();
 
-                var course = ctx.Courses.Find(entity);
+                var course = ctx.Courses.Find(entity.CourseId);
 
-                var courseId = entity.CourseId;
+                var courseId = course.CourseId;
 
                 List<HoleCreate> _holes = new List<HoleCreate>();
 
-                foreach(var hole in model.HoleCreateModel)
+                foreach(var hole in model.Holes)
                 {
                     HoleCreate newHole = new HoleCreate();
 
@@ -57,17 +56,19 @@ namespace ForeScore.Services
                     newHole.Distance = hole.Distance;
                     newHole.Par = hole.Par;
                     newHole.HoleNumber = hole.HoleNumber;
-                }
 
+                    _holes.Add(newHole);
+                }
 
                 foreach (var hole in _holes)
                 {
                     var service = new HoleServices();
                     service.CreateHole(hole);
                 }
-             
-                return ctx.SaveChanges() == 1;
+
+                return true;
             }
+
         }
 
         public CourseDetail GetCourseById(int id)
@@ -117,7 +118,8 @@ namespace ForeScore.Services
                         Name = e.Name,
                         Slope = e.Slope,
                         Rating = e.Rating,
-                        Par = e.Par
+                        Par = e.Par,
+                        CourseId = e.CourseId
                     });
 
                 return query.ToArray();

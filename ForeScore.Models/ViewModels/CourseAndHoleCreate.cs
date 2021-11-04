@@ -11,6 +11,6 @@ namespace ForeScore.Models.ViewModels
     public class CourseAndHoleCreate
     {
         public CourseCreate CourseCreateModel { get; set; }
-        public IEnumerable<HoleCreate> HoleCreateModel { get; set; } 
+        public List<HoleCreateViewModel> HoleCreateViewModels { get; set; }
     }
 }

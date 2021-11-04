@@ -94,6 +94,30 @@
     <Compile Include="Migrations\202110261540132_RequiredRoundId.Designer.cs">
       <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111031947368_ad-migration HolGuidd.cs" />
+    <Compile Include="Migrations\202111031947368_ad-migration HolGuidd.Designer.cs">
+      <DependentUpon>202111031947368_ad-migration HolGuidd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111032021495_ContactInformation.cs" />
+    <Compile Include="Migrations\202111032021495_ContactInformation.Designer.cs">
+      <DependentUpon>202111032021495_ContactInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111032240371_Course.cs" />
+    <Compile Include="Migrations\202111032240371_Course.Designer.cs">
+      <DependentUpon>202111032240371_Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111032353194_HoleGuid.cs" />
+    <Compile Include="Migrations\202111032353194_HoleGuid.Designer.cs">
+      <DependentUpon>202111032353194_HoleGuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111032355376_FixingDatabase.cs" />
+    <Compile Include="Migrations\202111032355376_FixingDatabase.Designer.cs">
+      <DependentUpon>202111032355376_FixingDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040006208_CourseEntity.cs" />
+    <Compile Include="Migrations\202111040006208_CourseEntity.Designer.cs">
+      <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +158,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110261540132_RequiredRoundId.resx">
       <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111031947368_ad-migration HolGuidd.resx">
+      <DependentUpon>202111031947368_ad-migration HolGuidd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111032021495_ContactInformation.resx">
+      <DependentUpon>202111032021495_ContactInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111032240371_Course.resx">
+      <DependentUpon>202111032240371_Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111032353194_HoleGuid.resx">
+      <DependentUpon>202111032353194_HoleGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111032355376_FixingDatabase.resx">
+      <DependentUpon>202111032355376_FixingDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040006208_CourseEntity.resx">
+      <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

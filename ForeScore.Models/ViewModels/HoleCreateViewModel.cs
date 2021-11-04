@@ -9,7 +9,6 @@ namespace ForeScore.Models.ViewModels
 {
     public class HoleCreateViewModel
     {
-        [Required]
         public int HoleNumber { get; set; }
         [Required]
         public int Par { get; set; }
