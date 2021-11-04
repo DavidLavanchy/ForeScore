@@ -86,6 +86,7 @@
                     {
                         <td>
                             @Html.DisplayFor(model => Model.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.HiddenFor(model => Model.Holes[i].HoleId, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>
@@ -156,7 +157,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

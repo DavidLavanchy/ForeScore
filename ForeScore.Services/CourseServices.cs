@@ -171,7 +171,21 @@ namespace ForeScore.Services
                     .Single(e => e.CourseId == id && e.OwnerId == _userId);
 
                 ctx.Courses.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+                var query =
+                    ctx
+                    .Holes
+                    .Where(e => e.CourseId == id)
+                    .Select(e => e.HoleId);
+
+                foreach(var hole in query)
+                {
+                    var service = new HoleServices();
+                    service.DeleteHole(hole);
+                }
+
+                return true;
             }
         }
 

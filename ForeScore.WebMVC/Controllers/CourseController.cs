@@ -147,7 +147,7 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteCourse(int id)
         {
