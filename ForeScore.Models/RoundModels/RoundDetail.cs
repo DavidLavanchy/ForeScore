@@ -9,6 +9,8 @@ namespace ForeScore.Models.RoundModels
 {
     public class RoundDetail
     {
+        public int RoundId { get; set; }
+        public string CourseName { get; set; }
         public int CourseId { get; set; }
         public string Description { get; set; }
         public int Score { get; set; }

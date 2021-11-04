@@ -12,6 +12,7 @@ namespace ForeScore.Models.RoundModels
     {
         [Required]
         public int CourseId { get; set; }
+        public string CourseName { get; set; }
         public string Description { get; set; }
         [Required]
         public int Score { get; set; }
