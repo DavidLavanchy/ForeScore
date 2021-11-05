@@ -1,10 +1,12 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.HoleDataModels;
 using ForeScore.Models.RoundModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ForeScore.Services
 {
@@ -21,12 +23,13 @@ namespace ForeScore.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var course = ctx.Courses.Find(model.CourseId);
+
                 var entity = new Round
                 {
-                    CourseId = model.CourseId,
+                    CourseId = course.CourseId,
                     DateOfRound = model.DateOfRound,
                     Description = model.Description,
-                    HoleData = model.HoleData,
                     IsFeatured = model.IsFeatured,
                     IsPublic = model.IsPublic,
                     Id = _userId,
@@ -34,8 +37,57 @@ namespace ForeScore.Services
                 };
 
                 ctx.Rounds.Add(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+                var round = ctx.Rounds.Find(entity.RoundId);
+
+                var _holes = new List<HoleDataCreate>();
+
+                foreach(var hole in model.HoleData)
+                {
+                    var newHole = new HoleDataCreate();
+
+                    newHole.RoundId = round.RoundId;
+                    newHole.Score = hole.Score;
+                    newHole.Putts = hole.Putts;
+                    newHole.Penalty = hole.Penalty;
+                    newHole.FairwayHit = hole.FairwayHit;
+                    newHole.DrivingDistance = hole.DrivingDistance;
+                    newHole.HoleNumber = hole.HoleNumber;
+
+                    _holes.Add(newHole);
+                }
+
+                foreach(var holeData in _holes)
+                {
+                    var service = new HoleDataServices();
+                    service.CreateHoleData(holeData);
+                }
+
+                return true;
+
             }
+        }
+
+        public RoundCreateModel NullRound()
+        {
+            List<HoleDataCreate> _holes = new List<HoleDataCreate>();
+
+            for (int i = 1; i < 19; i++)
+            {
+                HoleDataCreate nullHole = new HoleDataCreate();
+
+                nullHole.HoleNumber = i;
+
+                _holes.Add(nullHole);
+            }
+
+            RoundCreateModel round = new RoundCreateModel();
+
+            round.HoleData = _holes;
+
+
+            return round;
         }
 
         public RoundDetail GetRoundById(int id)
@@ -71,7 +123,7 @@ namespace ForeScore.Services
                     ctx
                     .Rounds
                     .Where(e => e.Id == _userId)
-                    .Select(e=> 
+                    .Select(e =>
                 new RoundListItem
                 {
                     CourseId = e.CourseId,
@@ -94,7 +146,7 @@ namespace ForeScore.Services
                     ctx
                     .Rounds
                     .Where(e => e.Id == _userId)
-                    .OrderBy(e=> e.Score)
+                    .OrderBy(e => e.Score)
                     .Select(e =>
                 new RoundListItem
                 {
@@ -136,19 +188,19 @@ namespace ForeScore.Services
 
         public bool EditRound(RoundEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Rounds
                     .Single(e => model.RoundId == e.RoundId);
 
-                    entity.DateOfRound = model.DateOfRound;
-                    entity.Description = model.Description;
-                    entity.IsFeatured = model.IsFeatured;
-                    entity.IsPublic = model.IsPublic;
-                    entity.Score = model.Score;
-                    entity.HoleData = model.HoleData;
+                entity.DateOfRound = model.DateOfRound;
+                entity.Description = model.Description;
+                entity.IsFeatured = model.IsFeatured;
+                entity.IsPublic = model.IsPublic;
+                entity.Score = model.Score;
+                entity.HoleData = model.HoleData;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -171,9 +223,27 @@ namespace ForeScore.Services
             }
         }
 
+        public IEnumerable<SelectListItem> Courses()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Courses
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(e => new SelectListItem
+                    {
+                        Text = e.Name,
+                        Value = e.CourseId.ToString(),
+                    });
+
+                return query.ToArray();
+            }
+        }
+
         private bool DeleteAllHoleDataWithinRound(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -191,7 +261,7 @@ namespace ForeScore.Services
                         Score = e.Score,
                     });
 
-                foreach(var hole in query)
+                foreach (var hole in query)
                 {
                     ctx.HoleData.Remove(hole);
                 }
@@ -199,5 +269,7 @@ namespace ForeScore.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
     }
 }

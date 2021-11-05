@@ -37,28 +37,14 @@ namespace ForeScore.Services
             {
                 HoleCreateViewModel nullHole = new HoleCreateViewModel();
 
-                nullHole.Distance = 0;
-                nullHole.Par = 0;
                 nullHole.HoleNumber = i;
 
                 _holes.Add(nullHole);
             }
 
-            CourseCreate course = new CourseCreate
-            {
-                Holes = _holes,
-                Name = null,
-                Par = default,
-                Rating = default,
-                Slope = default,
-                EmailAddress = null,
-                Address = null,
-                City = null,
-                PhoneNumber = null,
-                StateOfResidence = default,
-                Website = default,
-                ZipCode = null,
-            };
+            CourseCreate course = new CourseCreate();
+
+            course.Holes = _holes;
 
             return course;
         }

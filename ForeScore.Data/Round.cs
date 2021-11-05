@@ -22,7 +22,7 @@ namespace ForeScore.Data
         public bool IsPublic { get; set; }
         public bool IsFeatured { get; set; }
         public DateTimeOffset DateOfRound { get; set; }
-        public virtual ICollection<HoleData> HoleData { get; set; } = new List<HoleData>();
+        public virtual ICollection<HoleData> HoleData { get; set; }
         [Required]
         [ForeignKey(nameof(User))]
         public string Id { get; set; }

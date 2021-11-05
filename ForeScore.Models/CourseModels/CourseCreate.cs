@@ -15,6 +15,8 @@ namespace ForeScore.Models.CourseModels
 {
     public class CourseCreate 
     {
+        public CourseCreate(){}
+
         [Required]
         public string Name { get; set; }
         [Required]
