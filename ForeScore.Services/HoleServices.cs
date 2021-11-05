@@ -102,7 +102,7 @@ namespace ForeScore.Services
 
             entity.HoleNumber = model.HoleNumber;
             entity.Par = model.Par;
-            entity.Distance = model.Par;
+            entity.Distance = model.Distance;
 
             return ctx.SaveChanges() == 1;
         }

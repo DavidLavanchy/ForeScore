@@ -25,6 +25,14 @@ namespace ForeScore.Services
             {
                 var course = ctx.Courses.Find(model.CourseId);
 
+                var score = new List<int>();
+
+                foreach(var hole in model.HoleData)
+                {
+                    var holeScore = hole.Score;
+                    score.Add(holeScore);
+                }
+
                 var entity = new Round
                 {
                     CourseId = course.CourseId,
@@ -33,7 +41,7 @@ namespace ForeScore.Services
                     IsFeatured = model.IsFeatured,
                     IsPublic = model.IsPublic,
                     Id = _userId,
-                    Score = model.Score,
+                    Score = score.Sum()
                 };
 
                 ctx.Rounds.Add(entity);

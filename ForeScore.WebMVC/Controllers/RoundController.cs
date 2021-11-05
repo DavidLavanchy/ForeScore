@@ -16,17 +16,30 @@ namespace ForeScore.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateRoundService();
-            service.GetAllRoundsByUserId();
-            return View(service);
+            var viewModel = service.GetAllRoundsByUserId();
+            return View(viewModel);
         }
 
         public ActionResult Create()
         {
+            var service = CreateCourseService();
+
+            var viewModel = service.GetAllCourses();
+
+            return View(viewModel);
+
+        }
+
+        public ActionResult SelectCourse(int id)
+        {
             var service = CreateRoundService();
+            var courseService = CreateCourseService();
 
             var viewModel = service.NullRound();
 
-            viewModel.Courses = service.Courses();
+            viewModel.CourseDetail = courseService.GetCourseById(id);
+
+            viewModel.CourseId = viewModel.CourseDetail.CourseId;
 
             return View(viewModel);
 
@@ -34,7 +47,7 @@ namespace ForeScore.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RoundCreateModel model)
+        public ActionResult SelectCourse(RoundCreateModel model)
         {
             var service = CreateRoundService();
 
@@ -57,6 +70,13 @@ namespace ForeScore.WebMVC.Controllers
             var userId = User.Identity.GetUserId();
             var service = new RoundServices(userId);
 
+            return service;
+        }
+
+        private CourseServices CreateCourseService()
+        {
+            var userId = User.Identity.GetUserId();
+            var service = new CourseServices(userId);
             return service;
         }
 

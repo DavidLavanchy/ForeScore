@@ -118,6 +118,14 @@
     <Compile Include="Migrations\202111040006208_CourseEntity.Designer.cs">
       <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111052000320_NullRoundAndHoleProperties.cs" />
+    <Compile Include="Migrations\202111052000320_NullRoundAndHoleProperties.Designer.cs">
+      <DependentUpon>202111052000320_NullRoundAndHoleProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111052011076_Null.cs" />
+    <Compile Include="Migrations\202111052011076_Null.Designer.cs">
+      <DependentUpon>202111052011076_Null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111040006208_CourseEntity.resx">
       <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111052000320_NullRoundAndHoleProperties.resx">
+      <DependentUpon>202111052000320_NullRoundAndHoleProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111052011076_Null.resx">
+      <DependentUpon>202111052011076_Null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

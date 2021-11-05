@@ -18,15 +18,12 @@ namespace ForeScore.Models.RoundModels
         public int RoundId { get; set; }
         [Required]
         public int CourseId { get; set; }
-        public IEnumerable<SelectListItem> Courses { get; set; }
         public string CourseName { get; set; }
         public string Description { get; set; }
         public int Score { get; set; }
-        public bool IsPublic { get; set; }
-        public bool IsFeatured { get; set; }
-        [Required]
-        public DateTimeOffset DateOfRound { get; set; }
-        [Required]
+        public bool? IsPublic { get; set; }
+        public bool? IsFeatured { get; set; }
+        public DateTimeOffset? DateOfRound { get; set; }
         [Range(9, 18)]
         public List<HoleDataCreate> HoleData { get; set; }
     }

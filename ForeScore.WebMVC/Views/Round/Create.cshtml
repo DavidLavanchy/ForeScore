@@ -1,114 +1,70 @@
-﻿@model ForeScore.Models.RoundModels.RoundCreateModel
+﻿@model IEnumerable<ForeScore.Models.CourseModels.CourseListItem>
 
 @{
     ViewBag.Title = "Create";
 }
-<script>
-    $(document).ready(function () {
-        $("#submit").click(function () {
-            var id=$("#CourseId")
-        });
-    });
-</script>
+
 <h2>Create</h2>
 
+<p>
+    @Html.ActionLink("Back To Round List", "Index")
+</p>
+<table class="table">
+    <tr>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Par)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateOfResidence)
+        </th>
+        <th></th>
+    </tr>
 
-    <div class="form-horizontal">
-        <h4>RoundCreateModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RoundId)
+    @foreach (var item in Model)
+    {
+        <tr>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CourseId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CourseId, Model.Courses, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
-            </div>
-            <button type="button" class="btn btn-success" id="submit">Submit</button>
-        </div>
+            @Html.HiddenFor(modelItem => item.CourseId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Par)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateOfResidence)
+            </td>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <td>
+                @Html.ActionLink("Create Round", "SelectCourse", new { id = item.CourseId })
+            </td>
+        </tr>
+    }
 
-        <table>
-            <tr>
-                @for (int i = 1; i < 19; i++)
-                {
-                    <td>
-                        @Html.Label(i.ToString(), new { htmlAttributes = new { @class = "form-control", } })
-                    </td>
-                }
-            </tr>
-            <tr>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
-                {
-                    <td>
-                        @Html.TextBoxFor(model => Model.HoleData[i].Score, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.TextBoxFor(model => Model.HoleData[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.CheckBoxFor(model => Model.HoleData[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.TextBoxFor(model => Model.HoleData[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.CheckBoxFor(model => Model.HoleData[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => Model.HoleData[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                    </td>
-
-                }
-            </tr>
-        </table>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.CheckBoxFor(model => model.IsPublic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.CheckBoxFor(model => model.IsFeatured, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateOfRound, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfRound, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateOfRound, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</table>

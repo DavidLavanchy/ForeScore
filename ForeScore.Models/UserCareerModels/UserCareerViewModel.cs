@@ -261,11 +261,11 @@ namespace ForeScore.Models.UserCareerModels
             }
             set { }
         }
-        public float AverageDrivingDistance
+        public float? AverageDrivingDistance
         {
             get
             {
-                float drivingdistance = 0;
+                int? drivingdistance = 0;
                 List<Hole> overallHoles = new List<Hole>();
 
                 foreach (var round in Rounds)
@@ -296,11 +296,11 @@ namespace ForeScore.Models.UserCareerModels
             }
             set { }
         }
-        public float AveragePutts
+        public float? AveragePutts
         {
             get
             {
-                float putts = 0;
+                int? putts = 0;
                 List<Hole> overallHoles = new List<Hole>();
 
                 foreach (var round in Rounds)

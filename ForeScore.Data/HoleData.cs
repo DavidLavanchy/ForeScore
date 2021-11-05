@@ -14,10 +14,10 @@ namespace ForeScore.Data
         public int HoleDataId { get; set; }
         public int HoleNumber { get; set; }
         public int Score { get; set; }
-        public float DrivingDistance { get; set; }
-        public int Putts { get; set; }
-        public bool Penalty { get; set; }
-        public bool FairwayHit { get; set; }
+        public int? DrivingDistance { get; set; }
+        public int? Putts { get; set; }
+        public bool? Penalty { get; set; }
+        public bool? FairwayHit { get; set; }
         [Required]
         [ForeignKey(nameof(Round))]
         public int RoundId { get; set; }
