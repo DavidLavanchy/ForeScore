@@ -1,4 +1,5 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.CourseModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,7 @@ namespace ForeScore.Models.RoundModels
     {
         [Required]
         public int RoundId { get; set; }
+        public CourseDetail CourseDetail { get; set; }
         public string CourseName { get; set; }
         public int CourseId { get; set; }
         public string Description { get; set; }

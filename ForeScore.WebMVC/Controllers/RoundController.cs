@@ -70,7 +70,9 @@ namespace ForeScore.WebMVC.Controllers
         {
             var service = CreateRoundService();
 
-            var m
+            var model = service.GetRoundById(id);
+
+            return View(model);
         }
 
         private RoundServices CreateRoundService()

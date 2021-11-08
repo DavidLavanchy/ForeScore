@@ -95,7 +95,6 @@ namespace ForeScore.Services
                     ZipCode = entity.ZipCode,
                     CourseId = entity.CourseId,
                     Holes = entity.Holes.ToList()
-                    
                 };
 
                 return course;

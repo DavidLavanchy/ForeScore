@@ -1,4 +1,5 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.CourseModels;
 using ForeScore.Models.HoleDataModels;
 using ForeScore.Models.RoundModels;
 using System;
@@ -108,17 +109,44 @@ namespace ForeScore.Services
                     .Rounds
                     .Single(e => e.RoundId == id && e.Id == _userId);
 
+                var query =
+                    ctx
+                    .HoleData
+                    .Where(e => e.RoundId == id)
+                    .Select(e => new HoleDataDetail
+                    {
+                        DrivingDistance = e.DrivingDistance,
+                        FairwayHit = e.FairwayHit,
+                        HoleNumber = e.HoleNumber,
+                        Penalty = e.Penalty,
+                        Putts = e.Putts,
+                        RoundId = e.RoundId,
+                        Score = e.Score
+                    });
+
+                var course =
+                    ctx
+                    .Courses
+                    .Single(e => e.CourseId == entity.CourseId);
+
+                var service = new CourseServices(_userId);
+
+                var courseDetail = service.GetCourseById(course.CourseId);
+
+                var holes = query.ToList();
+
                 var round = new RoundDetail
                 {
                     CourseId = entity.CourseId,
                     CourseName = entity.CourseName,
                     DateOfRound = entity.DateOfRound,
                     Description = entity.Description,
-                    HoleData = entity.HoleData,
+                    HoleData = holes,
                     IsFeatured = entity.IsFeatured,
                     IsPublic = entity.IsPublic,
                     Score = entity.Score,
-
+                    CourseDetail = courseDetail,
+                    RoundId = entity.RoundId
                 };
 
                 return round;
@@ -136,7 +164,7 @@ namespace ForeScore.Services
                     .Select(e =>
                 new RoundListItem
                 {
-                    CourseId = e.CourseId,
+                    RoundId = e.RoundId,
                     CourseName = e.CourseName,
                     DateOfRound = e.DateOfRound,
                     Description = e.Description,
