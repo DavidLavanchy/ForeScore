@@ -40,7 +40,8 @@ namespace ForeScore.Services
                 {
                     Email = entity.Email,
                     Id = model.Id,
-                    FullName = entity.FullName
+                    FullName = entity.FullName,
+                    UserId = entity.Id
                 };
 
                 ctx.Following.Add(following);
@@ -96,6 +97,8 @@ namespace ForeScore.Services
                     {
                         Email = e.Email,
                         FullName = e.FullName,
+                        UserId = e.UserId
+                        
                     });
 
                 return query.ToArray();
@@ -111,6 +114,7 @@ namespace ForeScore.Services
 
                 entity.Email = model.Email;
                 entity.FullName = model.FullName;
+                entity.UserId = model.Id;
 
                 entity.Id = id;
 

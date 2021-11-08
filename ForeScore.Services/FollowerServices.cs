@@ -31,25 +31,14 @@ namespace ForeScore.Services
                     ctx
                     .FollowedBy
                     .Where(e => e.Email == entity.Email)
-                    .Select(e => e.Id.ToArray());
-
-                List<ApplicationUser> _users = new List<ApplicationUser>();
-
-                foreach (var item in query)
-                {
-                    var user = ctx.Users.Find(item);
-                    _users.Add(user);
-                }
-
-               var followers =  _users.
-                    Select(e =>
-                    new FollowerListItem
+                    .Select(e => new FollowerListItem
                     {
                         Email = e.Email,
-                        FullName = e.FullName
+                        FullName = e.FullName,
+                        UserId = e.UserId
                     });
 
-                return followers.ToArray();
+                return query.ToArray();
 
             }
         }

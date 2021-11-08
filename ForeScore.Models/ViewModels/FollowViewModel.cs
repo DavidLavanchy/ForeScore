@@ -10,8 +10,8 @@ namespace ForeScore.Models.ViewModels
 {
     public class FollowViewModel
     {
-        public IEnumerable<FollowingListItem> Following { get; set; }
+        public List<FollowingListItem> Following { get; set; }
 
-        public IEnumerable<FollowerListItem> Followers { get; set; }
+        public List<FollowerListItem> Followers { get; set; }
     }
 }

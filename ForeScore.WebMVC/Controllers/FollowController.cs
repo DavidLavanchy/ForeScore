@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ForeScore.WebMVC.Controllers
 {
+    [Authorize]
     public class FollowController : Controller
     {
         // GET: Follow
@@ -19,9 +20,9 @@ namespace ForeScore.WebMVC.Controllers
             var followerService = CreateFollowerService();
             var followService = CreateFollowingService();
 
-            model.Following = followService.GetAllFollowings();
-            model.Followers = followerService.GetFollowers();
-            return View();
+            model.Following = followService.GetAllFollowings().ToList();
+            model.Followers = followerService.GetFollowers().ToList();
+            return View(model);
         }
 
         private FollowingServices CreateFollowingService()

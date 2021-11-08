@@ -252,10 +252,10 @@
     <Content Include="Views\Round\Details.cshtml" />
     <Content Include="Views\Round\Edit.cshtml" />
     <Content Include="Views\Round\Delete.cshtml" />
+    <Content Include="Views\Follow\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Follow\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
