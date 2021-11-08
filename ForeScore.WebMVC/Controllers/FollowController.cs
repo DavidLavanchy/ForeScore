@@ -1,4 +1,5 @@
-﻿using ForeScore.Models.ViewModels;
+﻿using ForeScore.Models.FollowingModels;
+using ForeScore.Models.ViewModels;
 using ForeScore.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -24,6 +25,35 @@ namespace ForeScore.WebMVC.Controllers
             model.Followers = followerService.GetFollowers().ToList();
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            var viewModel = new FollowingAdd();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(FollowingAdd model)
+        {
+            var service = CreateFollowingService();
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (service.FollowCreate(model))
+            {
+                TempData["SaveResult"] = "User successfully followed.";
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
+
 
         private FollowingServices CreateFollowingService()
         {
