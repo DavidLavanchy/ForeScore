@@ -121,7 +121,8 @@ namespace ForeScore.Services
                         Penalty = e.Penalty,
                         Putts = e.Putts,
                         RoundId = e.RoundId,
-                        Score = e.Score
+                        Score = e.Score,
+                        HoleDataId = e.HoleDataId
                     });
 
                 var course =

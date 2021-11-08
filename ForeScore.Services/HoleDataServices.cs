@@ -94,7 +94,6 @@ namespace ForeScore.Services
                 entity.Penalty = model.Penalty;
                 entity.Putts = model.Putts;
                 entity.Score = model.Score;
-                entity.RoundId = model.RoundId;
 
                 return ctx.SaveChanges() == 1;
             }
