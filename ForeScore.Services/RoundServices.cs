@@ -28,7 +28,7 @@ namespace ForeScore.Services
 
                 var score = new List<int>();
 
-                foreach(var hole in model.HoleData)
+                foreach (var hole in model.HoleData)
                 {
                     var holeScore = hole.Score;
                     score.Add(holeScore);
@@ -53,7 +53,7 @@ namespace ForeScore.Services
 
                 var _holes = new List<HoleDataCreate>();
 
-                foreach(var hole in model.HoleData)
+                foreach (var hole in model.HoleData)
                 {
                     var newHole = new HoleDataCreate();
 
@@ -68,7 +68,7 @@ namespace ForeScore.Services
                     _holes.Add(newHole);
                 }
 
-                foreach(var holeData in _holes)
+                foreach (var holeData in _holes)
                 {
                     var service = new HoleDataServices();
                     service.CreateHoleData(holeData);
@@ -253,7 +253,7 @@ namespace ForeScore.Services
 
                 ctx.SaveChanges();
 
-                foreach(var hole in model.HoleData)
+                foreach (var hole in model.HoleData)
                 {
                     var service = new HoleDataServices();
 
@@ -275,9 +275,22 @@ namespace ForeScore.Services
 
 
                 ctx.Rounds.Remove(entity);
+                ctx.SaveChanges();
 
-                DeleteAllHoleDataWithinRound(entity.RoundId);
-                return ctx.SaveChanges() == 1;
+                var query =
+                ctx
+                .HoleData
+                .Where(e => e.RoundId == id)
+                .Select(e => e.HoleDataId);
+
+                foreach (var hole in query)
+                {
+                    var service = new HoleDataServices();
+                    service.DeleteHoleData(hole);
+                }
+
+
+                return true;
             }
         }
 
@@ -298,36 +311,5 @@ namespace ForeScore.Services
                 return query.ToArray();
             }
         }
-
-        private bool DeleteAllHoleDataWithinRound(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .HoleData
-                    .Where(e => e.RoundId == id)
-                    .Select(e => new HoleData
-                    {
-                        DrivingDistance = e.DrivingDistance,
-                        FairwayHit = e.FairwayHit,
-                        HoleDataId = e.HoleDataId,
-                        HoleNumber = e.HoleNumber,
-                        Penalty = e.Penalty,
-                        Putts = e.Putts,
-                        RoundId = e.RoundId,
-                        Score = e.Score,
-                    });
-
-                foreach (var hole in query)
-                {
-                    ctx.HoleData.Remove(hole);
-                }
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-
     }
 }

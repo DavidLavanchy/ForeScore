@@ -1,0 +1,184 @@
+﻿@model ForeScore.Models.RoundModels.RoundDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RoundDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @Html.HiddenFor(model => model.RoundId)
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+    </dl>
+
+
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    Hole
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Par
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Score
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.DisplayFor(model => Model.HoleData[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.HoleData[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Driving Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.DisplayFor(model => Model.HoleData[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Putts
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.DisplayFor(model => Model.HoleData[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Fairway Hit
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.DisplayFor(model => Model.HoleData[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.DisplayFor(model => Model.HoleData[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Penalty(s)
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.DisplayFor(model => Model.HoleData[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.DisplayFor(model => Model.HoleData[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+        </table>
+    </div>
+
+    <dl>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPublic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPublic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFeatured)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFeatured)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfRound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfRound)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

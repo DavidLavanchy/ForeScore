@@ -142,6 +142,31 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var service = CreateRoundService();
+
+            var model = service.GetRoundById(id);
+
+            return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteRound(int id)
+        {
+            var service = CreateRoundService();
+
+            if (service.RemoveRound(id))
+            {
+                TempData["SaveResult"] = "Round successfully deleted";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Round could not be deleted");
+            return View();
+        }
+
         private RoundServices CreateRoundService()
         {
             var userId = User.Identity.GetUserId();
