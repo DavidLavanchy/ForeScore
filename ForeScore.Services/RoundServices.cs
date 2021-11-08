@@ -23,7 +23,7 @@ namespace ForeScore.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var course = ctx.Courses.Find(model.CourseId);
+                var course = ctx.Courses.Find(model.CourseDetail.CourseId);
 
                 var score = new List<int>();
 

@@ -7,13 +7,13 @@ namespace ForeScore.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class HoleData : IMigrationMetadata
+    public sealed partial class HoleDataMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(HoleData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(HoleDataMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202110261505248_HoleData"; }
+            get { return "202111080153218_HoleDataMigration"; }
         }
         
         string IMigrationMetadata.Source

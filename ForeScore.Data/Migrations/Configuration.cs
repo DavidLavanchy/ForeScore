@@ -9,8 +9,7 @@ namespace ForeScore.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "ForeScore.Data.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ForeScore.Data.ApplicationDbContext context)

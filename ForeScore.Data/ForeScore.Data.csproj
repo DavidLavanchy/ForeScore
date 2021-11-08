@@ -62,69 +62,17 @@
     <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Like.cs" />
-    <Compile Include="Migrations\202110251800276_InitialMigration.cs" />
-    <Compile Include="Migrations\202110251800276_InitialMigration.Designer.cs">
-      <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202111080139313_initial.cs" />
+    <Compile Include="Migrations\202111080139313_initial.Designer.cs">
+      <DependentUpon>202111080139313_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110251928079_IsFeaturedProperty.cs" />
-    <Compile Include="Migrations\202110251928079_IsFeaturedProperty.Designer.cs">
-      <DependentUpon>202110251928079_IsFeaturedProperty.cs</DependentUpon>
+    <Compile Include="Migrations\202111080151041_HoleData.cs" />
+    <Compile Include="Migrations\202111080151041_HoleData.Designer.cs">
+      <DependentUpon>202111080151041_HoleData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110252109110_FollowDataEntities.cs" />
-    <Compile Include="Migrations\202110252109110_FollowDataEntities.Designer.cs">
-      <DependentUpon>202110252109110_FollowDataEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110252147261_AddedFullNameToFollowingEntities.cs" />
-    <Compile Include="Migrations\202110252147261_AddedFullNameToFollowingEntities.Designer.cs">
-      <DependentUpon>202110252147261_AddedFullNameToFollowingEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110260014475_DataLayerEdits.cs" />
-    <Compile Include="Migrations\202110260014475_DataLayerEdits.Designer.cs">
-      <DependentUpon>202110260014475_DataLayerEdits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110261339346_OwnerIdToCourseEntity.cs" />
-    <Compile Include="Migrations\202110261339346_OwnerIdToCourseEntity.Designer.cs">
-      <DependentUpon>202110261339346_OwnerIdToCourseEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110261505248_HoleData.cs" />
-    <Compile Include="Migrations\202110261505248_HoleData.Designer.cs">
-      <DependentUpon>202110261505248_HoleData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110261540132_RequiredRoundId.cs" />
-    <Compile Include="Migrations\202110261540132_RequiredRoundId.Designer.cs">
-      <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111031947368_ad-migration HolGuidd.cs" />
-    <Compile Include="Migrations\202111031947368_ad-migration HolGuidd.Designer.cs">
-      <DependentUpon>202111031947368_ad-migration HolGuidd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111032021495_ContactInformation.cs" />
-    <Compile Include="Migrations\202111032021495_ContactInformation.Designer.cs">
-      <DependentUpon>202111032021495_ContactInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111032240371_Course.cs" />
-    <Compile Include="Migrations\202111032240371_Course.Designer.cs">
-      <DependentUpon>202111032240371_Course.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111032353194_HoleGuid.cs" />
-    <Compile Include="Migrations\202111032353194_HoleGuid.Designer.cs">
-      <DependentUpon>202111032353194_HoleGuid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111032355376_FixingDatabase.cs" />
-    <Compile Include="Migrations\202111032355376_FixingDatabase.Designer.cs">
-      <DependentUpon>202111032355376_FixingDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111040006208_CourseEntity.cs" />
-    <Compile Include="Migrations\202111040006208_CourseEntity.Designer.cs">
-      <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111052000320_NullRoundAndHoleProperties.cs" />
-    <Compile Include="Migrations\202111052000320_NullRoundAndHoleProperties.Designer.cs">
-      <DependentUpon>202111052000320_NullRoundAndHoleProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111052011076_Null.cs" />
-    <Compile Include="Migrations\202111052011076_Null.Designer.cs">
-      <DependentUpon>202111052011076_Null.cs</DependentUpon>
+    <Compile Include="Migrations\202111080153218_HoleDataMigration.cs" />
+    <Compile Include="Migrations\202111080153218_HoleDataMigration.Designer.cs">
+      <DependentUpon>202111080153218_HoleDataMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -143,53 +91,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110251800276_InitialMigration.resx">
-      <DependentUpon>202110251800276_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111080139313_initial.resx">
+      <DependentUpon>202111080139313_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110251928079_IsFeaturedProperty.resx">
-      <DependentUpon>202110251928079_IsFeaturedProperty.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111080151041_HoleData.resx">
+      <DependentUpon>202111080151041_HoleData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110252109110_FollowDataEntities.resx">
-      <DependentUpon>202110252109110_FollowDataEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110252147261_AddedFullNameToFollowingEntities.resx">
-      <DependentUpon>202110252147261_AddedFullNameToFollowingEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110260014475_DataLayerEdits.resx">
-      <DependentUpon>202110260014475_DataLayerEdits.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110261339346_OwnerIdToCourseEntity.resx">
-      <DependentUpon>202110261339346_OwnerIdToCourseEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110261505248_HoleData.resx">
-      <DependentUpon>202110261505248_HoleData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110261540132_RequiredRoundId.resx">
-      <DependentUpon>202110261540132_RequiredRoundId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111031947368_ad-migration HolGuidd.resx">
-      <DependentUpon>202111031947368_ad-migration HolGuidd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111032021495_ContactInformation.resx">
-      <DependentUpon>202111032021495_ContactInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111032240371_Course.resx">
-      <DependentUpon>202111032240371_Course.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111032353194_HoleGuid.resx">
-      <DependentUpon>202111032353194_HoleGuid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111032355376_FixingDatabase.resx">
-      <DependentUpon>202111032355376_FixingDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111040006208_CourseEntity.resx">
-      <DependentUpon>202111040006208_CourseEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111052000320_NullRoundAndHoleProperties.resx">
-      <DependentUpon>202111052000320_NullRoundAndHoleProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111052011076_Null.resx">
-      <DependentUpon>202111052011076_Null.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111080153218_HoleDataMigration.resx">
+      <DependentUpon>202111080153218_HoleDataMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

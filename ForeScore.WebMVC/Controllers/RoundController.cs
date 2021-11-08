@@ -53,6 +53,7 @@ namespace ForeScore.WebMVC.Controllers
 
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
                 return View(model);
             }
 

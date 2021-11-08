@@ -22,6 +22,5 @@ namespace ForeScore.Data
         [ForeignKey(nameof(Round))]
         public int RoundId { get; set; }
         public virtual Round Round { get; set; }
-
     }
 }
