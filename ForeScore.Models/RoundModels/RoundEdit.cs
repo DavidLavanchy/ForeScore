@@ -1,5 +1,6 @@
 ﻿using ForeScore.Data;
 using ForeScore.Models.CourseModels;
+using ForeScore.Models.HoleDataModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,6 +22,6 @@ namespace ForeScore.Models.RoundModels
         public bool? IsPublic { get; set; }
         public bool? IsFeatured { get; set; }
         public DateTimeOffset? DateOfRound { get; set; }
-        public List<HoleData> HoleData { get; set; }
+        public List<HoleDataEdit> HoleData { get; set; }
     }
 }

@@ -249,6 +249,7 @@
     <Content Include="Views\Round\SelectCourse.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\Round\Details.cshtml" />
+    <Content Include="Views\Round\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

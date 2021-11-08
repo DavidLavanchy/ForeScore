@@ -1,4 +1,5 @@
-﻿using ForeScore.Models.RoundModels;
+﻿using ForeScore.Models.HoleDataModels;
+using ForeScore.Models.RoundModels;
 using ForeScore.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -71,6 +72,72 @@ namespace ForeScore.WebMVC.Controllers
             var service = CreateRoundService();
 
             var model = service.GetRoundById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateRoundService();
+
+            var entity = service.GetRoundById(id);
+
+            var viewModel = new RoundEdit()
+            {
+                CourseDetail = entity.CourseDetail,
+                CourseId = entity.CourseId,
+                CourseName = entity.CourseName,
+                DateOfRound = entity.DateOfRound,
+                Description = entity.Description,
+                IsFeatured = entity.IsFeatured,
+                RoundId = entity.RoundId,
+                IsPublic = entity.IsPublic,
+                Score = entity.Score,
+            };
+
+            var _holes = new List<HoleDataEdit>();
+
+            foreach(var hole in entity.HoleData)
+            {
+                var holeData = new HoleDataEdit();
+
+                holeData.DrivingDistance = hole.DrivingDistance;
+                holeData.FairwayHit = hole.FairwayHit;
+                holeData.HoleDataId = hole.HoleDataId;
+                holeData.Penalty = hole.Penalty;
+                holeData.Putts = hole.Putts;
+                holeData.HoleNumber = hole.HoleNumber;
+                holeData.Score = hole.Score;
+                holeData.RoundId = hole.RoundId;
+
+                _holes.Add(holeData);
+            }
+
+            var courseService = CreateCourseService();
+
+            viewModel.HoleData = _holes;
+            viewModel.CourseDetail = courseService.GetCourseById(entity.CourseId);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, RoundEdit model)
+        {
+            if (model.RoundId != id)
+            {
+                ModelState.AddModelError("", "Entered ID and the model ID do not match.");
+                return View(model);
+            }
+
+            if (ModelState.IsValid)
+            {
+                var service = CreateRoundService();
+                service.EditRound(model);
+
+                return RedirectToAction("Index");
+            }
 
             return View(model);
         }

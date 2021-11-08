@@ -236,14 +236,30 @@ namespace ForeScore.Services
                     .Rounds
                     .Single(e => model.RoundId == e.RoundId);
 
+                var score = new List<int>();
+
+                foreach (var hole in model.HoleData)
+                {
+                    var holeScore = hole.Score;
+                    score.Add(holeScore);
+                }
+
                 entity.DateOfRound = model.DateOfRound;
                 entity.Description = model.Description;
                 entity.IsFeatured = model.IsFeatured;
                 entity.IsPublic = model.IsPublic;
-                entity.Score = model.Score;
-                entity.HoleData = model.HoleData;
+                entity.Score = score.Sum();
 
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+                foreach(var hole in model.HoleData)
+                {
+                    var service = new HoleDataServices();
+
+                    service.EditHoleData(hole);
+                }
+
+                return true;
             }
         }
 

@@ -1,0 +1,180 @@
+﻿@model ForeScore.Models.RoundModels.RoundEdit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>RoundCreateModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.RoundId)
+
+
+        <div class="form-group">
+            <h2>
+                @Html.DisplayFor(model => model.CourseDetail.Name, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.HiddenFor(model => model.CourseDetail.Name)
+            </h2>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    Hole
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].HoleNumber)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Par
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].Par)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].Distance)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Score
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.HoleData[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.HoleData[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.HoleData[i].HoleDataId, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Driving Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.HoleData[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Putts
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.HoleData[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Fairway Hit
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.RadioButtonFor(model => Model.HoleData[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.HoleData[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Penalty(s)
+                </td>
+                @for (int i = 0; i < Model.HoleData.Count; i++)
+                {
+
+                    <td>
+                        @Html.RadioButtonFor(model => Model.HoleData[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.HoleData[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+        </table>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.RadioButtonFor(model => model.IsPublic, true, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.RadioButtonFor(model => model.IsPublic, false, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.RadioButtonFor(model => model.IsFeatured, true, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.RadioButtonFor(model => model.IsFeatured, false, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfRound, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOfRound, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateOfRound, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Edit Round" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
