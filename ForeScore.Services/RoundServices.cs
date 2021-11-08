@@ -35,6 +35,7 @@ namespace ForeScore.Services
 
                 var entity = new Round
                 {
+                    CourseName = course.Name,
                     CourseId = course.CourseId,
                     DateOfRound = model.DateOfRound,
                     Description = model.Description,
@@ -110,6 +111,7 @@ namespace ForeScore.Services
                 var round = new RoundDetail
                 {
                     CourseId = entity.CourseId,
+                    CourseName = entity.CourseName,
                     DateOfRound = entity.DateOfRound,
                     Description = entity.Description,
                     HoleData = entity.HoleData,
@@ -135,6 +137,7 @@ namespace ForeScore.Services
                 new RoundListItem
                 {
                     CourseId = e.CourseId,
+                    CourseName = e.CourseName,
                     DateOfRound = e.DateOfRound,
                     Description = e.Description,
                     IsFeatured = e.IsFeatured,
@@ -159,6 +162,7 @@ namespace ForeScore.Services
                 new RoundListItem
                 {
                     CourseId = e.CourseId,
+                    CourseName = e.CourseName,
                     DateOfRound = e.DateOfRound,
                     Description = e.Description,
                     IsFeatured = e.IsFeatured,
@@ -183,6 +187,7 @@ namespace ForeScore.Services
                 new RoundListItem
                 {
                     CourseId = e.CourseId,
+                    CourseName = e.CourseName,
                     DateOfRound = e.DateOfRound,
                     Description = e.Description,
                     IsFeatured = e.IsFeatured,

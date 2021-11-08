@@ -13,6 +13,7 @@ namespace ForeScore.Data
     {
         [Key]
         public int RoundId { get; set; }
+        public string CourseName { get; set; }
         [Required]
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }

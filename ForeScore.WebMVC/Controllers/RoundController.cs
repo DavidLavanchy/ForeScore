@@ -66,6 +66,13 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var service = CreateRoundService();
+
+            var m
+        }
+
         private RoundServices CreateRoundService()
         {
             var userId = User.Identity.GetUserId();
