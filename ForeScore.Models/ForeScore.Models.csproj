@@ -113,6 +113,7 @@
     <Compile Include="TeeTimeModels\TeeTimeListItem.cs" />
     <Compile Include="UserCareerModels\UserCareerViewModel.cs" />
     <Compile Include="ViewModels\CourseAndHoleCreate.cs" />
+    <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\HoleCreateViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

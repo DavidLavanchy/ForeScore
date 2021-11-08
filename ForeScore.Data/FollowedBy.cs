@@ -15,6 +15,7 @@ namespace ForeScore.Data
         [Required]
         public string Email { get; set; }
         public string FullName { get; set; }
+        public string UserId { get; set; }
 
         [Required]
         [ForeignKey(nameof(User))]

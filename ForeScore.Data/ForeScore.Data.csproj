@@ -78,6 +78,10 @@
     <Compile Include="Migrations\202111080214229_CourseName.Designer.cs">
       <DependentUpon>202111080214229_CourseName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111081658152_UserIdsToFollowEntities.cs" />
+    <Compile Include="Migrations\202111081658152_UserIdsToFollowEntities.Designer.cs">
+      <DependentUpon>202111081658152_UserIdsToFollowEntities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111080214229_CourseName.resx">
       <DependentUpon>202111080214229_CourseName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111081658152_UserIdsToFollowEntities.resx">
+      <DependentUpon>202111081658152_UserIdsToFollowEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

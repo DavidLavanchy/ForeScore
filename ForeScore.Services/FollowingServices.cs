@@ -83,14 +83,14 @@ namespace ForeScore.Services
             }
         }
 
-        public IEnumerable<FollowingListItem> GetAllFollowings(string id)
+        public IEnumerable<FollowingListItem> GetAllFollowings()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Following
-                    .Where(e => e.Id == id)
+                    .Where(e => e.Id == _userId)
                     .Select(e =>
                     new FollowingListItem
                     {
