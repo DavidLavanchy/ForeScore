@@ -12,5 +12,6 @@ namespace ForeScore.Models.FollowingModels
         public string FullName { get; set; }
         public string UserId { get; set; }
         public int FollowingId { get; set; }
+        public string Id { get; set; }
     }
 }

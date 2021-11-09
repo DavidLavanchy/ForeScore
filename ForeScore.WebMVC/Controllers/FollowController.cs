@@ -29,7 +29,8 @@ namespace ForeScore.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            var viewModel = new FollowingAdd();
+            var service = CreateFollowingService();
+            var viewModel = service.CreateFollowingAddModel();
 
             return View(viewModel);
         }

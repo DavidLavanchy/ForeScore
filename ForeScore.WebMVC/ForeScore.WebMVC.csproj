@@ -253,6 +253,8 @@
     <Content Include="Views\Round\Edit.cshtml" />
     <Content Include="Views\Round\Delete.cshtml" />
     <Content Include="Views\Follow\Index.cshtml" />
+    <Content Include="Views\Follow\Create.cshtml" />
+    <Content Include="Views\Follow\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

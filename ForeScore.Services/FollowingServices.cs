@@ -39,9 +39,9 @@ namespace ForeScore.Services
                 new Following
                 {
                     Email = entity.Email,
-                    Id = model.Id,
+                    UserId = entity.Id,
                     FullName = entity.FullName,
-                    UserId = entity.Id
+                    Id = _userId
                 };
 
                 ctx.Following.Add(following);
@@ -53,7 +53,7 @@ namespace ForeScore.Services
 
                 AddFollower(follower, entity.Id);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 2;
             }
         }
 
@@ -113,7 +113,7 @@ namespace ForeScore.Services
                 var query =
                     ctx
                     .Following
-                    .Where(e => e.Id == _userId)
+                    .Where(e => e.UserId == _userId)
                     .Select(e =>
                     new FollowingListItem
                     {
@@ -144,6 +144,18 @@ namespace ForeScore.Services
 
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public FollowingAdd CreateFollowingAddModel()
+        {
+            var model = new FollowingAdd
+            {
+                Email = null,
+                Id = null,
+                UserId = _userId,
+            };
+
+            return model;
         }
 
         private bool RemoveFollower(ApplicationUser model, string id)

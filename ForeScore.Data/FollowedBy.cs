@@ -11,7 +11,7 @@ namespace ForeScore.Data
     public class FollowedBy
     {
         [Key]
-        public int FollowingId { get; set; }
+        public int FollowedById { get; set; }
         [Required]
         public string Email { get; set; }
         public string FullName { get; set; }

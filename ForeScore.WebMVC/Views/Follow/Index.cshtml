@@ -7,7 +7,6 @@
 <h2>Index</h2>
 
 <div class="text-center">
-
     <div class="row">
         <div class="col-xs-3"></div>
         <div class="col-xs-6">
@@ -24,11 +23,13 @@
                         <tbody>
                             @for (int i = 0; i < Model.Following.Count; i++)
                             {
-                                <tr>
-                                    <td>@Html.DisplayFor(model => model.Following[i].FullName)</td>
-                                    <td>@Html.DisplayFor(model => model.Following[i].Email)</td>
-                                    <td>@Html.HiddenFor(model => model.Following[i].UserId)</td>
-                                </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.Following[i].FullName)</td>
+                                <td>@Html.DisplayFor(model => model.Following[i].Email)</td>
+                                <td>@Html.HiddenFor(model => model.Following[i].UserId)</td>
+                                <td>@Html.ActionLink("Delete", "Delete", new { id = Model.Following[i].FollowingId }) |</td>
+                                <td>@Html.ActionLink("View Profile", "ProfileView", new { id = Model.Followers[i].UserId })</td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -60,7 +61,6 @@
                                     <td>@Html.HiddenFor(model => model.Followers[i].UserId)</td>
                                     <td>
                                         @Html.ActionLink("View Profile", "ProfileView", new { id =  Model.Followers[i].UserId }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = Model.Followers[i].UserId })
                                     </td>
                                 </tr>
                             }
