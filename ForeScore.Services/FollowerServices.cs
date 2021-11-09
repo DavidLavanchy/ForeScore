@@ -35,7 +35,8 @@ namespace ForeScore.Services
                     {
                         Email = e.Email,
                         FullName = e.FullName,
-                        UserId = e.UserId
+                        UserId = e.UserId,
+                        FollowerId = e.FollowingId
                     });
 
                 return query.ToArray();

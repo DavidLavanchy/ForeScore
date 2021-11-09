@@ -68,7 +68,7 @@ namespace ForeScore.WebMVC.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFollowing(int id)
         {

@@ -58,6 +58,10 @@
                                     <td>@Html.DisplayFor(model => model.Followers[i].FullName)</td>
                                     <td>@Html.DisplayFor(model => model.Followers[i].Email)</td>
                                     <td>@Html.HiddenFor(model => model.Followers[i].UserId)</td>
+                                    <td>
+                                        @Html.ActionLink("View Profile", "ProfileView", new { id =  Model.Followers[i].UserId }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = Model.Followers[i].UserId })
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -69,7 +73,7 @@
     </div>
     <div class="panel-footer">
         <a href="/Follow/Create" class="btn btn-primary btn-block">
-            Create
+            Create New Follow
         </a>
     </div>
 </div>
