@@ -53,7 +53,9 @@ namespace ForeScore.Services
 
                 AddFollower(follower, entity.Id);
 
-                return ctx.SaveChanges() == 2;
+                ctx.SaveChanges();
+
+                return true;
             }
         }
 
@@ -72,6 +74,7 @@ namespace ForeScore.Services
                     FullName = entity.FullName,
                     UserId = entity.UserId,
                     FollowingId = entity.FollowingId,
+                    Id = entity.Id
                 };
 
                 return following;
@@ -98,11 +101,13 @@ namespace ForeScore.Services
                 .Users
                 .Single(e => e.Id == _userId);
 
-                RemoveFollower(followed, entity.Id);
+                RemoveFollower(followed, entity.UserId);
 
 
                 ctx.Following.Remove(entity);
-                return ctx.SaveChanges() == 2;
+                ctx.SaveChanges();
+
+                return true;
             }
         }
 
@@ -113,13 +118,15 @@ namespace ForeScore.Services
                 var query =
                     ctx
                     .Following
-                    .Where(e => e.UserId == _userId)
+                    .Where(e => e.Id == _userId)
                     .Select(e =>
                     new FollowingListItem
                     {
                         Email = e.Email,
                         FullName = e.FullName,
-                        UserId = e.UserId
+                        UserId = e.UserId,
+                        FollowingId = e.FollowingId,
+                        Id = e.Id,
                         
                     });
 

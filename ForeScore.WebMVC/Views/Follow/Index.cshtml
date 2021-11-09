@@ -28,7 +28,7 @@
                                 <td>@Html.DisplayFor(model => model.Following[i].Email)</td>
                                 <td>@Html.HiddenFor(model => model.Following[i].UserId)</td>
                                 <td>@Html.ActionLink("Delete", "Delete", new { id = Model.Following[i].FollowingId }) |</td>
-                                <td>@Html.ActionLink("View Profile", "ProfileView", new { id = Model.Followers[i].UserId })</td>
+                                <td>@Html.ActionLink("View Profile", "ProfileView", new { id = Model.Following[i].UserId })</td>
                             </tr>
                             }
                         </tbody>

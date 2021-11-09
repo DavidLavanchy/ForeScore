@@ -21,22 +21,17 @@ namespace ForeScore.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                    .Users
-                    .Single(e => _userId == e.Id);
-
-
                 var query =
                     ctx
                     .FollowedBy
-                    .Where(e => e.Email == entity.Email)
+                    .Where(e => e.Id == _userId)
                     .Select(e => new FollowerListItem
                     {
                         Email = e.Email,
                         FullName = e.FullName,
                         UserId = e.UserId,
-                        FollowerId = e.FollowedById
+                        FollowerId = e.FollowedById,
+                        Id = e.Id,
                     });
 
                 return query.ToArray();
