@@ -57,14 +57,36 @@ namespace ForeScore.Services
             }
         }
 
-        public bool FollowDelete(string email)
+        public FollowingListItem GetFollowingById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Following
+                    .Single(e => e.FollowingId == id);
+
+                var following = new FollowingListItem
+                {
+                    Email = entity.Email,
+                    FullName = entity.FullName,
+                    UserId = entity.UserId,
+                    FollowingId = entity.FollowingId,
+                };
+
+                return following;
+                    
+            }
+        }
+
+        public bool FollowDelete(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Following
-                    .Single(e => e.Email == email && _userId == e.Id);
+                    .Single(e => e.FollowingId == id && _userId == e.Id);
 
                 if (entity == null)
                 {
@@ -80,7 +102,7 @@ namespace ForeScore.Services
 
 
                 ctx.Following.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 2;
             }
         }
 

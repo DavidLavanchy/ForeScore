@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -53,7 +54,33 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var service = CreateFollowingService();
 
+            var viewModel = service.GetFollowingById(id);
+
+            if (viewModel == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteFollowing(int id)
+        {
+            var service = CreateFollowingService();
+
+            if (service.FollowDelete(id))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
 
         private FollowingServices CreateFollowingService()
         {
