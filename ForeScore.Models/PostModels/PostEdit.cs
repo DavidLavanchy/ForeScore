@@ -13,7 +13,8 @@ namespace ForeScore.Models.PostModels
         [Required]
         public int PostId { get; set; }
         public string Title { get; set; }
-        public int RoundId { get; set; }
+        public int? RoundId { get; set; }
         public string Content { get; set; }
+        public DateTimeOffset? Modified { get; set; }
     }
 }

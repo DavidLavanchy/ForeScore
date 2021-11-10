@@ -16,9 +16,9 @@ namespace ForeScore.Models.CourseModels
     {
         public int CourseId { get; set; }
         public string Name { get; set; }
-        public float Slope { get; set; }
-        public float Rating { get; set; }
-        public int Par { get; set; }
+        public float? Slope { get; set; }
+        public float? Rating { get; set; }
+        public int? Par { get; set; }
         public List<Hole> Holes { get; set; }
         [DisplayName("Address")]
         public string Address { get; set; }

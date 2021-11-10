@@ -29,12 +29,12 @@ namespace ForeScore.Models.UserCareerModels
 
                     foreach (var round in Rounds)
                     {
-                        float slope = round.Course.Slope;
-                        float rating = round.Course.Rating;
+                        //float slope = round.Course.Slope;
+                        //float rating = round.Course.Rating;
                         int score = round.Score;
 
-                        float scoreDifferential = ((score - rating) * 113) / slope;
-                        list.Add(scoreDifferential);
+                        //float scoreDifferential = ((score - rating) * 113) / slope;
+                        //list.Add(scoreDifferential);
                     }
 
                     float[] orderedScores = list.OrderBy(p => p).ToArray();
@@ -57,12 +57,12 @@ namespace ForeScore.Models.UserCareerModels
 
                     foreach (var round in Rounds)
                     {
-                        float slope = round.Course.Slope;
-                        float rating = round.Course.Rating;
+                        //float slope = round.Course.Slope;
+                        //float rating = round.Course.Rating;
                         int score = round.Score;
 
-                        float scoreDifferential = ((score - rating) * 113) / slope;
-                        list.Add(scoreDifferential);
+                        //float scoreDifferential = ((score - rating) * 113) / slope;
+                        //list.Add(scoreDifferential);
                     }
 
                     float[] orderedScores = list.OrderBy(p => p).ToArray();
@@ -109,7 +109,7 @@ namespace ForeScore.Models.UserCareerModels
 
                     foreach (var item in hole)
                     {
-                        overallPar.Add(item.Par);
+                        //overallPar.Add(item.Par);
                         overallHoles.Add(item);
                     }
                 }

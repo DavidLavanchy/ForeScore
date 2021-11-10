@@ -11,6 +11,6 @@ namespace ForeScore.Models.PostModels
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public ICollection<Like> Likes { get; set; }
+        public string Username { get; set; }
     }
 }

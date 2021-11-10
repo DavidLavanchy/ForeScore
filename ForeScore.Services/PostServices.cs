@@ -49,7 +49,6 @@ namespace ForeScore.Services
                     {
                         Comments = entity.Comments,
                         Content = entity.Content,
-                        Likes = entity.Likes,
                         RoundId = entity.RoundId,
                         Title = entity.Title
                     };
@@ -70,7 +69,6 @@ namespace ForeScore.Services
                     new PostListItem
                     {
                         Content = e.Content,
-                        Likes = e.Likes,
                         Title = e.Title
                     });
 
@@ -78,23 +76,34 @@ namespace ForeScore.Services
             }
         }
 
-        public IEnumerable<PostListItem> GetFollowingsPosts(string id)
+        public IEnumerable<PostListItem> GetFollowingsPosts()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Posts
-                    .Where(e => id == e.OwnerId)
-                    .Select(e =>
-                    new PostListItem
-                    {
-                        Content = e.Content,
-                        Likes = e.Likes,
-                        Title = e.Title
-                    });
+                    .Following
+                    .Where(e => _userId == e.Id)
+                    .Select(e => e.UserId);
 
-                return query.ToArray();
+                List<PostListItem> _posts = new List<PostListItem>(); 
+
+                foreach (var user in query)
+                {
+                    var post =
+                        ctx
+                        .Posts
+                        .Where(e => e.OwnerId == user)
+                        .Select(e =>
+                        new PostListItem
+                        {
+                            Content = e.Content,
+
+                        });
+                }
+
+
+                return _posts.ToArray();
             }
         }
 
@@ -134,7 +143,6 @@ namespace ForeScore.Services
                     new PostListItem
                     {
                         Content = e.Content,
-                        Likes = e.Likes,
                         Title = e.Title,
                     });
 

@@ -12,9 +12,9 @@ namespace ForeScore.Models.HoleModels
         public int HoleId { get; set; }
         public int HoleNumber { get; set; }
         [Required]
-        public int Par { get; set; }
+        public int? Par { get; set; }
         [Required]
-        public int Distance { get; set; }
+        public int? Distance { get; set; }
         public int CourseId { get; set; }
 
     }

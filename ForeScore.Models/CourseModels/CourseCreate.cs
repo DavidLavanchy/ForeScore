@@ -20,12 +20,12 @@ namespace ForeScore.Models.CourseModels
         [Required]
         public string Name { get; set; }
         [Required]
-        public float Slope { get; set; }
+        public float? Slope { get; set; }
         [Required]
-        public float Rating { get; set; }
+        public float? Rating { get; set; }
         [Required]
         [Range(69,74)]
-        public int Par { get; set; }
+        public int? Par { get; set; }
         public List<HoleCreateViewModel> Holes { get; set; }
         [DisplayName("Address")]
         public string Address { get; set; }

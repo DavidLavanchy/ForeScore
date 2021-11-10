@@ -61,7 +61,6 @@
     <Compile Include="Hole.cs" />
     <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Like.cs" />
     <Compile Include="Migrations\202111080139313_initial.cs" />
     <Compile Include="Migrations\202111080139313_initial.Designer.cs">
       <DependentUpon>202111080139313_initial.cs</DependentUpon>
@@ -89,6 +88,10 @@
     <Compile Include="Migrations\202111090329153_UpdatedEntities.cs" />
     <Compile Include="Migrations\202111090329153_UpdatedEntities.Designer.cs">
       <DependentUpon>202111090329153_UpdatedEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111100053411_Post.cs" />
+    <Compile Include="Migrations\202111100053411_Post.Designer.cs">
+      <DependentUpon>202111100053411_Post.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -127,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111090329153_UpdatedEntities.resx">
       <DependentUpon>202111090329153_UpdatedEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111100053411_Post.resx">
+      <DependentUpon>202111100053411_Post.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

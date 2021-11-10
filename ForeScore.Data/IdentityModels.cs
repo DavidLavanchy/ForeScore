@@ -64,7 +64,6 @@ namespace ForeScore.Data
         public DbSet<TeeTime> TeeTimes { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<Like> Likes { get; set; }
         public DbSet<HoleData> HoleData { get; set; }
         public DbSet<Following> Following { get; set; }
         public DbSet<FollowedBy> FollowedBy { get; set; }
