@@ -256,10 +256,10 @@
     <Content Include="Views\Follow\Index.cshtml" />
     <Content Include="Views\Follow\Create.cshtml" />
     <Content Include="Views\Follow\Delete.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

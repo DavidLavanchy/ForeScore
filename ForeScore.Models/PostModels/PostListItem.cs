@@ -11,6 +11,7 @@ namespace ForeScore.Models.PostModels
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string Username { get; set; }
+        public string Name { get; set; }
+        public int PostId { get; set; }
     }
 }

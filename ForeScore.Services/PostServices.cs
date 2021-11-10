@@ -1,4 +1,5 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.CommentModels;
 using ForeScore.Models.PostModels;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,15 @@ namespace ForeScore.Services
                     Created = DateTimeOffset.UtcNow,
                     OwnerId = _userId,
                     RoundId = model.RoundId,
-
                 };
+
+                var name =
+                    ctx
+                    .Users
+                    .Single(e => e.Id == _userId);
+
+
+                entity.Name = name.FullName;
 
                 ctx.Posts.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -47,11 +55,26 @@ namespace ForeScore.Services
                     
                     var post = new PostDetail
                     {
-                        Comments = entity.Comments,
+                        
                         Content = entity.Content,
                         RoundId = entity.RoundId,
-                        Title = entity.Title
+                        Title = entity.Title,
+                        PostId = entity.PostId,
+                        Name = entity.Name,
                     };
+
+                var comments =
+                    ctx
+                    .Comments
+                    .Where(e => e.PostId == id)
+                    .Select(e => new CommentListItem
+                    {
+                        Content = e.Content,
+                        Name = e.Name,
+                        PostId = e.PostId,
+                    });
+
+                post.Comments = comments.ToArray();
 
                 return post;
             }
@@ -69,7 +92,9 @@ namespace ForeScore.Services
                     new PostListItem
                     {
                         Content = e.Content,
-                        Title = e.Title
+                        Title = e.Title,
+                        Name = e.Name,
+                        PostId = e.PostId,
                     });
 
                 return query.ToArray();
@@ -98,6 +123,9 @@ namespace ForeScore.Services
                         new PostListItem
                         {
                             Content = e.Content,
+                            Title = e.Title,
+                            Name = e.Name,
+                            PostId = e.PostId,
 
                         });
                 }
@@ -107,49 +135,6 @@ namespace ForeScore.Services
             }
         }
 
-        public IEnumerable<PostListItem> GetFeed()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Following
-                    .Where(e => _userId == e.Id)
-                    .Select(e => e.Email);
-
-                List<ApplicationUser> _users = new List<ApplicationUser>();
-
-                foreach(var item in query)
-                {
-                    var user = ctx.Users.Find(item);
-                    _users.Add(user);
-                }
-
-                var ids =
-                    _users
-                    .Select(e => e.Id);
-
-                List<Post> _posts = new List<Post>();
-
-                foreach(var item2 in ids)
-                {
-                    var post = ctx.Posts.Find(item2);
-                    _posts.Add(post);
-                }
-
-                var feed =
-                    _posts
-                    .Select(e =>
-                    new PostListItem
-                    {
-                        Content = e.Content,
-                        Title = e.Title,
-                    });
-
-                return feed.ToArray();
-                    
-            }
-        }
 
         public bool EditPost(PostEdit model)
         {
@@ -177,8 +162,27 @@ namespace ForeScore.Services
                     .Posts
                     .Single(e => e.PostId == id && _userId == e.OwnerId);
 
+                if(entity == null)
+                {
+                    return false;
+                }
+
                 ctx.Posts.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+                var query =
+                    ctx
+                    .Comments
+                    .Where(e => e.PostId == id)
+                    .Select(e => e.CommentId);
+
+                foreach(var commentId in query)
+                {
+                    var service = new CommentServices(_userId);
+                    service.DeleteComment(commentId);
+                }
+
+                return true;
             }
         }
 

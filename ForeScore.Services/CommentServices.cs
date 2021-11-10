@@ -27,6 +27,13 @@ namespace ForeScore.Services
                 entity.PostId = model.PostId;
                 entity.OwnerId = _userId;
 
+                var name =
+                    ctx
+                    .Users
+                    .Single(e => e.Id == _userId);
+
+                entity.Name = name.FullName;
+
                 ctx.Comments.Add(entity);
 
                 return ctx.SaveChanges() == 1;
@@ -44,25 +51,11 @@ namespace ForeScore.Services
                     .Select(e =>
                     new CommentListItem
                     {
-                        Content = e.Content
+                        Content = e.Content,
+                        Name = e.Name,
                     });
 
                 return query.ToArray();
-            }
-        }
-
-        public bool EditComment(CommentEdit model)
-        {
-            using(var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Comments
-                    .Single(e => e.PostId == model.PostId && e.CommentId == model.CommentId);
-
-                entity.Content = model.Content;
-
-                return ctx.SaveChanges() == 1;
             }
         }
 

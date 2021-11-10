@@ -1,4 +1,5 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.CommentModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,11 @@ namespace ForeScore.Models.PostModels
     public class PostDetail
     {
         public string Title { get; set; }
-        public string Username { get; set; }
+        public string Name { get; set; }
         public int? RoundId { get; set; }
         public string Content { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public ICollection<CommentListItem> Comments { get; set; }
+        public int PostId { get; set; }
 
     }
 }
