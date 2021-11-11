@@ -59,7 +59,7 @@ namespace ForeScore.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PostCreate model)
+        public ActionResult CreatePost(PostCreate model)
         {
             var service = CreatePostService();
 

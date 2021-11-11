@@ -58,7 +58,7 @@
                             <tr>
                                 <td>@Html.DisplayFor(model => model.MyPosts[i].Title)</td>
                                 <td>@Html.DisplayFor(model => model.MyPosts[i].Content)</td>
-                                <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.UsersFollowingPosts[i].PostId }) |</td>
+                                <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.MyPosts[i].PostId }) |</td>
                             </tr>
                             }
                         </tbody>
