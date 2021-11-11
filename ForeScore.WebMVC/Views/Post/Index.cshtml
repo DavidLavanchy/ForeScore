@@ -1,27 +1,68 @@
-﻿@model IEnumerable<ForeScore.Models.ViewModels.PostsViewModel>
-
+﻿@model ForeScore.Models.ViewModels.PostsViewModel
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+<div class="container">
+    <div class="row">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th></th>
-    </tr>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Your Feed</div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Name</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.UsersFollowingPosts.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Title)</td>
+                                    <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Name)</td>
+                                    <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Content)</td>
+                                    <td>@Html.ActionLink("View Post", "Details", new { id = Model.UsersFollowingPosts[i].PostId }) |</td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-</table>
+
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Your Posts</div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.MyPosts.Count; i++)
+                            {
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.MyPosts[i].Title)</td>
+                                <td>@Html.DisplayFor(model => model.MyPosts[i].Content)</td>
+                                <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.UsersFollowingPosts[i].PostId }) |</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

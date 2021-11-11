@@ -9,10 +9,10 @@ using System.Web.Mvc;
 
 namespace ForeScore.WebMVC.Controllers
 {
+    [Authorize]
     public class PostController : Controller
     {
         // GET: Post
-        [Authorize]
         public ActionResult Index()
         {
             var service = CreatePostService();
