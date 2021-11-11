@@ -1,0 +1,58 @@
+﻿@model ForeScore.Models.ViewModels.PostCreateViewModel
+@{
+    ViewBag.Title = "SelectRound";
+}
+
+<h2>Select Round</h2>
+
+<p>
+    @Html.ActionLink("Back To Round List", "Index")
+</p>
+
+@Html.ActionLink("Create Post Without A Round", "CreatePost", new { id = Model.NullRound })
+
+<table class="table">
+    <tr>
+
+        <th>
+            Course Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Date of Round
+        </th>
+        <th>
+            Score
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Rounds)
+    {
+        <tr>
+
+            @Html.HiddenFor(modelItem => item.RoundId)
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfRound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Post This Round", "CreatePost", new { id = item.RoundId })
+            </td>
+        </tr>
+    }
+
+</table>

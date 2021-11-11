@@ -1,4 +1,5 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.RoundModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,5 +16,6 @@ namespace ForeScore.Models.PostModels
         [Required]
         public string Content { get; set; }
         public int? RoundId { get; set; }
+        public RoundDetail RoundDetail { get; set; }
     }
 }

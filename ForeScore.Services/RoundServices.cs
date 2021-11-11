@@ -100,7 +100,7 @@ namespace ForeScore.Services
             return round;
         }
 
-        public RoundDetail GetRoundById(int id)
+        public RoundDetail GetRoundById(int? id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -292,6 +292,26 @@ namespace ForeScore.Services
 
                 return true;
             }
+        }
+
+        public RoundDetail CreateNullRound()
+        {
+            var detail = new RoundDetail
+            {
+                CourseId = 0,
+                CourseName = null,
+                DateOfRound = null,
+                Description = null,
+                HoleData = null,
+                CourseDetail = null,
+                IsFeatured = null,
+                IsPublic = null,
+                RoundId = 0,
+                Score = 0,
+
+            };
+
+            return detail;
         }
 
         public IEnumerable<SelectListItem> Courses()

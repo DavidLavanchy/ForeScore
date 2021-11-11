@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\CourseAndHoleCreate.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\HoleCreateViewModel.cs" />
+    <Compile Include="ViewModels\PostCreateViewModel.cs" />
     <Compile Include="ViewModels\PostsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
