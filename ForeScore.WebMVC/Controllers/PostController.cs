@@ -87,6 +87,47 @@ namespace ForeScore.WebMVC.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePostService();
+
+            var viewModel = service.GetPost(id);
+
+            var post = new PostEdit
+            {
+                Comments = viewModel.Comments,
+                Content = viewModel.Content,
+                Modified = null,
+                OwnerId = viewModel.OwnerId,
+                PostId = viewModel.PostId,
+                RoundDetail = viewModel.RoundDetail,
+                RoundId = viewModel.RoundId,
+                Title = viewModel.Title,
+            };
+
+            return View(post);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PostEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = CreatePostService();
+
+            if (service.EditPost(model))
+            {
+                TempData["SaveResult"] = "Post was successfully modified.";
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
         private PostServices CreatePostService()
         {
             var userId = User.Identity.GetUserId();

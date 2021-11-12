@@ -1,4 +1,6 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.CommentModels;
+using ForeScore.Models.RoundModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,5 +18,8 @@ namespace ForeScore.Models.PostModels
         public int? RoundId { get; set; }
         public string Content { get; set; }
         public DateTimeOffset? Modified { get; set; }
+        public ICollection<CommentListItem> Comments { get; set; }
+        public RoundDetail RoundDetail { get; set; }
+        public string OwnerId { get; set; }
     }
 }
