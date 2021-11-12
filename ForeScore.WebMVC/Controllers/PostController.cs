@@ -1,4 +1,5 @@
-﻿using ForeScore.Models.PostModels;
+﻿using ForeScore.Models.CommentModels;
+using ForeScore.Models.PostModels;
 using ForeScore.Models.ViewModels;
 using ForeScore.Services;
 using Microsoft.AspNet.Identity;
@@ -152,6 +153,71 @@ namespace ForeScore.WebMVC.Controllers
             return View();
         }
 
+
+        public ActionResult Comment(int id)
+        {
+            var service = CreatePostService();
+
+            var viewModel = new CommentCreate();
+
+            viewModel.PostDetail = service.GetPost(id);
+            viewModel.PostId = id;
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Comment")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment(CommentCreate model)
+        {
+            var service = CreateCommentService();
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (service.CreateComment(model))
+            {
+                TempData["SaveResult"] = "Comment added";
+                return RedirectToAction("Comment", model.PostId);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult CommentDelete(int id)
+        {
+            var cmtService = CreateCommentService();
+
+            var comment = cmtService.GetCommentById(id);
+
+            var viewModel = new CommentDetail
+            {
+                Content = comment.Content,
+                Name = comment.Name,
+                OwnerId = comment.OwnerId,
+                PostDetail = comment.PostDetail,
+                PostId = comment.PostId,
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("CommentDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteComment(int id)
+        {
+            var service = CreateCommentService();
+
+            if (service.DeleteComment(id))
+            {
+                TempData["SaveResult"] = "Comment deleted";
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
         private PostServices CreatePostService()
         {
             var userId = User.Identity.GetUserId();
@@ -163,6 +229,13 @@ namespace ForeScore.WebMVC.Controllers
         {
             var userId = User.Identity.GetUserId();
             var service = new RoundServices(userId);
+            return service;
+        }
+
+        private CommentServices CreateCommentService()
+        {
+            var userId = User.Identity.GetUserId();
+            var service = new CommentServices(userId);
             return service;
         }
     }

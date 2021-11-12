@@ -40,6 +40,33 @@ namespace ForeScore.Services
             }
         }
 
+        public CommentDetail GetCommentById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var comment =
+                    ctx
+                    .Comments
+                    .Single(e => e.CommentId == id);
+
+                var postsvc = new PostServices(_userId);
+
+                var postDetail = postsvc.GetPost(comment.PostId);
+
+                var commentDetail = new CommentDetail()
+                {
+                    Content = comment.Content,
+                    Name = comment.Name,
+                    OwnerId = comment.OwnerId,
+                    PostId = comment.PostId,
+                    CommentId = comment.CommentId,
+                    PostDetail = postDetail
+                };
+
+                return commentDetail;
+            }
+        }
+
         public IEnumerable<CommentListItem> GetCommentsForPost(int id)
         {
             using(var ctx = new ApplicationDbContext())
