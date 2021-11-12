@@ -78,7 +78,7 @@ namespace ForeScore.Services
                 var entity =
                     ctx
                     .Courses
-                    .Single(e => id == e.CourseId && e.OwnerId == _userId);
+                    .Single(e => id == e.CourseId);
 
                 var course = new CourseDetail
                 {

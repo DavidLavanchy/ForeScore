@@ -102,12 +102,17 @@ namespace ForeScore.Services
 
         public RoundDetail GetRoundById(int? id)
         {
+            if(id == null)
+            {
+                return CreateNullRound();
+            }
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Rounds
-                    .Single(e => e.RoundId == id && e.Id == _userId);
+                    .Single(e => e.RoundId == id);
 
                 var query =
                     ctx

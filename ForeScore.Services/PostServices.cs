@@ -61,20 +61,19 @@ namespace ForeScore.Services
                         Title = entity.Title,
                         PostId = entity.PostId,
                         Name = entity.Name,
+                        OwnerId = _userId,
                     };
 
-                var comments =
-                    ctx
-                    .Comments
-                    .Where(e => e.PostId == id)
-                    .Select(e => new CommentListItem
-                    {
-                        Content = e.Content,
-                        Name = e.Name,
-                        PostId = e.PostId,
-                    });
+                var service = new CommentServices(_userId);
+                var comments = service.GetCommentsForPost(id);
+
+                var roundService = new RoundServices(_userId);
+
+                var roundDetail = roundService.GetRoundById(post.RoundId);
+
 
                 post.Comments = comments.ToArray();
+                post.RoundDetail = roundDetail;
 
                 return post;
             }

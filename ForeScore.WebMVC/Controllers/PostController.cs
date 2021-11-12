@@ -77,6 +77,16 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var service = CreatePostService();
+
+
+            var viewModel = service.GetPost(id);
+
+            return View(viewModel);
+        }
+
         private PostServices CreatePostService()
         {
             var userId = User.Identity.GetUserId();

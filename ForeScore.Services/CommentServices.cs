@@ -53,6 +53,7 @@ namespace ForeScore.Services
                     {
                         Content = e.Content,
                         Name = e.Name,
+                        OwnerId = e.OwnerId,
                     });
 
                 return query.ToArray();
