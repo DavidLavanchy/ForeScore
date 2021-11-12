@@ -114,19 +114,12 @@ namespace ForeScore.Services
 
                 foreach (var user in query)
                 {
-                    var post =
-                        ctx
-                        .Posts
-                        .Where(e => e.OwnerId == user)
-                        .Select(e =>
-                        new PostListItem
-                        {
-                            Content = e.Content,
-                            Title = e.Title,
-                            Name = e.Name,
-                            PostId = e.PostId,
+                    var followingsPosts = GetAllFollowingsPosts(user);
 
-                        });
+                    foreach(var post in followingsPosts)
+                    {
+                        _posts.Add(post);
+                    }
                 }
 
 
@@ -184,6 +177,25 @@ namespace ForeScore.Services
                 return true;
             }
         }
+        public IEnumerable<PostListItem> GetAllFollowingsPosts(string id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Posts
+                    .Where(e => id == e.OwnerId)
+                    .Select(e =>
+                    new PostListItem
+                    {
+                        Content = e.Content,
+                        Title = e.Title,
+                        Name = e.Name,
+                        PostId = e.PostId,
+                    });
 
+                return query.ToArray();
+            }
+        }
     }
 }

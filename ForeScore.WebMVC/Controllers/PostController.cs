@@ -128,6 +128,30 @@ namespace ForeScore.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var service = CreatePostService();
+
+            var viewModel = service.GetPost(id);
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreatePostService();
+
+            if (service.DeletePost(id))
+            {
+                TempData["SaveResult"] = "Post successfully deleted";
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
         private PostServices CreatePostService()
         {
             var userId = User.Identity.GetUserId();
