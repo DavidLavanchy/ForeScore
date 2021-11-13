@@ -36,11 +36,39 @@ namespace ForeScore.WebMVC.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Create(int id)
+        {
+            var crsService = CreateCourseService();
+            var course = crsService.GetCourseById(id);
+
+            var viewModel = new TeeTimeCreate
+            { 
+            CourseId = id,
+            CourseName = course.Name,
+            
+            };
+
+            return View(viewModel);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TeeTimeCreate model)
         {
+            var service = CreateTeeTimeService();
 
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (service.CreateTeeTime(model))
+            {
+                TempData["SaveResult"] = "TeeTime was successfully created.";
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
         private TeeTimeServices CreateTeeTimeService()

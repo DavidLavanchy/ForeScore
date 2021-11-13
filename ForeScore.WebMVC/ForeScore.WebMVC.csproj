@@ -267,6 +267,7 @@
     <Content Include="Views\Post\CommentDelete.cshtml" />
     <Content Include="Views\TeeTime\Index.cshtml" />
     <Content Include="Views\TeeTime\SelectCourse.cshtml" />
+    <Content Include="Views\TeeTime\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

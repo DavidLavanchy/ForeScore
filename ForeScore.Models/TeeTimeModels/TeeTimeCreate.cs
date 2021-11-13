@@ -13,5 +13,8 @@ namespace ForeScore.Models.TeeTimeModels
         public int CourseId { get; set; }
         [Required]
         public DateTimeOffset DateOfTeeTime { get; set; }
+        public string CourseName { get; set; }
+
+        public TeeTimeCreate(){}
     }
 }
