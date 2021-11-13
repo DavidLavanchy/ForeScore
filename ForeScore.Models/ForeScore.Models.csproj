@@ -114,6 +114,7 @@
     <Compile Include="ViewModels\HoleCreateViewModel.cs" />
     <Compile Include="ViewModels\PostCreateViewModel.cs" />
     <Compile Include="ViewModels\PostsViewModel.cs" />
+    <Compile Include="ViewModels\TeeTimeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

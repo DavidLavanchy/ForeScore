@@ -10,6 +10,7 @@ namespace ForeScore.Services
 {
     public class TeeTimeServices
     {
+
         private readonly string _userId;
 
         public TeeTimeServices(string userId)
