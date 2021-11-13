@@ -18,6 +18,8 @@ namespace ForeScore.Models.UserCareerModels
         public float AverageDrivingDistance { get; set; }
         public float AveragePutts { get; set; }
         public int RoundsPlayed { get; set; }
+        public int FairwaysHit { get; set; }
+        public int Penalties { get; set; }
         public virtual ICollection<FollowedBy> FollowedBy { get; set; }
         public virtual ICollection<Following> Following { get; set; }
 

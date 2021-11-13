@@ -56,6 +56,8 @@ namespace ForeScore.Services
                     Birdies = GetAllBirdies(_holeData),
                     Pars = GetAllPars(_holeData),
                     RoundsPlayed = rounds.Count,
+                    FairwaysHit = GetAllFairwaysHit(_holeData),
+                    Penalties = GetAllPenalties(_holeData)
                 };
             }
         }
@@ -147,7 +149,7 @@ namespace ForeScore.Services
 
         public float GetAveragePutts(ICollection<HoleDataDetail> Holes)
         {
-            int putts = 0;
+            List<int> putts = new List<int>();
 
             List<HoleDataDetail> overallHoles = new List<HoleDataDetail>();
 
@@ -155,14 +157,13 @@ namespace ForeScore.Services
             {
                 if (item.Putts != null)
                 {
-                    int puttsForHole = (int)item.Putts;
-                    putts = +puttsForHole;
+                    putts.Add((int)item.Putts);
                     overallHoles.Add(item);
                 }
             }
 
 
-            float averagePutts = putts / overallHoles.Count();
+            float averagePutts = putts.Sum() / overallHoles.Count();
 
             return averagePutts;
         }
@@ -187,19 +188,19 @@ namespace ForeScore.Services
 
         public float GetAverageDrivingDistance(ICollection<HoleDataDetail> Holes)
         {
-            int drivingDistance = 0;
+            List<int> drivingDistance = new List<int>();
             List<HoleDataDetail> overallHoles = new List<HoleDataDetail>();
 
             foreach (var hole in Holes)
             {
                 if (hole.DrivingDistance != null)
                 {
-                    drivingDistance = +(int)hole.DrivingDistance;
+                    drivingDistance.Add((int)hole.DrivingDistance);
                     overallHoles.Add(hole);
                 }
             }
 
-            float averageDrivingDistance = drivingDistance / overallHoles.Count();
+            float averageDrivingDistance = drivingDistance.Sum() / overallHoles.Count();
 
             return averageDrivingDistance;
 
@@ -207,98 +208,122 @@ namespace ForeScore.Services
 
         public int GetAllEagles(ICollection<HoleDataDetail> Holes)
         {
-            int eagles = 0;
+            List<int> eagles = new List<int>();
 
             foreach (var hole in Holes)
             {
-                if (hole.Score == 1 && hole.HolePar == 3)
-                {
-                    eagles = +0;
-                }
 
                 if (hole.Score == 2 && hole.HolePar == 4)
                 {
-                    eagles = +1;
+                    int score = 1;
+                    eagles.Add(score);
                 }
 
                 if (hole.Score == 3 && hole.HolePar == 5)
                 {
-                    eagles = +1;
-                }
-
-                else
-                {
-                    eagles = +0;
+                    int score = 1;
+                    eagles.Add(score);
                 }
 
             }
 
-            return eagles;
+            return eagles.Count();
         }
-
-
 
 
         public int GetAllPars(ICollection<HoleDataDetail> Holes)
         {
-            int pars = 0;
+            List<int> pars = new List<int>();
 
             foreach (var hole in Holes)
             {
                 if (hole.Score == 3 && hole.HolePar == 3)
                 {
-                    pars = +1;
+                    int score = 1;
+                    pars.Add(score);
                 }
 
                 if (hole.Score == 4 && hole.HolePar == 4)
                 {
-                    pars = +1;
+                    int score = 1;
+                    pars.Add(score);
                 }
 
                 if (hole.Score == 5 && hole.HolePar == 5)
                 {
-                    pars = +1;
-                }
-
-                else
-                {
-                    pars = +0;
+                    int score = 1;
+                    pars.Add(score);
                 }
 
             }
 
-            return pars;
+            return pars.Count();
         }
 
         public int GetAllBirdies(ICollection<HoleDataDetail> Holes)
         {
-            int birdies = 0;
+            List<int> birdies = new List<int>();
 
             foreach (var hole in Holes)
             {
                 if (hole.Score == 2 && hole.HolePar == 3)
                 {
-                    birdies = +1;
+                    int score = 1;
+                    birdies.Add(score);
                 }
 
                 if (hole.Score == 3 && hole.HolePar == 4)
                 {
-                    birdies = +1;
+                    int score = 1;
+                    birdies.Add(score);
                 }
 
                 if (hole.Score == 4 && hole.HolePar == 5)
                 {
-                    birdies = +1;
+                    int score = 1;
+                    birdies.Add(score);
                 }
 
-                else
+
+            }
+
+            return birdies.Count();
+        }
+
+        public int GetAllFairwaysHit(ICollection<HoleDataDetail> Holes)
+        {
+            List<int> fairwaysHit = new List<int>();
+
+            foreach (var hole in Holes)
+            {
+                if (hole.FairwayHit == true)
                 {
-                    birdies = +0;
+                    int score = 1;
+                    fairwaysHit.Add(score);
                 }
 
             }
 
-            return birdies;
+            return fairwaysHit.Count();
+
+        }
+
+        public int GetAllPenalties(ICollection<HoleDataDetail> Holes)
+        {
+            List<int> penalties = new List<int>();
+
+            foreach (var hole in Holes)
+            {
+                if (hole.Penalty == true)
+                {
+                    int score = 1;
+                    penalties.Add(score);
+                }
+
+            }
+
+            return penalties.Count();
+
         }
 
     }
