@@ -16,25 +16,17 @@ namespace ForeScore.Data
         public override string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FullName { 
-            get 
+        public string FullName
+        {
+            get
             {
                 return $"{FirstName} {LastName}";
-            } 
+            }
         }
-        public float Handicap { get; set; }
-        public float AverageScoreToPar { get; set; }
-        public int Aces { get; set; }
-        public int Eagles { get; set; }
-        public int Birdies { get; set; }
-        public int Pars { get; set; }
-        public float AverageDrivingDistance { get; set; }
-        public float AveragePutts { get; set; }
-        public int RoundsPlayed { get; set; }
-        public virtual ICollection<Round> Rounds { get; set; } = new List<Round>();
-        public virtual ICollection<FollowedBy> FollowedBy { get; set; } = new List<FollowedBy>();
-        public virtual ICollection<Following> Following { get; set; } = new List<Following>();
-        public virtual ICollection<TeeTime> TeeTimes { get; set; } = new List<TeeTime>();
+        public virtual ICollection<Round> Rounds { get; set; }
+        public virtual ICollection<FollowedBy> FollowedBy { get; set; }
+        public virtual ICollection<Following> Following { get; set; }
+        public virtual ICollection<TeeTime> TeeTimes { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

@@ -12,6 +12,7 @@ namespace ForeScore.Data
     {
         [Key]
         public int HoleDataId { get; set; }
+        public int HolePar { get; set; }
         public int HoleNumber { get; set; }
         public int Score { get; set; }
         public int? DrivingDistance { get; set; }

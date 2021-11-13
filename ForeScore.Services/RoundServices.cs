@@ -102,7 +102,7 @@ namespace ForeScore.Services
 
         public RoundDetail GetRoundById(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return CreateNullRound();
             }
@@ -334,6 +334,56 @@ namespace ForeScore.Services
                     });
 
                 return query.ToArray();
+            }
+        }
+
+        public ICollection<RoundDetail> GetAllRounds()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Rounds
+                    .Where(e => e.Id == _userId)
+                    .Select(e =>
+                new RoundDetail
+                {
+                    RoundId = e.RoundId,
+                    CourseName = e.CourseName,
+                    DateOfRound = e.DateOfRound,
+                    Description = e.Description,
+                    IsFeatured = e.IsFeatured,
+                    IsPublic = e.IsPublic,
+                    Score = e.Score,
+                    CourseId = e.CourseId,
+
+                });
+
+                return query.ToArray();
+            }
+        }
+
+        public ICollection<HoleDataDetail> GetAllHoleData(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .HoleData
+                    .Where(e => e.RoundId == id)
+                    .Select(e => new HoleDataDetail
+                    {
+                        DrivingDistance = e.DrivingDistance,
+                        FairwayHit = e.FairwayHit,
+                        HoleNumber = e.HoleNumber,
+                        Penalty = e.Penalty,
+                        Putts = e.Putts,
+                        RoundId = e.RoundId,
+                        Score = e.Score,
+                        HoleDataId = e.HoleDataId,
+                    });
+
+                return query.ToList();
             }
         }
     }

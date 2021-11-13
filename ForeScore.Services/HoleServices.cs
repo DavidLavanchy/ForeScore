@@ -49,78 +49,101 @@ namespace ForeScore.Services
             return course;
         }
 
-    public HoleDetail GetHoleById(int id)
-    {
-        using (var ctx = new ApplicationDbContext())
+        public HoleDetail GetHoleById(int id)
         {
-            var entity =
-                ctx
-                .Holes
-                .Single(e => e.HoleId == id);
-
-            var hole = new HoleDetail
+            using (var ctx = new ApplicationDbContext())
             {
-                Distance = entity.Distance,
-                HoleNumber = entity.HoleNumber,
-                Par = entity.Par
-            };
+                var entity =
+                    ctx
+                    .Holes
+                    .Single(e => e.HoleId == id);
 
-            return hole;
-        }
-    }
-
-    public IEnumerable<HoleDetail> GetHolesByCourseId(int id)
-    {
-        using (var ctx = new ApplicationDbContext())
-        {
-            var query =
-                ctx
-                .Holes
-                .Where(e => e.CourseId == id)
-                .Select(e =>
-                new HoleDetail
+                var hole = new HoleDetail
                 {
-                    Distance = e.Distance,
-                    HoleNumber = e.HoleNumber,
-                    Par = e.Par
-                });
+                    Distance = entity.Distance,
+                    HoleNumber = entity.HoleNumber,
+                    Par = entity.Par
+                };
 
-            var query2 = query.OrderBy(p => p.HoleNumber < p.HoleNumber);
-
-            return query2.ToArray();
+                return hole;
+            }
         }
-    }
 
-    public bool EditHole(HoleEdit model)
-    {
-        using (var ctx = new ApplicationDbContext())
+        public IEnumerable<HoleDetail> GetHolesByCourseId(int id)
         {
-            var entity =
-                ctx
-                .Holes
-                .Single(e => model.HoleId == e.HoleId);
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Holes
+                    .Where(e => e.CourseId == id)
+                    .Select(e =>
+                    new HoleDetail
+                    {
+                        Distance = e.Distance,
+                        HoleNumber = e.HoleNumber,
+                        Par = e.Par
+                    });
 
-            entity.HoleNumber = model.HoleNumber;
-            entity.Par = model.Par;
-            entity.Distance = model.Distance;
+                var query2 = query.OrderBy(p => p.HoleNumber < p.HoleNumber);
 
-            return ctx.SaveChanges() == 1;
+                return query2.ToArray();
+            }
         }
-    }
 
-    public bool DeleteHole(int id)
-    {
-        using (var ctx = new ApplicationDbContext())
+        public bool EditHole(HoleEdit model)
         {
-            var entity =
-                ctx
-                .Holes
-                .Single(e => e.HoleId == id);
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Holes
+                    .Single(e => model.HoleId == e.HoleId);
 
-            ctx.Holes.Remove(entity);
+                entity.HoleNumber = model.HoleNumber;
+                entity.Par = model.Par;
+                entity.Distance = model.Distance;
 
-            return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteHole(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Holes
+                    .Single(e => e.HoleId == id);
+
+                ctx.Holes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public IEnumerable<Hole> GetHoles(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Holes
+                    .Where(e => e.CourseId == id)
+                    .Select(e =>
+                    new Hole
+                    {
+                        Distance = e.Distance,
+                        HoleNumber = e.HoleNumber,
+                        Par = e.Par,
+                        CourseId = e.CourseId,
+                        HoleId = e.HoleId,
+                    });
+
+                var query2 = query.OrderBy(p => p.HoleNumber < p.HoleNumber);
+
+                return query2.ToArray();
+            }
         }
     }
-}
 }

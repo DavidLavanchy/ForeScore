@@ -101,6 +101,10 @@
     <Compile Include="Migrations\202111131444022_CourseName1.Designer.cs">
       <DependentUpon>202111131444022_CourseName1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111131753095_HoleNumber.cs" />
+    <Compile Include="Migrations\202111131753095_HoleNumber.Designer.cs">
+      <DependentUpon>202111131753095_HoleNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111131444022_CourseName1.resx">
       <DependentUpon>202111131444022_CourseName1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111131753095_HoleNumber.resx">
+      <DependentUpon>202111131753095_HoleNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
