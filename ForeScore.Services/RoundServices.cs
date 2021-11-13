@@ -51,6 +51,19 @@ namespace ForeScore.Services
 
                 var round = ctx.Rounds.Find(entity.RoundId);
 
+
+                foreach(var hole in model.CourseDetail.Holes)
+                {
+                    foreach(var holeData in model.HoleData)
+                    {
+                        if(hole.HoleNumber == holeData.HoleNumber)
+                        {
+                            holeData.HolePar = hole.Par;
+                        }
+                    }
+                }
+                
+
                 var _holes = new List<HoleDataCreate>();
 
                 foreach (var hole in model.HoleData)
@@ -64,6 +77,7 @@ namespace ForeScore.Services
                     newHole.FairwayHit = hole.FairwayHit;
                     newHole.DrivingDistance = hole.DrivingDistance;
                     newHole.HoleNumber = hole.HoleNumber;
+                    newHole.HolePar = hole.HolePar;
 
                     _holes.Add(newHole);
                 }
@@ -381,6 +395,7 @@ namespace ForeScore.Services
                         RoundId = e.RoundId,
                         Score = e.Score,
                         HoleDataId = e.HoleDataId,
+                        HolePar = e.HolePar,
                     });
 
                 return query.ToList();

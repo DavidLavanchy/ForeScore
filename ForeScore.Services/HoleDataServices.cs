@@ -24,6 +24,7 @@ namespace ForeScore.Services
                     Putts = model.Putts,
                     Score = model.Score,
                     RoundId = model.RoundId,
+                    HolePar = model.HolePar
                 };
 
                 ctx.HoleData.Add(entity);

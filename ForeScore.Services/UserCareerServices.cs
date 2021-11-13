@@ -49,12 +49,12 @@ namespace ForeScore.Services
                 {
                     FullName = entity.FullName,
                     Handicap = GetHandicap(rounds),
-                    Eagles = GetAllEagles(rounds),
-                    //Aces = GetAllAces(rounds),
-                    AverageDrivingDistance = GetAverageDrivingDistance(rounds),
-                    //AveragePutts = GetAveragePutts(rounds),
-                    Birdies = GetAllBirdies(rounds),
-                    Pars = GetAllPars(rounds),
+                    Eagles = GetAllEagles(_holeData),
+                    Aces = GetAllAces(_holeData),
+                    AverageDrivingDistance = GetAverageDrivingDistance(_holeData),
+                    AveragePutts = GetAveragePutts(_holeData),
+                    Birdies = GetAllBirdies(_holeData),
+                    Pars = GetAllPars(_holeData),
                     RoundsPlayed = rounds.Count,
                 };
             }
@@ -167,147 +167,139 @@ namespace ForeScore.Services
             return averagePutts;
         }
 
-        //public int GetAllAces(ICollection<HoleDataDetail> Rounds)
-        //{
-        //    int aces = 0;
+        public int GetAllAces(ICollection<HoleDataDetail> Holes)
+        {
+            int aces = 0;
 
-        //    foreach (var round in Rounds)
-        //    {
+            foreach (var hole in Holes)
+            {
+                if (hole.Score == 1)
+                {
+                    aces = +1;
+                }
+                else
+                {
+                    aces = +0;
+                }
+            }
+            return aces;
+        }
 
-        //       var holeData = round;
-
-        //        foreach (var item in holeData)
-        //        {
-        //            if (item.Score == 1)
-        //            {
-        //                aces++;
-        //            }
-
-        //        }
-        //    }
-        //    return aces;
-        //}
-
-        public float GetAverageDrivingDistance(ICollection<RoundDetail> Rounds)
+        public float GetAverageDrivingDistance(ICollection<HoleDataDetail> Holes)
         {
             int drivingDistance = 0;
             List<HoleDataDetail> overallHoles = new List<HoleDataDetail>();
 
-            foreach (var round in Rounds)
+            foreach (var hole in Holes)
             {
-                var holeData = round.HoleData;
-
-                foreach (var item in holeData)
+                if (hole.DrivingDistance != null)
                 {
-                    if (item.DrivingDistance != null)
-                    {
-                        int driveForHole = (int)item.DrivingDistance;
-                        drivingDistance = +driveForHole;
-                        overallHoles.Add(item);
-                    }
+                    drivingDistance = +(int)hole.DrivingDistance;
+                    overallHoles.Add(hole);
                 }
             }
 
             float averageDrivingDistance = drivingDistance / overallHoles.Count();
 
             return averageDrivingDistance;
+
         }
 
-        public int GetAllEagles(ICollection<RoundDetail> Rounds)
+        public int GetAllEagles(ICollection<HoleDataDetail> Holes)
         {
-            var service = new HoleServices();
             int eagles = 0;
 
-            foreach (var round in Rounds)
+            foreach (var hole in Holes)
             {
-                var hole = service.GetHoles(round.CourseId);
-                var holeData = round.HoleData;
-
-                foreach (var item in holeData)
+                if (hole.Score == 1 && hole.HolePar == 3)
                 {
-                    var score = item.Score;
-                    var id = item.HoleNumber;
-
-                    foreach (var item2 in hole)
-                    {
-                        var holePar = item2.Par;
-                        var holeId = item2.HoleNumber;
-
-                        if (id == holeId && holePar == 3 && score == 1)
-                        {
-                            eagles = +0;
-                        }
-
-                        if (id == holeId && holePar == score - 2)
-                        {
-                            eagles += 1;
-                        }
-
-                    }
+                    eagles = +0;
                 }
+
+                if (hole.Score == 2 && hole.HolePar == 4)
+                {
+                    eagles = +1;
+                }
+
+                if (hole.Score == 3 && hole.HolePar == 5)
+                {
+                    eagles = +1;
+                }
+
+                else
+                {
+                    eagles = +0;
+                }
+
             }
+
             return eagles;
         }
 
-        public int GetAllPars(ICollection<RoundDetail> Rounds)
+
+
+
+        public int GetAllPars(ICollection<HoleDataDetail> Holes)
         {
-            var service = new HoleServices();
             int pars = 0;
 
-            foreach (var round in Rounds)
+            foreach (var hole in Holes)
             {
-                var hole = service.GetHoles(round.CourseId);
-                var holeData = round.HoleData;
-
-                foreach (var item in holeData)
+                if (hole.Score == 3 && hole.HolePar == 3)
                 {
-                    var score = item.Score;
-                    var id = item.HoleNumber;
-
-                    foreach (var item2 in hole)
-                    {
-                        var holePar = item2.Par;
-                        var holeId = item2.HoleNumber;
-
-                        if (id == holeId && holePar == score)
-                        {
-                            pars += 1;
-                        }
-
-                    }
+                    pars = +1;
                 }
+
+                if (hole.Score == 4 && hole.HolePar == 4)
+                {
+                    pars = +1;
+                }
+
+                if (hole.Score == 5 && hole.HolePar == 5)
+                {
+                    pars = +1;
+                }
+
+                else
+                {
+                    pars = +0;
+                }
+
             }
+
             return pars;
         }
-        public int GetAllBirdies(ICollection<RoundDetail> Rounds)
+
+        public int GetAllBirdies(ICollection<HoleDataDetail> Holes)
         {
-            var service = new HoleServices();
             int birdies = 0;
 
-            foreach (var round in Rounds)
+            foreach (var hole in Holes)
             {
-                var hole = service.GetHoles(round.CourseId);
-                var holeData = round.HoleData;
-
-                foreach (var item in holeData)
+                if (hole.Score == 2 && hole.HolePar == 3)
                 {
-                    var score = item.Score;
-                    var id = item.HoleNumber;
-
-                    foreach (var item2 in hole)
-                    {
-                        var holePar = item2.Par;
-                        var holeId = item2.HoleNumber;
-
-                        if (id == holeId && holePar == score - 1)
-                        {
-                            birdies += 1;
-                        }
-
-                    }
+                    birdies = +1;
                 }
+
+                if (hole.Score == 3 && hole.HolePar == 4)
+                {
+                    birdies = +1;
+                }
+
+                if (hole.Score == 4 && hole.HolePar == 5)
+                {
+                    birdies = +1;
+                }
+
+                else
+                {
+                    birdies = +0;
+                }
+
             }
+
             return birdies;
         }
+
     }
 }
