@@ -60,8 +60,8 @@ namespace ForeScore.Services
                     CourseDetail = courseDetail,
                     CourseId = entity.CourseId,
                     DateOfTeeTime = entity.DateOfTeeTime,
-                    CourseName = entity.CourseName
-
+                    CourseName = entity.CourseName,
+                    TeeTimeId = entity.TeeTimeId
                 };
 
                 return teeTime;

@@ -1,0 +1,44 @@
+﻿@model ForeScore.Models.TeeTimeModels.TeeTimeDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tee Time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @Html.HiddenFor(model => model.TeeTimeId)
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.Address)</dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.City)</dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.StateOfResidence)</dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.PhoneNumber)</dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.EmailAddress)</dd>
+
+        <dd>@Html.DisplayFor(model => model.CourseDetail.Website)</dd>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfTeeTime)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.TeeTimeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

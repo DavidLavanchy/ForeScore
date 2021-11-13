@@ -42,10 +42,10 @@ namespace ForeScore.WebMVC.Controllers
             var course = crsService.GetCourseById(id);
 
             var viewModel = new TeeTimeCreate
-            { 
-            CourseId = id,
-            CourseName = course.Name,
-            
+            {
+                CourseId = id,
+                CourseName = course.Name,
+
             };
 
             return View(viewModel);
@@ -69,6 +69,39 @@ namespace ForeScore.WebMVC.Controllers
             }
 
             return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var teeTimeService = CreateTeeTimeService();
+
+            var viewModel = teeTimeService.GetTeeTimeById(id);
+
+            return View(viewModel);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var teeTimeService = CreateTeeTimeService();
+
+            var viewModel = teeTimeService.GetTeeTimeById(id);
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTeeTime(int id)
+        {
+            var teeTimeService = CreateTeeTimeService();
+
+            if (teeTimeService.DeleteTeeTime(id))
+            {
+                TempData["SaveResult"] = "TeeTime was successfully deleted.";
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
 
         private TeeTimeServices CreateTeeTimeService()
