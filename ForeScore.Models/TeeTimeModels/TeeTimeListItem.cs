@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ForeScore.Models.CourseModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,8 @@ namespace ForeScore.Models.TeeTimeModels
     {
         public int CourseId { get; set; }
         public DateTimeOffset DateOfTeeTime { get; set; }
+        public CourseDetail CourseDetail { get; set; }
+        public string CourseName { get; set; }
+        public int TeeTimeId { get; set; }
     }
 }
