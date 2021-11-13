@@ -12,5 +12,6 @@ namespace ForeScore.Models.CommentModels
         public int PostId { get; set; }
         public string Name { get; set; }
         public string OwnerId { get; set; }
+        public int CommentId { get; set; }
     }
 }

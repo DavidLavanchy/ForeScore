@@ -180,7 +180,7 @@
                     @if(item.OwnerId == Model.OwnerId)
                 {
                 <td>
-                    @Html.ActionLink("Delete Comment", "DeleteComment", new { id = Model.PostId }) |
+                    @Html.ActionLink("Delete Comment", "DeleteComment", new { id = item.CommentId }) |
                 </td>
                 }
                 </tr>

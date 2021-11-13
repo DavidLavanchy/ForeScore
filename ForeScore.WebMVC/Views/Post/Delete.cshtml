@@ -158,35 +158,8 @@
             </table>
         </div>
     }
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th> Name</th>
-                <th> Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Comments)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Content)
-                    </td>
-                    @if (item.OwnerId == Model.OwnerId)
-                    {
-                        <td>
-                            @Html.ActionLink("Delete Comment", "DeleteComment", new { id = Model.PostId }) |
-                        </td>
-                    }
-                </tr>
-            }
-        </tbody>
+ 
 
-
-    </table>
 
 </div>
 

@@ -81,6 +81,7 @@ namespace ForeScore.Services
                         Content = e.Content,
                         Name = e.Name,
                         OwnerId = e.OwnerId,
+                        CommentId = e.CommentId,
                     });
 
                 return query.ToArray();
