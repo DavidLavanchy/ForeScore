@@ -59,10 +59,10 @@
                     <td>
                         Hole
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.Holes.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.FrontNine.Count; i++)
                     {
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.Holes[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>
@@ -70,10 +70,10 @@
                     <td>
                         Par
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.Holes.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.FrontNine.Count; i++)
                     {
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.Holes[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>
@@ -81,10 +81,10 @@
                     <td>
                         Distance (Yards)
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.Holes.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.FrontNine.Count; i++)
                     {
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>
@@ -92,12 +92,12 @@
                     <td>
                         Score
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.HoleData.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.FrontNine.Count; i++)
                     {
 
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].Score, new { htmlAttributes = new { @class = "form-control", } })
-                            @Html.HiddenFor(model => Model.PostDetail.RoundDetail.HoleData[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.HiddenFor(model => Model.PostDetail.RoundDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
 
                     }
@@ -106,11 +106,11 @@
                     <td>
                         Driving Distance (Yards)
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.HoleData.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.FrontNine.Count; i++)
                     {
 
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
 
                     }
@@ -119,11 +119,11 @@
                     <td>
                         Putts
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.HoleData.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.FrontNine.Count; i++)
                     {
 
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
 
                     }
@@ -132,12 +132,12 @@
                     <td>
                         Fairway Hit
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.HoleData.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.FrontNine.Count; i++)
                     {
 
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
 
                     }
@@ -146,12 +146,116 @@
                     <td>
                         Penalty(s)
                     </td>
-                    @for (int i = 0; i < Model.PostDetail.RoundDetail.HoleData.Count; i++)
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.FrontNine.Count; i++)
                     {
 
                         <td>
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
-                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.HoleData[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.FrontNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+
+                    }
+                </tr>
+            </table>
+            <br />
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        Hole
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.BackNine.Count; i++)
+                    {
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Par
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.BackNine.Count; i++)
+                    {
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Distance (Yards)
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.CourseDetail.BackNine.Count; i++)
+                    {
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Score
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.BackNine.Count; i++)
+                    {
+
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.HiddenFor(model => Model.PostDetail.RoundDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Driving Distance (Yards)
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.BackNine.Count; i++)
+                    {
+
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Putts
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.BackNine.Count; i++)
+                    {
+
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Fairway Hit
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.BackNine.Count; i++)
+                    {
+
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        Penalty(s)
+                    </td>
+                    @for (int i = 0; i < Model.PostDetail.RoundDetail.BackNine.Count; i++)
+                    {
+
+                        <td>
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.PostDetail.RoundDetail.BackNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
 
                     }
