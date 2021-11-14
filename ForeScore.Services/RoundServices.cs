@@ -28,7 +28,13 @@ namespace ForeScore.Services
 
                 var score = new List<int>();
 
-                foreach (var hole in model.HoleData)
+                foreach (var hole in model.FrontNine)
+                {
+                    var holeScore = hole.Score;
+                    score.Add(holeScore);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     var holeScore = hole.Score;
                     score.Add(holeScore);
@@ -54,7 +60,7 @@ namespace ForeScore.Services
 
                 foreach(var hole in model.CourseDetail.Holes)
                 {
-                    foreach(var holeData in model.HoleData)
+                    foreach(var holeData in model.FrontNine)
                     {
                         if(hole.HoleNumber == holeData.HoleNumber)
                         {
@@ -62,11 +68,38 @@ namespace ForeScore.Services
                         }
                     }
                 }
-                
+
+                foreach (var hole in model.CourseDetail.Holes)
+                {
+                    foreach (var holeData in model.BackNine)
+                    {
+                        if (hole.HoleNumber == holeData.HoleNumber)
+                        {
+                            holeData.HolePar = hole.Par;
+                        }
+                    }
+                }
+
 
                 var _holes = new List<HoleDataCreate>();
 
-                foreach (var hole in model.HoleData)
+                foreach (var hole in model.FrontNine)
+                {
+                    var newHole = new HoleDataCreate();
+
+                    newHole.RoundId = round.RoundId;
+                    newHole.Score = hole.Score;
+                    newHole.Putts = hole.Putts;
+                    newHole.Penalty = hole.Penalty;
+                    newHole.FairwayHit = hole.FairwayHit;
+                    newHole.DrivingDistance = hole.DrivingDistance;
+                    newHole.HoleNumber = hole.HoleNumber;
+                    newHole.HolePar = hole.HolePar;
+
+                    _holes.Add(newHole);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     var newHole = new HoleDataCreate();
 
@@ -97,7 +130,7 @@ namespace ForeScore.Services
         {
             List<HoleDataCreate> _holes = new List<HoleDataCreate>();
 
-            for (int i = 1; i < 19; i++)
+            for (int i = 1; i < 10; i++)
             {
                 HoleDataCreate nullHole = new HoleDataCreate();
 
@@ -106,9 +139,21 @@ namespace ForeScore.Services
                 _holes.Add(nullHole);
             }
 
+            List<HoleDataCreate> _holesBack = new List<HoleDataCreate>();
+
+            for (int i = 10; i < 19; i++)
+            {
+                HoleDataCreate nullHole = new HoleDataCreate();
+
+                nullHole.HoleNumber = i;
+
+                _holesBack.Add(nullHole);
+            }
+
             RoundCreateModel round = new RoundCreateModel();
 
-            round.HoleData = _holes;
+            round.FrontNine = _holes;
+            round.BackNine = _holesBack;
 
 
             return round;
