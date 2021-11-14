@@ -169,7 +169,13 @@ namespace ForeScore.Services
                 ctx.SaveChanges();
 
 
-                foreach (var hole in model.Holes)
+                foreach (var hole in model.FrontNine)
+                {
+                    var service = new HoleServices();
+                    service.EditHole(hole);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     var service = new HoleServices();
                     service.EditHole(hole);

@@ -78,7 +78,7 @@ namespace ForeScore.WebMVC.Controllers
 
             var _holes = new List<HoleEdit>();
 
-            foreach (var hole in entity.Holes)
+            foreach (var hole in entity.FrontNine)
             {
                 HoleEdit newHole = new HoleEdit();
 
@@ -91,6 +91,21 @@ namespace ForeScore.WebMVC.Controllers
 
             }
 
+            var _holesBack = new List<HoleEdit>();
+
+            foreach (var hole in entity.BackNine)
+            {
+                HoleEdit newHole = new HoleEdit();
+
+                newHole.HoleId = hole.HoleId;
+                newHole.Distance = hole.Distance;
+                newHole.Par = hole.Par;
+                newHole.HoleNumber = hole.HoleNumber;
+
+                _holesBack.Add(newHole);
+
+            }
+
             var model = new CourseEdit
             {
                 Address = entity.Address,
@@ -98,7 +113,8 @@ namespace ForeScore.WebMVC.Controllers
                 City = entity.City,
                 ZipCode = entity.ZipCode,
                 Name = entity.Name,
-                Holes = _holes,
+                FrontNine = _holes,
+                BackNine = _holesBack,
                 Par = entity.Par,
                 PhoneNumber = entity.PhoneNumber,
                 Rating = entity.Rating,
