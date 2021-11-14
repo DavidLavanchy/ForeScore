@@ -23,5 +23,7 @@ namespace ForeScore.Models.RoundModels
         public bool? IsFeatured { get; set; }
         public DateTimeOffset? DateOfRound { get; set; }
         public List<HoleDataEdit> HoleData { get; set; }
+        public List<HoleDataEdit> FrontNine { get; set; }
+        public List<HoleDataEdit> BackNine { get; set; }
     }
 }

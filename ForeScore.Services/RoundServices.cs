@@ -58,18 +58,18 @@ namespace ForeScore.Services
                 var round = ctx.Rounds.Find(entity.RoundId);
 
 
-                foreach(var hole in model.CourseDetail.Holes)
+                foreach (var hole in model.CourseDetail.FrontNine)
                 {
-                    foreach(var holeData in model.FrontNine)
+                    foreach (var holeData in model.FrontNine)
                     {
-                        if(hole.HoleNumber == holeData.HoleNumber)
+                        if (hole.HoleNumber == holeData.HoleNumber)
                         {
                             holeData.HolePar = hole.Par;
                         }
                     }
                 }
 
-                foreach (var hole in model.CourseDetail.Holes)
+                foreach (var hole in model.CourseDetail.BackNine)
                 {
                     foreach (var holeData in model.BackNine)
                     {
@@ -173,22 +173,6 @@ namespace ForeScore.Services
                     .Rounds
                     .Single(e => e.RoundId == id);
 
-                var query =
-                    ctx
-                    .HoleData
-                    .Where(e => e.RoundId == id)
-                    .Select(e => new HoleDataDetail
-                    {
-                        DrivingDistance = e.DrivingDistance,
-                        FairwayHit = e.FairwayHit,
-                        HoleNumber = e.HoleNumber,
-                        Penalty = e.Penalty,
-                        Putts = e.Putts,
-                        RoundId = e.RoundId,
-                        Score = e.Score,
-                        HoleDataId = e.HoleDataId
-                    });
-
                 var course =
                     ctx
                     .Courses
@@ -198,7 +182,8 @@ namespace ForeScore.Services
 
                 var courseDetail = service.GetCourseById(course.CourseId);
 
-                var holes = query.ToList();
+                HoleData[] frontNine = entity.HoleData.Take(9).ToArray();
+                HoleData[] backNine = entity.HoleData.Skip(9).Take(18).ToArray();
 
                 var round = new RoundDetail
                 {
@@ -206,7 +191,8 @@ namespace ForeScore.Services
                     CourseName = entity.CourseName,
                     DateOfRound = entity.DateOfRound,
                     Description = entity.Description,
-                    HoleData = holes,
+                    FrontNine = frontNine.ToList(),
+                    BackNine = backNine.ToList(),
                     IsFeatured = entity.IsFeatured,
                     IsPublic = entity.IsPublic,
                     Score = entity.Score,
