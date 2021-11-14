@@ -289,7 +289,13 @@ namespace ForeScore.Services
 
                 var score = new List<int>();
 
-                foreach (var hole in model.HoleData)
+                foreach (var hole in model.FrontNine)
+                {
+                    var holeScore = hole.Score;
+                    score.Add(holeScore);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     var holeScore = hole.Score;
                     score.Add(holeScore);
@@ -303,7 +309,36 @@ namespace ForeScore.Services
 
                 ctx.SaveChanges();
 
-                foreach (var hole in model.HoleData)
+                foreach (var hole in model.CourseDetail.FrontNine)
+                {
+                    foreach (var holeData in model.FrontNine)
+                    {
+                        if (hole.HoleNumber == holeData.HoleNumber)
+                        {
+                            holeData.HolePar = hole.Par;
+                        }
+                    }
+                }
+
+                foreach (var hole in model.CourseDetail.BackNine)
+                {
+                    foreach (var holeData in model.BackNine)
+                    {
+                        if (hole.HoleNumber == holeData.HoleNumber)
+                        {
+                            holeData.HolePar = hole.Par;
+                        }
+                    }
+                }
+
+                foreach (var hole in model.FrontNine)
+                {
+                    var service = new HoleDataServices();
+
+                    service.EditHoleData(hole);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     var service = new HoleDataServices();
 

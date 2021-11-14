@@ -103,7 +103,7 @@ namespace ForeScore.WebMVC.Controllers
 
             var _holes = new List<HoleDataEdit>();
 
-            foreach(var hole in entity.HoleData)
+            foreach(var hole in entity.FrontNine)
             {
                 var holeData = new HoleDataEdit();
 
@@ -119,9 +119,28 @@ namespace ForeScore.WebMVC.Controllers
                 _holes.Add(holeData);
             }
 
+            var _holesBack = new List<HoleDataEdit>();
+
+            foreach (var hole in entity.BackNine)
+            {
+                var holeData = new HoleDataEdit();
+
+                holeData.DrivingDistance = hole.DrivingDistance;
+                holeData.FairwayHit = hole.FairwayHit;
+                holeData.HoleDataId = hole.HoleDataId;
+                holeData.Penalty = hole.Penalty;
+                holeData.Putts = hole.Putts;
+                holeData.HoleNumber = hole.HoleNumber;
+                holeData.Score = hole.Score;
+                holeData.RoundId = hole.RoundId;
+
+                _holesBack.Add(holeData);
+            }
+
             var courseService = CreateCourseService();
 
-            viewModel.HoleData = _holes;
+            viewModel.FrontNine = _holes;
+            viewModel.BackNine = _holesBack;
             viewModel.CourseDetail = courseService.GetCourseById(entity.CourseId);
 
             return View(viewModel);

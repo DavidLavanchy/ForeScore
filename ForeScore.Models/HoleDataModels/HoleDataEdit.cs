@@ -18,5 +18,6 @@ namespace ForeScore.Models.HoleDataModels
         public bool? FairwayHit { get; set; }
         public int HoleNumber { get; set; }
         public int RoundId { get; set; }
+        public int? HolePar { get; set; }
     }
 }

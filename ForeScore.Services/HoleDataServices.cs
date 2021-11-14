@@ -95,6 +95,7 @@ namespace ForeScore.Services
                 entity.Penalty = model.Penalty;
                 entity.Putts = model.Putts;
                 entity.Score = model.Score;
+                entity.HolePar = model.HolePar;
 
                 return ctx.SaveChanges() == 1;
             }

@@ -30,11 +30,11 @@
                 <td>
                     Hole
                 </td>
-                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
                 {
                     <td>
-                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].HoleNumber)
+                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.FrontNine[i].HoleNumber)
                     </td>
                 }
             </tr>
@@ -42,11 +42,11 @@
                 <td>
                     Par
                 </td>
-                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
                 {
                     <td>
-                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].Par)
+                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.FrontNine[i].Par)
                     </td>
                 }
             </tr>
@@ -54,11 +54,11 @@
                 <td>
                     Distance (Yards)
                 </td>
-                @for (int i = 0; i < Model.CourseDetail.Holes.Count; i++)
+                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
                 {
                     <td>
-                        @Html.DisplayFor(model => Model.CourseDetail.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => model.CourseDetail.Holes[i].Distance)
+                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => model.CourseDetail.FrontNine[i].Distance)
                     </td>
                 }
             </tr>
@@ -66,13 +66,14 @@
                 <td>
                     Score
                 </td>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
+                @for (int i = 0; i < Model.FrontNine.Count; i++)
                 {
 
                     <td>
-                        @Html.TextBoxFor(model => Model.HoleData[i].Score, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => Model.HoleData[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.HiddenFor(model => Model.HoleData[i].HoleDataId)
+                        @Html.TextBoxFor(model => Model.FrontNine[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.FrontNine[i].HoleDataId)
+                        @Html.HiddenFor(model => Model.FrontNine[i].HolePar, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                     </td>
 
                 }
@@ -81,11 +82,11 @@
                 <td>
                     Driving Distance (Yards)
                 </td>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
+                @for (int i = 0; i < Model.FrontNine.Count; i++)
                 {
 
                     <td>
-                        @Html.TextBoxFor(model => Model.HoleData[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.TextBoxFor(model => Model.FrontNine[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
                     </td>
 
                 }
@@ -94,11 +95,11 @@
                 <td>
                     Putts
                 </td>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
+                @for (int i = 0; i < Model.FrontNine.Count; i++)
                 {
 
                     <td>
-                        @Html.TextBoxFor(model => Model.HoleData[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.TextBoxFor(model => Model.FrontNine[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
                     </td>
 
                 }
@@ -107,12 +108,12 @@
                 <td>
                     Fairway Hit
                 </td>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
+                @for (int i = 0; i < Model.FrontNine.Count; i++)
                 {
 
                     <td>
-                        @Html.RadioButtonFor(model => Model.HoleData[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.RadioButtonFor(model => Model.HoleData[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
                     </td>
 
                 }
@@ -121,14 +122,119 @@
                 <td>
                     Penalty(s)
                 </td>
-                @for (int i = 0; i < Model.HoleData.Count; i++)
+                @for (int i = 0; i < Model.FrontNine.Count; i++)
                 {
 
                     <td>
-                        @Html.RadioButtonFor(model => Model.HoleData[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.RadioButtonFor(model => Model.HoleData[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
                     </td>
 
+                }
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <td>
+                    Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Distance)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Par
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Par)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Hole
+                </td>
+                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                {
+                    <td>
+                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].HoleNumber)
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Score
+                </td>
+                @for (int i = 0; i < Model.BackNine.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.BackNine[i].Score, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.BackNine[i].HoleDataId)
+                        @Html.HiddenFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.HiddenFor(model => Model.BackNine[i].HolePar, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Driving Distance (Yards)
+                </td>
+                @for (int i = 0; i < Model.BackNine.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.BackNine[i].DrivingDistance, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Putts
+                </td>
+                @for (int i = 0; i < Model.BackNine.Count; i++)
+                {
+
+                    <td>
+                        @Html.TextBoxFor(model => Model.BackNine[i].Putts, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <td>
+                    Fairway Hit
+                </td>
+                @for (int i = 0; i < Model.BackNine.Count; i++)
+                {
+                    <td>
+                        @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Penalty(s)
+                </td>
+                @for (int i = 0; i < Model.BackNine.Count; i++)
+                {
+                    <td>
+                        @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                    </td>
                 }
             </tr>
         </table>
