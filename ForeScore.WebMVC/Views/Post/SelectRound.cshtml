@@ -1,58 +1,93 @@
 ﻿@model ForeScore.Models.ViewModels.PostCreateViewModel
+
 @{
     ViewBag.Title = "SelectRound";
 }
 
-<h2>Select Round</h2>
 
-<p>
-    @Html.ActionLink("Back To Round List", "Index")
-</p>
+<div class="container">
 
-@Html.ActionLink("Create Post Without A Round", "CreatePost", new { id = Model.NullRound })
-
-<table class="table">
-    <tr>
-
-        <th>
-            Course Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Date of Round
-        </th>
-        <th>
-            Score
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Rounds)
-    {
-        <tr>
-
-            @Html.HiddenFor(modelItem => item.RoundId)
-
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfRound)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Score)
-            </td>
+    <h2>Select A Round To Post</h2>
+    <br />
+    <div class="row col-lg-12">
+        <div class="col-lg-5">
+            <a href="@Url.Action("Index", "Round")"
+               id="sample_editable_1_new"
+               class="btn btn-block btn-info col-lg-2">
+                Round Index
+            </a>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-5">
+            <a href="@Url.Action("CreatePost", "Post", new { id = Model.NullRound })"
+               id="sample_editable_1_new"
+               class="btn btn-block btn-success col-lg-2">
+                Create A Post Without A Round
+            </a>
+        </div>
+    </div>
+</div>
+<br />
 
 
-            <td>
-                @Html.ActionLink("Post This Round", "CreatePost", new { id = item.RoundId })
-            </td>
-        </tr>
-    }
+<div class="row col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body panel-default ">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="row">
+                            Course Name
+                        </th>
+                        <th scope="row">
+                            Description
+                        </th>
+                        <th scope="row">
+                            Score
+                        </th>
+                        <th scope="row">
+                            Is Public
+                        </th>
+                        <th scope="row">
+                            Is Featured
+                        </th>
+                        <th scope="row">
+                            Date of Round
+                        </th>
+                        <th scope="row"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Rounds)
+                    {
+                        <tr>
+                            <td scope="row">
+                                @Html.DisplayFor(modelItem => item.CourseName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Score)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsPublic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsFeatured)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateOfRound)
+                            </td>
 
-</table>
+                            <td>
+                                @Html.ActionLink("Post This Round", "CreatePost", new { id = item.RoundId })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
