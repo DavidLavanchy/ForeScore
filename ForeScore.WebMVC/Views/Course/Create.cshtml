@@ -195,6 +195,7 @@
                                 {
                                     <th scope="col">
                                         @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { @class = "textboxform-control" })
+                                        @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber)
                                     </th>
                                 }
                             </tr>
@@ -243,6 +244,7 @@
                                 {
                                     <th scope="col">
                                         @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { @class = "textboxform-control" })
+                                        @Html.HiddenFor(model => Model.BackNine[i].HoleNumber)
                                     </th>
                                 }
                             </tr>
@@ -286,14 +288,12 @@
                     Discard Course
                 </a>
             </div>
+            <div class=" col-lg-2"></div>
+            <div class="col-lg-5">
 
-            <div class="col-lg-5"></div>
-            @using (Html.BeginForm())
-            {
+                <button type="submit" value="Create" class="btn btn-block btn-success col-lg-2">Create</button>
 
-                <input type="submit" value="Create" class="btn btn-block btn-success col-lg-2" />
-
-            }
+            </div>
         </div>
 
     </div>

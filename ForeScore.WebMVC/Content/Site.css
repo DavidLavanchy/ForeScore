@@ -29,8 +29,7 @@ textarea {
 }
 
 .panel .panel-heading {
-  border-left: 4cm;
-  border-right: 4cm;
+  
 }
 
 h2 {
@@ -44,4 +43,5 @@ h2 {
 .form-group .classwithpad {
     padding-bottom: 20px;
 }
+
 

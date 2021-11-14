@@ -4,67 +4,78 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>YourRounds</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsPublic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsFeatured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfRound)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="panel-heading col-lg-3"></div>
+    <div class="panel-heading col-lg-6">
+        <a href="/Round/Create" class="btn btn-primary btn-block">
+            Add A New Round
+        </a>
+    </div>
+    <div class="panel-heading col-lg-3"></div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.HiddenFor(modelItem => item.RoundId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.HiddenFor(modelItem => item.CourseId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Score)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPublic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFeatured)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfRound)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RoundId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RoundId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RoundId })
-            </td>
-        </tr>
-    }
+    <div class="row col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body panel-default ">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.CourseName)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Score)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.IsPublic)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.IsFeatured)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.DateOfRound)
+                            </th>
+                            <th scope="row"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td scope="row">
+                                    @Html.DisplayFor(modelItem => item.CourseName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Score)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsPublic)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsFeatured)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateOfRound)
+                                </td>
 
-</table>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.RoundId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.RoundId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.RoundId })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
