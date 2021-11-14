@@ -292,6 +292,19 @@ namespace ForeScore.Services
                     .Rounds
                     .Single(e => id == e.RoundId);
 
+                var posts =
+                    ctx
+                    .Posts
+                    .Where(e => e.RoundId == id)
+                    .Select(e => e.PostId);
+
+                var service = new PostServices(_userId);
+
+                foreach(var post in posts)
+                {
+                    service.DeletePost(post);
+                }
+
 
                 ctx.Rounds.Remove(entity);
                 ctx.SaveChanges();
@@ -304,8 +317,8 @@ namespace ForeScore.Services
 
                 foreach (var hole in query)
                 {
-                    var service = new HoleDataServices();
-                    service.DeleteHoleData(hole);
+                    var holeService = new HoleDataServices();
+                    holeService.DeleteHoleData(hole);
                 }
 
 
