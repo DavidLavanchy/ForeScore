@@ -11,8 +11,8 @@ namespace ForeScore.Models.ViewModels
     {
         public int HoleNumber { get; set; }
         [Required]
-        public int Par { get; set; }
+        public int? Par { get; set; }
         [Required]
-        public int Distance { get; set; }
+        public int? Distance { get; set; }
     }
 }

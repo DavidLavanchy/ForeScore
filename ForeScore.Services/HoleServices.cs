@@ -38,6 +38,8 @@ namespace ForeScore.Services
                 HoleCreateViewModel nullHole = new HoleCreateViewModel();
 
                 nullHole.HoleNumber = i;
+                nullHole.Par = null;
+                nullHole.Distance = null;
 
                 _holes.Add(nullHole);
             }
@@ -49,6 +51,8 @@ namespace ForeScore.Services
                 HoleCreateViewModel nullHole = new HoleCreateViewModel();
 
                 nullHole.HoleNumber = i;
+                nullHole.Par = null;
+                nullHole.Distance = null;
 
                 _holesBack.Add(nullHole);
             }

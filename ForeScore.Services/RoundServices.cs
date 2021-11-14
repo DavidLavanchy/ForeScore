@@ -161,10 +161,6 @@ namespace ForeScore.Services
 
         public RoundDetail GetRoundById(int? id)
         {
-            if (id == null)
-            {
-                return CreateNullRound();
-            }
 
             using (var ctx = new ApplicationDbContext())
             {
