@@ -33,7 +33,7 @@ namespace ForeScore.Services
         {
             List<HoleCreateViewModel> _holes = new List<HoleCreateViewModel>();
 
-            for (int i = 1; i < 19; i++)
+            for (int i = 1; i < 10; i++)
             {
                 HoleCreateViewModel nullHole = new HoleCreateViewModel();
 
@@ -42,9 +42,21 @@ namespace ForeScore.Services
                 _holes.Add(nullHole);
             }
 
+            List<HoleCreateViewModel> _holesBack = new List<HoleCreateViewModel>();
+
+            for (int i = 10; i < 19; i++)
+            {
+                HoleCreateViewModel nullHole = new HoleCreateViewModel();
+
+                nullHole.HoleNumber = i;
+
+                _holesBack.Add(nullHole);
+            }
+
             CourseCreate course = new CourseCreate();
 
-            course.Holes = _holes;
+            course.FrontNine = _holes;
+            course.BackNine = _holesBack;
 
             return course;
         }

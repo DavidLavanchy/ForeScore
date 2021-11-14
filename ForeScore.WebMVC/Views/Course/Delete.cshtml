@@ -56,10 +56,10 @@
                     <th scope="col">
                         Hole
                     </th>
-                    @for (int i = 0; i < Model.Holes.Count; i++)
+                    @for (int i = 0; i < Model.FrontNine.Count; i++)
                     {
                         <th>
-                            @Html.DisplayFor(model => Model.Holes[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                         </th>
                     }
                 </tr>
@@ -70,10 +70,10 @@
                     <th scope="col">
                         Par
                     </th>
-                    @for (int i = 0; i < Model.Holes.Count; i++)
+                    @for (int i = 0; i < Model.FrontNine.Count; i++)
                     {
                         <td>
-                            @Html.DisplayFor(model => Model.Holes[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>
@@ -82,11 +82,54 @@
                     <th scope="col">
                         Distance (Yards)
                     </th>
-                    @for (int i = 0; i < Model.Holes.Count; i++)
+                    @for (int i = 0; i < Model.FrontNine.Count; i++)
                     {
                         <td>
-                            @Html.DisplayFor(model => Model.Holes[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                            @Html.HiddenFor(model => Model.Holes[i].HoleId, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.DisplayFor(model => Model.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+                    }
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Hole
+                    </th>
+                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                    {
+                        <th>
+                            @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="col">
+                        Par
+                    </th>
+                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                    {
+                        <td>
+                            @Html.DisplayFor(model => Model.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                        </td>
+                    }
+                </tr>
+
+                <tr>
+                    <th scope="col">
+                        Distance (Yards)
+                    </th>
+                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                    {
+                        <td>
+                            @Html.DisplayFor(model => Model.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
                         </td>
                     }
                 </tr>

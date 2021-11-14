@@ -26,7 +26,8 @@ namespace ForeScore.Models.CourseModels
         [Required]
         [Range(69,74)]
         public int? Par { get; set; }
-        public List<HoleCreateViewModel> Holes { get; set; }
+        public List<HoleCreateViewModel> FrontNine { get; set; }
+        public List<HoleCreateViewModel> BackNine { get; set; }
         [DisplayName("Address")]
         public string Address { get; set; }
         [Required]

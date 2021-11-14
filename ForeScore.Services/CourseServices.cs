@@ -48,7 +48,19 @@ namespace ForeScore.Services
 
                 List<HoleCreate> _holes = new List<HoleCreate>();
 
-                foreach(var hole in model.Holes)
+                foreach(var hole in model.FrontNine)
+                {
+                    HoleCreate newHole = new HoleCreate();
+
+                    newHole.CourseId = courseId;
+                    newHole.Distance = hole.Distance;
+                    newHole.Par = hole.Par;
+                    newHole.HoleNumber = hole.HoleNumber;
+
+                    _holes.Add(newHole);
+                }
+
+                foreach (var hole in model.BackNine)
                 {
                     HoleCreate newHole = new HoleCreate();
 
@@ -80,6 +92,11 @@ namespace ForeScore.Services
                     .Courses
                     .Single(e => id == e.CourseId);
 
+                Hole[] _holes = entity.Holes.ToArray();
+
+                Hole[] frontNine = _holes.Take(9).ToArray();
+                Hole[] backNine = _holes.Skip(9).Take(18).ToArray();
+
                 var course = new CourseDetail
                 {
                     Address = entity.Address,
@@ -94,7 +111,9 @@ namespace ForeScore.Services
                     Website = entity.Website,
                     ZipCode = entity.ZipCode,
                     CourseId = entity.CourseId,
-                    Holes = entity.Holes.ToList()
+                    FrontNine = frontNine.ToList(),
+                    BackNine = backNine.ToList(),
+                    Holes = _holes.ToList()
                 };
 
                 return course;
