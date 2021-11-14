@@ -4,203 +4,244 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <h2>Course Details</h2>
 
-<div>
-    <h4>CourseDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <br />
+    <div class="boxes">
+        <div class="row">
 
-        @Html.HiddenFor(model => model.CourseId)
+            <div class="panel panel-primary col-lg-5">
+                <div class="panel panel-heading">Course Information</div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                        @Html.HiddenFor(model => model.CourseId)
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                        <dt>
+                            Course Name:
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Par)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Par)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Par):
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Slope)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Par)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Slope)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Slope):
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Slope)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Rating):
+                        </dt>
 
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.Rating)
+                        </dd>
+                    </dl>
+                    <br />
+                    <br />
+                    <br />
+                </div>
 
-    <div class="form-horizontal">
+            </div>
+            <div class="panel col-lg-2"></div>
+            <div class="panel panel-primary col-lg-5">
+                <div class="panel panel-heading">Contact Information</div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Address):
+                        </dt>
 
-        <table class="table table-bordered">
+                        <dd>
+                            @Html.DisplayFor(model => model.Address)
+                        </dd>
 
-            <thead>
-                <tr>
-                    <th scope="col">
-                        Hole
-                    </th>
-                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                    {
-                        <th>
-                            @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                        </th>
-                    }
-                </tr>
-            </thead>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.City):
+                        </dt>
 
-            <tbody>
-                <tr>
-                    <th scope="col">
-                        Par
-                    </th>
-                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                    {
-                        <td>
-                            @Html.DisplayFor(model => Model.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                        </td>
-                    }
-                </tr>
+                        <dd>
+                            @Html.DisplayFor(model => model.City)
+                        </dd>
 
-                <tr>
-                    <th scope="col">
-                        Distance (Yards)
-                    </th>
-                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                    {
-                        <td>
-                            @Html.DisplayFor(model => Model.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                        </td>
-                    }
-                </tr>
-            </tbody>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.StateOfResidence):
+                        </dt>
 
-        </table>
+                        <dd>
+                            @Html.DisplayFor(model => model.StateOfResidence)
+                        </dd>
 
-        <table class="table table-bordered">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ZipCode):
+                        </dt>
 
-            <thead>
-                <tr>
-                    <th scope="col">
-                        Hole
-                    </th>
-                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                    {
-                        <th>
-                            @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                        </th>
-                    }
-                </tr>
-            </thead>
+                        <dd>
+                            @Html.DisplayFor(model => model.ZipCode)
+                        </dd>
 
-            <tbody>
-                <tr>
-                    <th scope="col">
-                        Par
-                    </th>
-                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                    {
-                        <td>
-                            @Html.DisplayFor(model => Model.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                        </td>
-                    }
-                </tr>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PhoneNumber):
+                        </dt>
 
-                <tr>
-                    <th scope="col">
-                        Distance (Yards)
-                    </th>
-                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                    {
-                        <td>
-                            @Html.DisplayFor(model => Model.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                        </td>
-                    }
-                </tr>
-            </tbody>
+                        <dd>
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                        </dd>
 
-        </table>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmailAddress):
+                        </dt>
 
+                        <dd>
+                            @Html.DisplayFor(model => model.EmailAddress)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Website):
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Website)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="panel panel-primary col-lg-12">
+                <div class="panel panel-heading">Front Nine</div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="hole" scope="col">
+                                    Hole
+                                </th>
+                                @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                {
+                                    <th>
+                                        @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="par" scope="col">
+                                    Par
+                                </th>
+                                @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(model => Model.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                    </td>
+                                }
+                            </tr>
+
+                            <tr>
+                                <th class="distance" scope="col">
+                                    Distance (Yards)
+                                </th>
+                                @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(model => Model.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-primary col-lg-12">
+                <div class="panel panel-heading">Back Nine</div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="hole" scope="col">
+                                    Hole
+                                </th>
+                                @for (int i = 0; i < Model.BackNine.Count; i++)
+                                {
+                                    <th>
+                                        @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="par" scope="col">
+                                    Par
+                                </th>
+                                @for (int i = 0; i < Model.BackNine.Count; i++)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(model => Model.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                    </td>
+                                }
+                            </tr>
+
+                            <tr>
+                                <th class="distance" scope="col">
+                                    Distance (Yards)
+                                </th>
+                                @for (int i = 0; i < Model.BackNine.Count; i++)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(model => Model.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-5">
+                <a href="@Url.Action("Index", "Course", new { id = Model.CourseId })"
+                   id="sample_editable_1_new"
+                   class="btn btn-block btn-info col-lg-2">
+                    Course Index
+                </a>
+            </div>
+            <div class=" col-lg-2"></div>
+            <div class="col-lg-5">
+                <a href="@Url.Action("Edit", "Course", new { id = Model.CourseId })"
+                   id="sample_editable_1_new"
+                   class="btn btn-block btn-warning col-lg-2">
+                    Edit Course
+                </a>
+            </div>
+        </div>
     </div>
-
-
-
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StateOfResidence)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StateOfResidence)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmailAddress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Website)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Website)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
