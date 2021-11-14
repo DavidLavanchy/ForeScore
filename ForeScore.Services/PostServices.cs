@@ -140,8 +140,11 @@ namespace ForeScore.Services
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.RoundId = model.RoundId;
+                entity.Modified = DateTimeOffset.UtcNow;
 
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+
+                return true;
             }
         }
 
