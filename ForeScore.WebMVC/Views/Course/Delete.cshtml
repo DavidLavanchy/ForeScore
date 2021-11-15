@@ -12,11 +12,11 @@
         <h2>Delete Course</h2>
 
         <br />
-        <div class="boxes">
-            <div class="row">
 
-                <div class="panel panel-primary col-lg-5">
-                    <div class="panel panel-heading">Course Information</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Course Information</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
 
@@ -54,15 +54,116 @@
                                 @Html.DisplayFor(model => model.Rating)
                             </dd>
                         </dl>
-                        <br />
-                        <br />
-                        <br />
                     </div>
-
                 </div>
-                <div class="panel col-lg-2"></div>
-                <div class="panel panel-primary col-lg-5">
-                    <div class="panel panel-heading">Contact Information</div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Front Nine</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="hole" scope="col">
+                                        Hole
+                                    </th>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
+                                        <th>
+                                            @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="par" scope="col">
+                                        Par
+                                    </th>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <th class="distance" scope="col">
+                                        Distance (Yards)
+                                    </th>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Back Nine</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="hole" scope="col">
+                                        Hole
+                                    </th>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+                                        <th>
+                                            @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="par" scope="col">
+                                        Par
+                                    </th>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <th class="distance" scope="col">
+                                        Distance (Yards)
+                                    </th>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Contact Information</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
                             <dt>
@@ -124,125 +225,27 @@
                         </dl>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <br />
+        <div class="row">
+            <div class="col-lg-5">
+                <a href="@Url.Action("Index", "Course")"
+                   class="btn btn-block btn-info col-lg-2">
+                    Discard Delete
+                </a>
             </div>
 
+            <div class=" col-lg-2"></div>
+            <div class="col-lg-5">
 
-            <div class="row">
-                <div class="panel panel-primary col-lg-12">
-                    <div class="panel panel-heading">Front Nine</div>
-                    <div class="panel-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="hole" scope="col">
-                                        Hole
-                                    </th>
-                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                    {
-                                        <th>
-                                            @Html.DisplayFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                        </th>
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th class="par" scope="col">
-                                        Par
-                                    </th>
-                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                    {
-                                        <td>
-                                            @Html.DisplayFor(model => Model.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                                        </td>
-                                    }
-                                </tr>
-
-                                <tr>
-                                    <th class="distance" scope="col">
-                                        Distance (Yards)
-                                    </th>
-                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                    {
-                                        <td>
-                                            @Html.DisplayFor(model => Model.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                        </td>
-                                    }
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="panel panel-primary col-lg-12">
-                    <div class="panel panel-heading">Back Nine</div>
-                    <div class="panel-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="hole" scope="col">
-                                        Hole
-                                    </th>
-                                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                                    {
-                                        <th>
-                                            @Html.DisplayFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                        </th>
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th class="par" scope="col">
-                                        Par
-                                    </th>
-                                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                                    {
-                                        <td>
-                                            @Html.DisplayFor(model => Model.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                                        </td>
-                                    }
-                                </tr>
-
-                                <tr>
-                                    <th class="distance" scope="col">
-                                        Distance (Yards)
-                                    </th>
-                                    @for (int i = 0; i < Model.BackNine.Count; i++)
-                                    {
-                                        <td>
-                                            @Html.DisplayFor(model => Model.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                        </td>
-                                    }
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-lg-5">
-                    <a href="@Url.Action("Index", "Course")"
-                       class="btn btn-block btn-info col-lg-2">
-                        Discard Delete
-                    </a>
-                </div>
-
-                <div class=" col-lg-2"></div>
-                <div class="col-lg-5">
-
-                    <button type="submit" value="Delete" class="btn btn-block btn-danger col-lg-2">Delete</button>
-
-                </div>
+                <button type="submit" value="Delete" class="btn btn-block btn-danger col-lg-2">Delete</button>
 
             </div>
 
         </div>
+
     </div>
 }
 

@@ -67,13 +67,15 @@ namespace ForeScore.Services
                 var service = new CommentServices(_userId);
                 var comments = service.GetCommentsForPost(id);
 
-                var roundService = new RoundServices(_userId);
-
-                var roundDetail = roundService.GetRoundById(post.RoundId);
+                if (post.RoundId != null)
+                {
+                    var roundService = new RoundServices(_userId);
+                    var roundDetail = roundService.GetRoundById(post.RoundId);
+                    post.RoundDetail = roundDetail;
+                }
 
 
                 post.Comments = comments.ToArray();
-                post.RoundDetail = roundDetail;
 
                 return post;
             }

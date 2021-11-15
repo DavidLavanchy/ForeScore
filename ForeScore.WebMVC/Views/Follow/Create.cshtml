@@ -13,20 +13,22 @@
         <h2>Create A Follow</h2>
         <div class="row">
 
-            <div class="panel panel-primary col-lg-12">
-                <div class="panel panel-heading">Enter the Email of the User You Would Like to Follow</div>
-                <div class="panel-body form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            @Html.HiddenFor(model => model.Id)
-                            @Html.HiddenFor(model => model.UserId)
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Enter the Email of the User You Would Like to Follow</div>
+                    <div class="panel-body form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.UserId)
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>

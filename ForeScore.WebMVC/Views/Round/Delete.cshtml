@@ -16,11 +16,9 @@
         <br />
 
         <div class="row">
-
-            <div class="row">
-
-                <div class="panel panel-primary col-lg-5">
-                    <div class="panel panel-heading">Course Information</div>
+            <div class="col-lg-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Course Information</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
 
@@ -62,11 +60,14 @@
                         <br />
                         <br />
                     </div>
-
                 </div>
-                <div class="panel col-lg-2"></div>
-                <div class="panel panel-primary col-lg-5">
-                    <div class="panel panel-heading">Contact Information</div>
+
+            </div>
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Contact Information</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
                             <dt>
@@ -128,13 +129,15 @@
                         </dl>
                     </div>
                 </div>
-
             </div>
 
+        </div>
 
-            <div class="row">
-                <div class="panel panel-primary col-lg-12">
-                    <div class="panel panel-heading">Front Nine</div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Front Nine</div>
                     <div class="panel-body">
                         <table class="table table-bordered">
                             <thead>
@@ -248,9 +251,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel panel-primary col-lg-12">
-                    <div class="panel panel-heading">Back Nine</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Back Nine</div>
                     <div class="panel-body">
                         <table class="table table-bordered">
                             <thead>
@@ -361,12 +366,13 @@
                     </div>
                 </div>
             </div>
-            <br />
+        </div>
+        <br />
 
-            <div class="row">
-
-                <div class="panel panel-primary col-lg-12">
-                    <div class="panel panel-heading">Round Information</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Round Information</div>
                     <div class="panel-body form-horizontal">
                         <div class="form-group">
                             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -400,26 +406,27 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 
-            <br />
-            <div class="row">
-                <div class="col-lg-5">
-                    <a href="@Url.Action("Index", "Round")"
-                       class="btn btn-block btn-info col-lg-2">
-                        Discard Delete
-                    </a>
-                </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-5">
+                <a href="@Url.Action("Index", "Round")"
+                   class="btn btn-block btn-info col-lg-2">
+                    Discard Delete
+                </a>
+            </div>
 
-                <div class=" col-lg-2"></div>
-                <div class="col-lg-5">
+            <div class=" col-lg-2"></div>
+            <div class="col-lg-5">
 
-                    <button type="submit" value="Delete" class="btn btn-block btn-danger col-lg-2">Delete Round</button>
-
-                </div>
+                <button type="submit" value="Delete" class="btn btn-block btn-danger col-lg-2">Delete Round</button>
 
             </div>
+
         </div>
+
 
     </div>
 
