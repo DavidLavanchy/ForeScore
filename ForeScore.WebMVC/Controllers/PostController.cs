@@ -172,11 +172,6 @@ namespace ForeScore.WebMVC.Controllers
         {
             var service = CreateCommentService();
 
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
             if (service.CreateComment(model))
             {
                 TempData["SaveResult"] = "Comment added";

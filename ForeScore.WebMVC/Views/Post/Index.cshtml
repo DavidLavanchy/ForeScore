@@ -19,7 +19,7 @@
 
         <div class="col-lg-6">
             <div class="panel panel-primary">
-                <div class="panel-heading">Your Posts</div>
+                <div class="panel-heading">Your Followings Posts</div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped">
                         <thead>
@@ -36,7 +36,7 @@
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Title)</td>
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Name)</td>
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Content)</td>
-                                    <td>@Html.ActionLink("View Post", "Comment", new { id = Model.UsersFollowingPosts[i].PostId }) |</td>
+                                    <td>@Html.ActionLink("View Post", "Comment", new { id = Model.UsersFollowingPosts[i].PostId }) </td>
 
                                 </tr>
                             }
@@ -64,7 +64,7 @@
                                 <tr>
                                     <td>@Html.DisplayFor(model => model.MyPosts[i].Title)</td>
                                     <td>@Html.DisplayFor(model => model.MyPosts[i].Content)</td>
-                                    <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.MyPosts[i].PostId }) |</td>
+                                    <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.MyPosts[i].PostId })</td>
                                 </tr>
                             }
                         </tbody>
