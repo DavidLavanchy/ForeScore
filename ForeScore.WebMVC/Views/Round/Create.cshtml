@@ -4,67 +4,75 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Select A Course To Log A Round</h2>
 
-<p>
-    @Html.ActionLink("Back To Round List", "Index")
-</p>
-<table class="table">
-    <tr>
+<div class="container">
+    <div class="panel-heading col-lg-3"></div>
+    <div class="panel-heading col-lg-6">
+        <a href="/Round/Index" class="btn btn-primary btn-block">
+            Round Index
+        </a>
+    </div>
+    <div class="panel-heading col-lg-3"></div>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Slope)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Par)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StateOfResidence)
-        </th>
-        <th></th>
-    </tr>
+    <div class="row col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body panel-default">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Slope)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Rating)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Par)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.StateOfResidence)
+                            </th>
+                            <th scope="row"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td scope="row">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Slope)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Rating)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Par)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.City)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StateOfResidence)
+                                </td>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-
-            @Html.HiddenFor(modelItem => item.CourseId)
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slope)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Par)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StateOfResidence)
-            </td>
-
-            <td>
-                @Html.ActionLink("Create Round", "SelectCourse", new { id = item.CourseId })
-            </td>
-        </tr>
-    }
-
-</table>
+                                <td>
+                                    @Html.ActionLink("Select This Course", "SelectCourse", new { id = item.CourseId }) 
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
