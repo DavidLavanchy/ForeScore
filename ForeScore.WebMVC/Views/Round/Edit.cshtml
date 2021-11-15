@@ -146,6 +146,7 @@
                                         <th>
                                             @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                                             @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleId, new { htmlAttributes = new { @class = "form-control", } })
                                         </th>
                                     }
                                 </tr>
@@ -186,6 +187,7 @@
                                         <td>
                                             @Html.TextBoxFor(model => Model.FrontNine[i].Score, new { @class = "textboxform-control" })
                                             @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.FrontNine[i].HoleDataId, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
 
                                     }
@@ -264,6 +266,7 @@
                                         <th>
                                             @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                                             @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].HoleId, new { htmlAttributes = new { @class = "form-control", } })
                                         </th>
                                     }
                                 </tr>
@@ -304,6 +307,7 @@
                                         <td>
                                             @Html.TextBoxFor(model => Model.BackNine[i].Score, new { @class = "textboxform-control" })
                                             @Html.HiddenFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.BackNine[i].HoleDataId, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
 
                                     }
