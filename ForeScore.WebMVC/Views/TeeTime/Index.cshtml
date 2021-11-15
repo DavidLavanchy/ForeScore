@@ -3,37 +3,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
 
 <div class="container">
 
-    <div class="panel-heading">
-        <a href="/TeeTime/SelectCourse" class="btn btn-primary btn-block">
-            Create New Tee Time
-        </a>
+    <h2>Tee Time Index</h2>
+
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/TeeTime/SelectCourse" class="btn btn-success btn-block">
+                Create New Tee Time
+            </a>
+        </div>
     </div>
+
+    <br />
 
     <div class="row">
 
         <div class="col-lg-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Upcoming Tee Times</div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Course Name</th>
-                                <th>Date of Tee Time</th>
+                                <th class="indexhead">Course Name</th>
+                                <th class="indexhead">Date of Tee Time</th>
                             </tr>
                         </thead>
                         <tbody>
                             @for (int i = 0; i < Model.UpcomingTeeTimes.Count; i++)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(model => model.UpcomingTeeTimes[i].CourseName)</td>
-                                    <td>@Html.DisplayFor(model => model.UpcomingTeeTimes[i].DateOfTeeTime)</td>
-                                    <td>@Html.HiddenFor(model => model.UpcomingTeeTimes[i].CourseId)</td>
-                                    <td>@Html.ActionLink("View TeeTime", "Details", new { id = Model.UpcomingTeeTimes[i].TeeTimeId })</td>
+                                    <td class="index">@Html.DisplayFor(model => model.UpcomingTeeTimes[i].CourseName)</td>
+                                    <td class="index">@Html.DisplayFor(model => model.UpcomingTeeTimes[i].DateOfTeeTime)</td>
+                                    <td class="index">@Html.HiddenFor(model => model.UpcomingTeeTimes[i].CourseId)</td>
+                                    <td>
+                                        <a href="@Url.Action("Details", "TeeTime", new { id = Model.UpcomingTeeTimes[i].TeeTimeId})"
+                                           class="btn btn-block btn-warning">
+                                            Details
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -44,25 +56,28 @@
 
 
         <div class="col-lg-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Past Tee Times</div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Course Name</th>
-                                <th>Date of Tee Time</th>
+                                <th class="indexhead">Course Name</th>
+                                <th class="indexhead">Date of Tee Time</th>
                             </tr>
                         </thead>
                         <tbody>
                             @for (int i = 0; i < Model.RecentTeeTimes.Count; i++)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(model => model.RecentTeeTimes[i].CourseName)</td>
-                                    <td>@Html.DisplayFor(model => model.RecentTeeTimes[i].DateOfTeeTime)</td>
-                                    <td>@Html.HiddenFor(model => model.RecentTeeTimes[i].CourseId)</td>
-                                    <td>
-                                        @Html.ActionLink("View TeeTime", "Details", new { id = Model.RecentTeeTimes[i].TeeTimeId }) |
+                                    <td class="index">@Html.DisplayFor(model => model.RecentTeeTimes[i].CourseName)</td>
+                                    <td class="index">@Html.DisplayFor(model => model.RecentTeeTimes[i].DateOfTeeTime)</td>
+                                    <td class="index">@Html.HiddenFor(model => model.RecentTeeTimes[i].CourseId)</td>
+                                    <td >
+                                        <a href="@Url.Action("Details", "TeeTime", new { id = Model.RecentTeeTimes[i].TeeTimeId})"
+                                           class="btn btn-block btn-warning">
+                                            Details
+                                        </a>
                                     </td>
                                 </tr>
                             }

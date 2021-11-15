@@ -109,6 +109,10 @@
     <Compile Include="Migrations\202111131807362_nullpar.Designer.cs">
       <DependentUpon>202111131807362_nullpar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111152000068_NullTeeTime.cs" />
+    <Compile Include="Migrations\202111152000068_NullTeeTime.Designer.cs">
+      <DependentUpon>202111152000068_NullTeeTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111131807362_nullpar.resx">
       <DependentUpon>202111131807362_nullpar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111152000068_NullTeeTime.resx">
+      <DependentUpon>202111152000068_NullTeeTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

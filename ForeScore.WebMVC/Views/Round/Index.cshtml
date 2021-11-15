@@ -23,54 +23,55 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.CourseName)
                                 </th>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.Description)
                                 </th>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.Score)
                                 </th>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.IsPublic)
                                 </th>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.IsFeatured)
                                 </th>
-                                <th scope="row">
+                                <th class="indexhead">
                                     @Html.DisplayNameFor(model => model.DateOfRound)
                                 </th>
-                                <th scope="row"></th>
+                                <th class="indexhead"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td scope="row">
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.CourseName)
                                     </td>
-                                    <td>
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.Description)
                                     </td>
-                                    <td>
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.Score)
                                     </td>
-                                    <td>
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.IsPublic)
                                     </td>
-                                    <td>
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.IsFeatured)
                                     </td>
-                                    <td>
+                                    <td class="index">
                                         @Html.DisplayFor(modelItem => item.DateOfRound)
                                     </td>
 
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.RoundId }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.RoundId }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.RoundId })
+                                        <a href="@Url.Action("Details", "Round", new { id = item.RoundId})"
+                                           class="btn btn-block btn-warning">
+                                            Details
+                                        </a>
                                     </td>
                                 </tr>
                             }

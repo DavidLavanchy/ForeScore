@@ -23,19 +23,31 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th class="indexhead">Name</th>
+                                <th class="indexhead">Email</th>
+                                <th class="indexhead"></th>
+                                <th class="indexhead"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @for (int i = 0; i < Model.Following.Count; i++)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(model => model.Following[i].FullName)</td>
-                                    <td>@Html.DisplayFor(model => model.Following[i].Email)</td>
-                                    <td>@Html.HiddenFor(model => model.Following[i].UserId)</td>
-                                    <td>@Html.ActionLink("Delete", "Delete", new { id = Model.Following[i].FollowingId }) |</td>
-                                    <td>@Html.ActionLink("View Profile", "ProfileView", new { id = Model.Following[i].UserId })</td>
+                                    <td class="index">@Html.DisplayFor(model => model.Following[i].FullName)</td>
+                                    <td class="index">@Html.DisplayFor(model => model.Following[i].Email)</td>
+                                    <td class="index">@Html.HiddenFor(model => model.Following[i].UserId)</td>
+                                    <td class="index">
+                                        <a href="@Url.Action("Delete", "Follow", new { id = Model.Following[i].FollowingId})"
+                                            class="btn btn-block btn-warning">
+                                            Delete Follow
+                                        </a>
+                                    </td>
+                                    <td class="index">
+                                        <a href="@Url.Action("ProfileView", "UserCareer", new { id = Model.Following[i].Id})"
+                                           class="btn btn-block btn-warning">
+                                            View Profile
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -52,19 +64,23 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th class="indexhead">Name</th>
+                                <th class="indexhead">Email</th>
+                                <th class="indexhead"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @for (int i = 0; i < Model.Followers.Count; i++)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(model => model.Followers[i].FullName)</td>
-                                    <td>@Html.DisplayFor(model => model.Followers[i].Email)</td>
-                                    <td>@Html.HiddenFor(model => model.Followers[i].UserId)</td>
-                                    <td>
-                                        @Html.ActionLink("View Profile", "ProfileView", new { id = Model.Followers[i].UserId }) |
+                                    <td class="index">@Html.DisplayFor(model => model.Followers[i].FullName)</td>
+                                    <td class="index">@Html.DisplayFor(model => model.Followers[i].Email)</td>
+                                    <td class="index">@Html.HiddenFor(model => model.Followers[i].UserId)</td>
+                                    <td class="index">
+                                        <a href="@Url.Action("ProfileView", "UserCareer", new { id = Model.Followers[i].UserId})"
+                                           class="btn btn-block btn-warning">
+                                            View Profile
+                                        </a>
                                     </td>
                                 </tr>
                             }

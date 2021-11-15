@@ -45,6 +45,7 @@ namespace ForeScore.WebMVC.Controllers
             {
                 CourseId = id,
                 CourseName = course.Name,
+                CourseDetail = course
 
             };
 

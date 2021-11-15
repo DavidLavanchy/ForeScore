@@ -24,9 +24,10 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Name</th>
-                                <th>Content</th>
+                                <th class="indexhead">Title</th>
+                                <th class="indexhead">Name</th>
+                                <th class="indexhead">Content</th>
+                                <th class="indexhead"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,7 +37,12 @@
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Title)</td>
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Name)</td>
                                     <td>@Html.DisplayFor(model => model.UsersFollowingPosts[i].Content)</td>
-                                    <td>@Html.ActionLink("View Post", "Comment", new { id = Model.UsersFollowingPosts[i].PostId }) </td>
+                                    <td>
+                                        <a href="@Url.Action("Comment", "Post", new { id = Model.UsersFollowingPosts[i].PostId})"
+                                           class="btn btn-block btn-warning">
+                                            View Post
+                                        </a>
+                                    </td>
 
                                 </tr>
                             }
@@ -54,8 +60,9 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Content</th>
+                                <th class="indexhead">Title</th>
+                                <th class="indexhead">Content</th>
+                                <th class="indexhead"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +71,12 @@
                                 <tr>
                                     <td>@Html.DisplayFor(model => model.MyPosts[i].Title)</td>
                                     <td>@Html.DisplayFor(model => model.MyPosts[i].Content)</td>
-                                    <td>@Html.ActionLink("Manage Post", "Details", new { id = Model.MyPosts[i].PostId })</td>
+                                    <td>
+                                        <a href="@Url.Action("Details", "Post", new { id = Model.MyPosts[i].PostId})"
+                                           class="btn btn-block btn-warning">
+                                            Details
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>

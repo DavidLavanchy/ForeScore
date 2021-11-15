@@ -4,39 +4,156 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>TeeTimeCreate</h4>
-    <hr />
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @Html.HiddenFor(model => model.CourseId, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="container">
+        <h2>Create A Tee Time</h2>
 
-    @Html.LabelFor(model => model.CourseName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="/TeeTime/Index" class="btn btn-info btn-block">
+                    Tee Time Index
+                </a>
+            </div>
+        </div>
+        <br />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateOfTeeTime, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DateOfTeeTime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DateOfTeeTime, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Course Information</div>
+                    <div class="panel-body">
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
+
+                                @Html.HiddenFor(model => model.CourseDetail.Name)
+                                @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                                @Html.HiddenFor(model => model.CourseId)
+
+                                <dt>
+                                    Course Name:
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Par):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Par)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Slope):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Slope)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Rating):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Rating)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Address):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Address)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.City):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.City)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Date Of Tee Time</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateOfTeeTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DateOfTeeTime, new { htmlAttributes = new { @class = "datetimepicker" } })
+                            @Html.ValidationMessageFor(model => model.DateOfTeeTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" value="Create" class="btn btn-block btn-success col-lg-">Create Tee Time</button>
         </div>
     </div>
 
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+<link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+@section scripts {
+    <script src="~/Scripts/jquery-ui-1.13.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-sliderAccess.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-timepicker-addon.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-timepicker-addon.js"></script>
+   
+    <script>
+
+        $(function () {
+            $(".datetimepicker").datetimepicker();
+        });
+    </script>
+
+}
+

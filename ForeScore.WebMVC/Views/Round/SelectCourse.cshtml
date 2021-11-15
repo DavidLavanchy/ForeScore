@@ -10,398 +10,414 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<div class="container">
-    <h2>Log A Round</h2>
+    <div class="container">
+        <h2>Log A Round</h2>
 
-    <br />
+        <br />
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Course Information</div>
-                <div class="panel-body">
-                    <div class="col-lg-6">
-                        <dl class="dl-horizontal">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Course Information</div>
+                    <div class="panel-body">
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
 
-                            @Html.HiddenFor(model => model.CourseDetail.CourseId)
-                            @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                                @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                                @Html.HiddenFor(model => model.CourseDetail.CourseId)
 
-                            <dt>
-                                Course Name:
-                            </dt>
+                                <dt>
+                                    Course Name:
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Name)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Name)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Par):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Par):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Par)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Par)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Slope):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Slope):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Slope)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Slope)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Rating):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Rating):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Rating)
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="col-lg-6">
-                        <dl class="dl-horizontal">
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Address):
-                            </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Rating)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Address):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Address)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Address)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.City):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.City):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.City)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.City)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.ZipCode)
-                            </dd>
-                        </dl>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-success">
-                <div class="panel-heading">Round Information</div>
-                <div class="panel-body form-horizontal">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control"} })
-                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Round Information</div>
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.RadioButtonFor(model => model.IsPublic, true, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.RadioButtonFor(model => model.IsPublic, false, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.RadioButtonFor(model => model.IsFeatured, true, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.RadioButtonFor(model => model.IsFeatured, false, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DateOfRound, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DateOfRound, new { htmlAttributes = new { @class = "datetimepicker" } })
+                                @Html.ValidationMessageFor(model => model.DateOfRound, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.RadioButtonFor(model => model.IsPublic, true, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.RadioButtonFor(model => model.IsPublic, false, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.RadioButtonFor(model => model.IsFeatured, true, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.RadioButtonFor(model => model.IsFeatured, false, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.DateOfRound, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.DateOfRound, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DateOfRound, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
-    </div>
-    <br />
+        <br />
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-success">
-                <div class="panel-heading">Front Nine</div>
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="hole" scope="col">
-                                    Hole
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
-                                {
-                                    <th>
-                                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Front Nine</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="hole" scope="col">
+                                        Hole
                                     </th>
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="par" scope="col">
-                                    Par
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
-                                {
-                                    <td>
-                                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-                                }
-                            </tr>
-
-                            <tr>
-                                <th class="distance" scope="col">
-                                    Distance (Yards)
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
-                                {
-                                    <td>
-                                        @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Score
-                                </td>
-                                @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                {
-
-                                    <td>
-                                        @Html.TextBoxFor(model => Model.FrontNine[i].Score, new { @class = "textboxform-control" })
-                                        @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Driving Distance (Yards)
-                                </td>
-                                @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                {
-
-                                    <td>
-                                        @Html.TextBoxFor(model => Model.FrontNine[i].DrivingDistance, new { @class = "textboxform-control" })
-                                    </td>
-
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Putts
-                                </td>
-                                @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                {
-
-                                    <td>
-                                        @Html.TextBoxFor(model => Model.FrontNine[i].Putts, new { @class = "textboxform-control" })
-                                    </td>
-
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Fairway Hit
-                                </td>
-                                @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                {
-
-                                    <td>
-                                        @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Penalty(s)
-                                </td>
-                                @for (int i = 0; i < Model.FrontNine.Count; i++)
-                                {
-
-                                    <td>
-                                        @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-success">
-                <div class="panel-heading">Back Nine</div>
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="hole" scope="col">
-                                    Hole
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
-                                {
-                                    <th>
-                                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                    @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
+                                    {
+                                        <th>
+                                            @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="par" scope="col">
+                                        Par
                                     </th>
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="par" scope="col">
-                                    Par
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
-                                {
+                                    @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <th class="distance" scope="col">
+                                        Distance (Yards)
+                                    </th>
+                                    @for (int i = 0; i < Model.CourseDetail.FrontNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
                                     <td>
-                                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                        Score
                                     </td>
-                                }
-                            </tr>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
 
-                            <tr>
-                                <th class="distance" scope="col">
-                                    Distance (Yards)
-                                </th>
-                                @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
-                                {
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.FrontNine[i].Score, new { @class = "textboxform-control" })
+                                            @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+
+                                    }
+                                </tr>
+                                <tr>
                                     <td>
-                                        @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                        Driving Distance (Yards)
                                     </td>
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Score
-                                </td>
-                                @for (int i = 0; i < Model.BackNine.Count; i++)
-                                {
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
 
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.FrontNine[i].DrivingDistance, new { @class = "textboxform-control" })
+                                        </td>
+
+                                    }
+                                </tr>
+                                <tr>
                                     <td>
-                                        @Html.TextBoxFor(model => Model.BackNine[i].Score, new { @class = "textboxform-control" })
-                                        @Html.HiddenFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        Putts
                                     </td>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
 
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Driving Distance (Yards)
-                                </td>
-                                @for (int i = 0; i < Model.BackNine.Count; i++)
-                                {
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.FrontNine[i].Putts, new { @class = "textboxform-control" })
+                                        </td>
 
+                                    }
+                                </tr>
+                                <tr>
                                     <td>
-                                        @Html.TextBoxFor(model => Model.BackNine[i].DrivingDistance, new { @class = "textboxform-control" })
+                                        Fairway Hit
                                     </td>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
 
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Putts
-                                </td>
-                                @for (int i = 0; i < Model.BackNine.Count; i++)
-                                {
+                                        <td>
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
 
+                                    }
+                                </tr>
+                                <tr>
                                     <td>
-                                        @Html.TextBoxFor(model => Model.BackNine[i].Putts, new { @class = "textboxform-control" })
+                                        Penalty(s)
                                     </td>
+                                    @for (int i = 0; i < Model.FrontNine.Count; i++)
+                                    {
 
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Fairway Hit
-                                </td>
-                                @for (int i = 0; i < Model.BackNine.Count; i++)
-                                {
-                                    <td>
-                                        @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-                                }
-                            </tr>
-                            <tr>
-                                <td>
-                                    Penalty(s)
-                                </td>
-                                @for (int i = 0; i < Model.BackNine.Count; i++)
-                                {
-                                    <td>
-                                        @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
-                                        @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
+                                        <td>
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
 
-                    </table>
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-lg-5">
-            <a href="@Url.Action("Index", "Round")"
-               class="btn btn-block btn-info col-lg-2">
-                Discard Round
-            </a>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Back Nine</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="hole" scope="col">
+                                        Hole
+                                    </th>
+                                    @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                                    {
+                                        <th>
+                                            @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="par" scope="col">
+                                        Par
+                                    </th>
+                                    @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Par, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <th class="distance" scope="col">
+                                        Distance (Yards)
+                                    </th>
+                                    @for (int i = 0; i < Model.CourseDetail.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(model => Model.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.BackNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Score
+                                    </td>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.BackNine[i].Score, new { @class = "textboxform-control" })
+                                            @Html.HiddenFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Driving Distance (Yards)
+                                    </td>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.BackNine[i].DrivingDistance, new { @class = "textboxform-control" })
+                                        </td>
+
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Putts
+                                    </td>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.BackNine[i].Putts, new { @class = "textboxform-control" })
+                                        </td>
+
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Fairway Hit
+                                    </td>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Penalty(s)
+                                    </td>
+                                    @for (int i = 0; i < Model.BackNine.Count; i++)
+                                    {
+                                        <td>
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class=" col-lg-2"></div>
-        <div class="col-lg-5">
+        <br />
+        <div class="row">
+            <div class="col-lg-5">
+                <a href="@Url.Action("Index", "Round")"
+                   class="btn btn-block btn-info col-lg-2">
+                    Discard Round
+                </a>
+            </div>
+            <div class=" col-lg-2"></div>
+            <div class="col-lg-5">
 
-            <button type="submit" value="Create" class="btn btn-block btn-success col-lg-2">Create Round</button>
+                <button type="submit" value="Create" class="btn btn-block btn-success col-lg-2">Create Round</button>
 
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 }
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+<link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+@section scripts {
+    <script src="~/Scripts/jquery-ui-1.13.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-sliderAccess.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-timepicker-addon.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-timepicker-addon.js"></script>
+
+    <script>
+
+        $(function () {
+            $(".datetimepicker").datetimepicker();
+        });
+    </script>
+
 }

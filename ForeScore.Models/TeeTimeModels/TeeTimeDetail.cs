@@ -10,7 +10,7 @@ namespace ForeScore.Models.TeeTimeModels
     public class TeeTimeDetail
     {
         public int CourseId { get; set; }
-        public DateTimeOffset DateOfTeeTime{ get; set; }
+        public DateTimeOffset? DateOfTeeTime{ get; set; }
         public CourseDetail CourseDetail { get; set; }
         public string CourseName { get; set; }
         public int TeeTimeId { get; set; }

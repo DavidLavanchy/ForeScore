@@ -29,12 +29,7 @@ namespace ForeScore.Services
                     Id = _userId,
                 };
 
-                var course =
-                    ctx
-                    .Courses
-                    .Single(e => e.CourseId == teeTime.CourseId);
-
-                teeTime.CourseName = course.Name;
+                teeTime.CourseName = model.CourseDetail.Name;
 
                 ctx.TeeTimes.Add(teeTime);
 
