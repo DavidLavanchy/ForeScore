@@ -10,6 +10,40 @@
     <h2>Round Details</h2>
 
     <br />
+    <div class="row">
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Index", "Course")"
+               class="btn btn-block btn-info">
+                Round Index
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Details", "Course", new { id = Model.CourseId })"
+               class="btn btn-block btn-success">
+                @(String.Format("View {0}'s Information", Model.CourseDetail.Name))
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Edit", "Round", new { id = Model.RoundId })"
+               class="btn btn-block btn-warning">
+                Edit Round
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Delete", "Round", new { id = Model.RoundId })"
+               class="btn btn-block btn-danger">
+                Delete Round
+            </a>
+        </div>
+
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -335,40 +369,6 @@
 
 
     <br />
-    <div class="row">
-
-        <div class="col-lg-3">
-            <a href="@Url.Action("Index", "Course")"
-               class="btn btn-block btn-info">
-                Round Index
-            </a>
-        </div>
-
-
-        <div class="col-lg-3">
-            <a href="@Url.Action("Details", "Course", new { id = Model.CourseId })"
-               class="btn btn-block btn-success">
-                View Course Info
-            </a>
-        </div>
-
-
-        <div class="col-lg-3">
-            <a href="@Url.Action("Edit", "Round", new { id = Model.RoundId })"
-               class="btn btn-block btn-warning">
-                Edit Round
-            </a>
-        </div>
-
-
-        <div class="col-lg-3">
-            <a href="@Url.Action("Delete", "Round", new { id = Model.RoundId })"
-               class="btn btn-block btn-danger">
-                Delete Round
-            </a>
-        </div>
-
-    </div>
 </div>
 
 
