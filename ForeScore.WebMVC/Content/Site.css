@@ -49,4 +49,22 @@ h2 {
     height: 15em;
 }
 
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.true {
+    border: 2px;
+    border-color: green;
+}
+
+.false {
+    border: 2px;
+    border-color: red;
+}
+
 

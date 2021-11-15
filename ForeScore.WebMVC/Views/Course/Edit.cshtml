@@ -4,11 +4,13 @@
     ViewBag.Title = "Edit";
 }
 
+@Html.HiddenFor(model => model.CourseId)
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    @Html.HiddenFor(model => model.CourseId)
+
 
     <div class="container">
         <h2>Add A Course</h2>
@@ -17,9 +19,9 @@
 
         <div class="row">
             <div class="col-lg-5">
-                <a href="@Url.Action("Index", "Course")"
+                <a href="@Url.Action("Details", "Course", new { id = Model.CourseId })"
                    class="btn btn-block btn-info col-lg-2">
-                    Back to Course Index
+                    Discard Course Edit
                 </a>
             </div>
             <div class=" col-lg-2"></div>
@@ -34,7 +36,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <div class="panel panel-warning">
+                <div class="panel-warning">
                     <div class="panel-heading">Course Information</div>
                     <div class="panel-body form-horizontal">
                         <div class="col-lg-6">
@@ -140,10 +142,10 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-warning">
+                <div class="panel-warning">
                     <div class="panel-heading">Front Nine</div>
                     <div class="panel-body">
-                        <table class="table table-bordered form-horizontal">
+                        <table class="table table-bordered table-striped form-horizontal">
                             <thead>
                                 <tr>
                                     <th class="hole" scope="col">
@@ -192,10 +194,10 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-warning">
+                <div class="panel-warning">
                     <div class="panel-heading">Back Nine</div>
                     <div class="panel-body">
-                        <table class="table table-bordered form-horizontal">
+                        <table class="table table-bordered table-striped form-horizontal">
                             <thead>
                                 <tr>
                                     <th class="hole" scope="col">

@@ -7,19 +7,22 @@
 <div class="container">
 
     <h2>Your Rounds</h2>
-
-    <div class="panel-heading col-lg-6">
-        <a href="/Round/Create" class="btn btn-primary btn-block">
-            Add A New Round
-        </a>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/Round/Create" class="btn btn-success btn-block">
+                Add A New Round
+            </a>
+        </div>
     </div>
+    <br />
 
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Courses</div>
-                <div class="panel-body panel-default">
+                <div class="panel-body">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -58,10 +61,24 @@
                                         @Html.DisplayFor(modelItem => item.Score)
                                     </td>
                                     <td class="index">
-                                        @Html.DisplayFor(modelItem => item.IsPublic)
+                                        @if (item.IsPublic == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (item.IsPublic == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
                                     <td class="index">
-                                        @Html.DisplayFor(modelItem => item.IsFeatured)
+                                        @if (item.IsFeatured == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (item.IsFeatured == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
                                     <td class="index">
                                         @Html.DisplayFor(modelItem => item.DateOfRound)

@@ -4,8 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
+@Html.HiddenFor(model => model.CourseId)
+
 @using (Html.BeginForm())
 {
+
 
     @Html.AntiForgeryToken()
     <div class="container">
@@ -14,7 +17,7 @@
         <br />
         <div class="row">
             <div class="col-lg-5">
-                <a href="@Url.Action("Index", "Course")"
+                <a href="@Url.Action("Details", "Course", new { id = Model.CourseId })"
                    class="btn btn-block btn-info col-lg-2">
                     Discard Delete
                 </a>
@@ -32,7 +35,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-danger">
+                <div class="panel-danger">
                     <div class="panel-heading">Course Information</div>
                     <div class="panel-body">
                         <div class="col-lg-6">
@@ -141,10 +144,10 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-danger">
+                <div class="panel-danger">
                     <div class="panel-heading">Front Nine</div>
                     <div class="panel-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th class="hole" scope="col">
@@ -191,10 +194,10 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-danger">
+                <div class="panel-danger">
                     <div class="panel-heading">Back Nine</div>
                     <div class="panel-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th class="hole" scope="col">

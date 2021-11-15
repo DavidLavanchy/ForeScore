@@ -68,7 +68,10 @@
                                     </td>
 
                                     <td class="index">
-                                        @Html.ActionLink("Details", "Details", new { id = item.CourseId }) 
+                                        <a href="@Url.Action("Details", "Course", new { id = item.CourseId})"
+                                           class="btn btn-block btn-warning">
+                                            Details
+                                        </a>
                                     </td>
                                 </tr>
                             }

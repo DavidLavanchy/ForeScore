@@ -256,11 +256,16 @@
                                         </td>
                                         @for (int i = 0; i < Model.RoundDetail.FrontNine.Count; i++)
                                         {
-
                                             <td>
-                                                @Html.DisplayFor(model => Model.RoundDetail.FrontNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                                                @if (Model.RoundDetail.FrontNine[i].FairwayHit == true)
+                                                {
+                                                    <span class="green glyphicon glyphicon-ok"></span>
+                                                }
+                                                @if (Model.RoundDetail.FrontNine[i].FairwayHit == false)
+                                                {
+                                                    <span class="red glyphicon glyphicon-remove"></span>
+                                                }
                                             </td>
-
                                         }
                                     </tr>
                                     <tr>
@@ -269,11 +274,16 @@
                                         </td>
                                         @for (int i = 0; i < Model.RoundDetail.FrontNine.Count; i++)
                                         {
-
                                             <td>
-                                                @Html.DisplayFor(model => Model.RoundDetail.FrontNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                                                @if (Model.RoundDetail.FrontNine[i].Penalty == true)
+                                                {
+                                                    <span class="green glyphicon glyphicon-ok"></span>
+                                                }
+                                                @if (Model.RoundDetail.FrontNine[i].Penalty == false)
+                                                {
+                                                    <span class="red glyphicon glyphicon-remove"></span>
+                                                }
                                             </td>
-
                                         }
                                     </tr>
                                 </tbody>
@@ -375,7 +385,14 @@
                                         @for (int i = 0; i < Model.RoundDetail.BackNine.Count; i++)
                                         {
                                             <td>
-                                                @Html.DisplayFor(model => Model.RoundDetail.BackNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                                                @if (Model.RoundDetail.BackNine[i].FairwayHit == true)
+                                                {
+                                                    <span class="green glyphicon glyphicon-ok"></span>
+                                                }
+                                                @if (Model.RoundDetail.BackNine[i].FairwayHit == false)
+                                                {
+                                                    <span class="red glyphicon glyphicon-remove"></span>
+                                                }
                                             </td>
                                         }
                                     </tr>
@@ -386,7 +403,14 @@
                                         @for (int i = 0; i < Model.RoundDetail.BackNine.Count; i++)
                                         {
                                             <td>
-                                                @Html.DisplayFor(model => Model.RoundDetail.BackNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                                                @if (Model.RoundDetail.BackNine[i].Penalty == true)
+                                                {
+                                                    <span class="green glyphicon glyphicon-ok"></span>
+                                                }
+                                                @if (Model.RoundDetail.BackNine[i].Penalty == false)
+                                                {
+                                                    <span class="red glyphicon glyphicon-remove"></span>
+                                                }
                                             </td>
                                         }
                                     </tr>

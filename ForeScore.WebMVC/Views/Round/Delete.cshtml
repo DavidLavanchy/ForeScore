@@ -9,14 +9,15 @@
     @Html.AntiForgeryToken()
 
 <div class="container">
+    @Html.HiddenFor(model => model.RoundId)
     <h2>Delete A Round</h2>
 
     <br />
     <div class="row">
         <div class="col-lg-5">
-            <a href="@Url.Action("Index", "Round")"
+            <a href="@Url.Action("Details", "Round" , Model.RoundId)"
                class="btn btn-block btn-info col-lg-2">
-                Discard Delete
+                Discard Round Delete
             </a>
         </div>
 
@@ -250,11 +251,16 @@
                                 </td>
                                 @for (int i = 0; i < Model.FrontNine.Count; i++)
                                 {
-
                                     <td>
-                                        @Html.DisplayFor(model => Model.FrontNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                                        @if (Model.FrontNine[i].FairwayHit == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (Model.FrontNine[i].FairwayHit == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
-
                                 }
                             </tr>
                             <tr>
@@ -263,11 +269,16 @@
                                 </td>
                                 @for (int i = 0; i < Model.FrontNine.Count; i++)
                                 {
-
                                     <td>
-                                        @Html.DisplayFor(model => Model.FrontNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                                        @if (Model.FrontNine[i].Penalty == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (Model.FrontNine[i].Penalty == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
-
                                 }
                             </tr>
                         </tbody>
@@ -369,7 +380,14 @@
                                 @for (int i = 0; i < Model.BackNine.Count; i++)
                                 {
                                     <td>
-                                        @Html.DisplayFor(model => Model.BackNine[i].FairwayHit, new { htmlAttributes = new { @class = "form-control", } })
+                                        @if (Model.BackNine[i].FairwayHit == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (Model.BackNine[i].FairwayHit == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
                                 }
                             </tr>
@@ -380,7 +398,14 @@
                                 @for (int i = 0; i < Model.BackNine.Count; i++)
                                 {
                                     <td>
-                                        @Html.DisplayFor(model => Model.BackNine[i].Penalty, new { htmlAttributes = new { @class = "form-control", } })
+                                        @if (Model.BackNine[i].Penalty == true)
+                                        {
+                                            <span class="green glyphicon glyphicon-ok"></span>
+                                        }
+                                        @if (Model.BackNine[i].Penalty == false)
+                                        {
+                                            <span class="red glyphicon glyphicon-remove"></span>
+                                        }
                                     </td>
                                 }
                             </tr>

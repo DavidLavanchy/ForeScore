@@ -14,7 +14,7 @@
         <br />
         <div class="row">
             <div class="col-lg-5">
-                <a href="@Url.Action("Index", "Round")"
+                <a href="@Url.Action("Details", "Round", Model.RoundId)"
                    class="btn btn-block btn-info col-lg-2">
                     Discard Round Edit
                 </a>
@@ -29,7 +29,7 @@
         <br />
 
         @Html.HiddenFor(model => model.CourseId)
-        @Html.HiddenFor(model => model.CourseDetail.CourseId)
+        @Html.HiddenFor(model => model.RoundId)
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-primary">
@@ -130,8 +130,8 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.RadioButtonFor(model => model.IsPublic, true, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.RadioButtonFor(model => model.IsPublic, false, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.RadioButtonFor(model => model.IsPublic, true, new { htmlAttributes = new { @class = "true" } })
+                                @Html.RadioButtonFor(model => model.IsPublic, false, new { htmlAttributes = new { @class = "false" } })
                                 @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -139,8 +139,8 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.RadioButtonFor(model => model.IsFeatured, true, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.RadioButtonFor(model => model.IsFeatured, false, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.RadioButtonFor(model => model.IsFeatured, true, new { htmlAttributes = new { @class = "true" } })
+                                @Html.RadioButtonFor(model => model.IsFeatured, false, new { htmlAttributes = new { @class = "false" } })
                                 @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                                     {
                                         <td>
                                             @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
                                     }
                                 </tr>
@@ -256,8 +256,8 @@
                                     {
 
                                         <td>
-                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "true" } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "false" } })
                                         </td>
 
                                     }
@@ -270,8 +270,8 @@
                                     {
 
                                         <td>
-                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, true, new { htmlAttributes = new { @class = "true" } })
+                                            @Html.RadioButtonFor(model => Model.FrontNine[i].Penalty, false, new { htmlAttributes = new { @class = "false" } })
                                         </td>
 
                                     }
@@ -377,8 +377,8 @@
                                     @for (int i = 0; i < Model.BackNine.Count; i++)
                                     {
                                         <td>
-                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, true, new { htmlAttributes = new { @class = "true" } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].FairwayHit, false, new { htmlAttributes = new { @class = "false" } })
                                         </td>
                                     }
                                 </tr>
@@ -389,8 +389,8 @@
                                     @for (int i = 0; i < Model.BackNine.Count; i++)
                                     {
                                         <td>
-                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, true, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, false, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, true, new { htmlAttributes = new { @class = "true" } })
+                                            @Html.RadioButtonFor(model => Model.BackNine[i].Penalty, false, new { htmlAttributes = new { @class = "false" } })
                                         </td>
                                     }
                                 </tr>
