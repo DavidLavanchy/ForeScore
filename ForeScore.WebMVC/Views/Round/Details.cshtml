@@ -7,21 +7,19 @@
 
 
 <div class="container">
-    <h2>Log A Round</h2>
+    <h2>Round Details</h2>
 
     <br />
 
     <div class="row">
-
-        <div class="row">
-
-            <div class="panel panel-primary col-lg-5">
-                <div class="panel panel-heading">Course Information</div>
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">Course Information</div>
                 <div class="panel-body">
                     <dl class="dl-horizontal">
 
                         @Html.HiddenFor(model => model.CourseId)
-                        @Html.HiddenFor(model => model.RoundId)
+                        @Html.HiddenFor(model => model.CourseDetail.CourseId)
 
                         <dt>
                             Course Name:
@@ -55,85 +53,18 @@
                             @Html.DisplayFor(model => model.CourseDetail.Rating)
                         </dd>
                     </dl>
-                    <br />
-                    <br />
-                    <br />
-                </div>
-
-            </div>
-            <div class="panel col-lg-2"></div>
-            <div class="panel panel-primary col-lg-5">
-                <div class="panel panel-heading">Contact Information</div>
-                <div class="panel-body">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.Address):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.Address)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.City):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.City)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.ZipCode)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.PhoneNumber):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.PhoneNumber)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.EmailAddress):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.EmailAddress)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CourseDetail.Website):
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CourseDetail.Website)
-                        </dd>
-
-                    </dl>
                 </div>
             </div>
-
         </div>
+    </div>
 
 
-        <div class="row">
-            <div class="panel panel-primary col-lg-12">
-                <div class="panel panel-heading">Front Nine</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Front Nine</div>
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th class="hole" scope="col">
@@ -245,11 +176,13 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="panel panel-primary col-lg-12">
-                <div class="panel panel-heading">Back Nine</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Back Nine</div>
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th class="hole" scope="col">
@@ -358,12 +291,13 @@
                 </div>
             </div>
         </div>
-        <br />
+    </div>
+    <br />
 
-        <div class="row">
-
-            <div class="panel panel-primary col-lg-12">
-                <div class="panel panel-heading">Round Information</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Round Information</div>
                 <div class="panel-body form-horizontal">
                     <div class="form-group">
                         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -397,27 +331,47 @@
                 </div>
             </div>
         </div>
-
-
-        <br />
-        <div class="row">
-            <div class="col-lg-5">
-                <a href="@Url.Action("Index", "Course")"
-                   id="sample_editable_1_new"
-                   class="btn btn-block btn-info col-lg-2">
-                    Round Index
-                </a>
-            </div>
-            <div class=" col-lg-2"></div>
-            <div class="col-lg-5">
-                <a href="@Url.Action("Edit", "Round", new { id = Model.RoundId })"
-                   class="btn btn-block btn-warning col-lg-2">
-                    Edit Round
-                </a>
-            </div>
-        </div>
     </div>
 
+
+    <br />
+    <div class="row">
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Index", "Course")"
+               class="btn btn-block btn-info">
+                Round Index
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Details", "Course", new { id = Model.CourseId })"
+               class="btn btn-block btn-success">
+                View Course Info
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Edit", "Round", new { id = Model.RoundId })"
+               class="btn btn-block btn-warning">
+                Edit Round
+            </a>
+        </div>
+
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Delete", "Round", new { id = Model.RoundId })"
+               class="btn btn-block btn-danger">
+                Delete Round
+            </a>
+        </div>
+
+    </div>
 </div>
+
+
+
 
 
