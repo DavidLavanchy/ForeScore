@@ -15,50 +15,85 @@
 
         <br />
 
-
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">Course Information</div>
                     <div class="panel-body">
-                        <dl class="dl-horizontal">
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
 
-                            @Html.HiddenFor(model => model.CourseId)
-                            @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                                @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                                @Html.HiddenFor(model => model.CourseDetail.CourseId)
 
-                            <dt>
-                                Course Name:
-                            </dt>
+                                <dt>
+                                    Course Name:
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Name)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Name)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Par):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Par):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Par)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Par)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Slope):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Slope):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Slope)
-                            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Slope)
+                                </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.CourseDetail.Rating):
-                            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Rating):
+                                </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CourseDetail.Rating)
-                            </dd>
-                        </dl>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Rating)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.Address):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.Address)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.City):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.City)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>

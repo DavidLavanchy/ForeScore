@@ -10,18 +10,27 @@
     <br />
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-3">
             <a href="@Url.Action("Index", "Course", new { id = Model.CourseId })"
-               id="sample_editable_1_new"
-               class="btn btn-block btn-info col-lg-2">
+               class="btn btn-block btn-info">
                 Course Index
             </a>
         </div>
-        <div class=" col-lg-2"></div>
-        <div class="col-lg-5">
+
+        <div class=" col-lg-1"></div>
+
+        <div class="col-lg-3">
+            <a href="@Url.Action("Delete", "Course", new { id = Model.CourseId })"
+               class="btn btn-block btn-danger">
+                Delete Course
+            </a>
+        </div>
+
+        <div class=" col-lg-1"></div>
+
+        <div class="col-lg-3">
             <a href="@Url.Action("Edit", "Course", new { id = Model.CourseId })"
-               id="sample_editable_1_new"
-               class="btn btn-block btn-warning col-lg-2">
+               class="btn btn-block btn-warning">
                 Edit Course
             </a>
         </div>

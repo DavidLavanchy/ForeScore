@@ -224,6 +224,30 @@ namespace ForeScore.Services
             }
         }
 
+        public ICollection<RoundListItem> GetAllPublicRoundsByUserId()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Rounds
+                    .Where(e => e.Id == _userId && e.IsPublic == true)
+                    .Select(e =>
+                new RoundListItem
+                {
+                    RoundId = e.RoundId,
+                    CourseName = e.CourseName,
+                    DateOfRound = e.DateOfRound,
+                    Description = e.Description,
+                    IsFeatured = e.IsFeatured,
+                    IsPublic = e.IsPublic,
+                    Score = e.Score,
+                });
+
+                return query.ToArray();
+            }
+        }
+
         public ICollection<RoundListItem> GetAllRoundsByUserIdAscending()
         {
             using (var ctx = new ApplicationDbContext())

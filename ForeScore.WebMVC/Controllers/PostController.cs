@@ -32,7 +32,7 @@ namespace ForeScore.WebMVC.Controllers
 
             PostCreateViewModel viewModel = new PostCreateViewModel();
 
-            viewModel.Rounds = service.GetAllRoundsByUserId();
+            viewModel.Rounds = service.GetAllPublicRoundsByUserId();
 
             viewModel.NullRound = null;
 
