@@ -32,9 +32,13 @@ textarea {
   
 }
 
-h2 {
-    color: #0275d8;
+.h2 {
+    color: #122778;
+    font-family: Baskerville,Times,'Times New Roman',serif;
+    font-size: 75px;
+    font-weight: bold;
 }
+
 
 .textboxform-control {
     width: 4em;
@@ -67,14 +71,14 @@ h2 {
     border-color: red;
 }
 .navbar-header {
-    color: #1266F1;
+    color: #122778;
 }
 
-.h2 {
-    color: #1266F1;
+
+.panel-heading {
+    color: #ffffff;
     font-family: Baskerville,Times,'Times New Roman',serif;
-    font-size: 75px;
-    text-align: center;
+    font-size: 17px;
     font-weight: bold;
 }
 
