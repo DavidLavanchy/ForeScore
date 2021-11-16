@@ -115,7 +115,7 @@
                 <div class="panel-heading">Date Of Tee Time</div>
                 <div class="panel-body">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.DateOfTeeTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        Date of Tee Time:
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.DateOfTeeTime, new { htmlAttributes = new { @class = "datetimepicker" } })
                             @Html.ValidationMessageFor(model => model.DateOfTeeTime, "", new { @class = "text-danger" })

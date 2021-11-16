@@ -14,6 +14,19 @@ body {
     margin: 0;
 }
 
+.navbar-brand {
+    color: #122778;
+    font-family: Baskerville,Times,'Times New Roman',serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.h2 {
+    color: #ffffff;
+    font-family: Baskerville,Times,'Times New Roman',serif;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 article,
 aside,
@@ -5582,8 +5595,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
+    color: #ffffff;
+    font-family: Baskerville,Times,'Times New Roman',serif;
+    font-size: 25px;
+    font-weight: bold;
 }
 
     .navbar-default .navbar-brand {
@@ -5676,7 +5691,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-link {
-    color: #777;
+    color: #122778;
 }
 
     .navbar-default .navbar-link:hover {
@@ -5684,7 +5699,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
 .navbar-default .btn-link {
-    color: #777;
+    color: #122778;
 }
 
     .navbar-default .btn-link:hover,
@@ -5798,7 +5813,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-    border-color: #101010;
+    border-color: #122778;
 }
 
 .navbar-inverse .navbar-link {
