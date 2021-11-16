@@ -4,41 +4,130 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <h2>Tee Time Details</h2>
 
-<div>
-    <h4>Tee Time</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <br />
+    <div class="row">
 
-        @Html.HiddenFor(model => model.TeeTimeId)
+        <div class="col-lg-5">
+            <a href="/TeeTime/Index" class="btn btn-info btn-block">
+                Tee Time Index
+            </a>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CourseName)
-        </dd>
+        <div class="col-lg-2"></div>
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.Address)</dd>
+        <div class="col-lg-5">
+            <a href="@Url.Action("Delete", "TeeTime", new { id = Model.TeeTimeId})"
+               class="btn btn-block btn-danger">
+                Delete This Tee Time
+            </a>
+        </div>
+    </div>
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.City)</dd>
+    <br />
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.StateOfResidence)</dd>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Course Information</div>
+                <div class="panel-body">
+                    <div class="col-lg-6">
+                        <dl class="dl-horizontal">
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.PhoneNumber)</dd>
+                            @Html.HiddenFor(model => model.CourseDetail.Name)
+                            @Html.HiddenFor(model => model.CourseDetail.CourseId)
+                            @Html.HiddenFor(model => model.CourseId)
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.EmailAddress)</dd>
+                            <dt>
+                                Course Name:
+                            </dt>
 
-        <dd>@Html.DisplayFor(model => model.CourseDetail.Website)</dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.Name)
+                            </dd>
 
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.Par):
+                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateOfTeeTime)
-        </dd>
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.Par)
+                            </dd>
 
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.Slope):
+                            </dt>
 
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.Slope)
+                            </dd>
 
-    </dl>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.Rating):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.Rating)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-lg-6">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.Address):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.Address)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.City):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.City)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.StateOfResidence):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CourseDetail.ZipCode):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Date Of Tee Time</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateOfTeeTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.DateOfTeeTime, new { htmlAttributes = new { @class = "datetimepicker" } })
+                            @Html.ValidationMessageFor(model => model.DateOfTeeTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Delete", "Delete", new { id = Model.TeeTimeId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

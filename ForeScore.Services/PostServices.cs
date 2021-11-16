@@ -74,6 +74,13 @@ namespace ForeScore.Services
                     post.RoundDetail = roundDetail;
                 }
 
+                if(post.RoundId == null)
+                {
+                    post.Comments = comments.ToArray();
+
+                    return post;
+                }
+
 
                 post.Comments = comments.ToArray();
 

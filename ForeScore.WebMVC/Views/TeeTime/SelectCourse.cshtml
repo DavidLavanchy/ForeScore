@@ -69,7 +69,10 @@
                                     </td>
 
                                     <td>
-                                        @Html.ActionLink("Select This Course", "Create", new { id = item.CourseId })
+                                        <a href="@Url.Action("Create", "TeeTime", new { id = item.CourseId})"
+                                           class="btn btn-block btn-success">
+                                            Select This Course
+                                        </a>
                                     </td>
                                 </tr>
                             }
