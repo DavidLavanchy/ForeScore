@@ -26,6 +26,24 @@ namespace ForeScore.WebMVC.Controllers
             model.Followers = followerService.GetFollowers().ToList();
             return View(model);
         }
+        public ActionResult Details(int id)
+        {
+            var qkserv = CreateFollowingService();
+            var userId = qkserv.GetUserId(id);
+
+            var service = new UserCareerServices(userId);
+            var roundService = new RoundServices(userId);
+            var postService = new PostServices(userId);
+            var followingService = new FollowingServices(userId);
+
+            var model = service.ViewCareerStats();
+            model.PostDetails = postService.GetAllUsersPosts().OrderByDescending(e => e.PostId).Take(5).ToList();
+            model.RoundDetails = roundService.GetAllRoundsByUserIdAndDate().Take(5).ToList();
+            model.Following = followingService.GetAllFollowings().OrderByDescending(e => e.FollowingId).Take(5).ToList();
+
+            return View(model);
+
+        }
 
         public ActionResult Create()
         {

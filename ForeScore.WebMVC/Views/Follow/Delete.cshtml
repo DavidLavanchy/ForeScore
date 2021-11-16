@@ -10,6 +10,16 @@
     <div class="container">
 
         <h2>Remove a Follow</h2>
+        <br />
+        @Html.HiddenFor(model => model.UserId)
+        <div class="row">
+            <a href="@Url.Action("Details", "Follow", new { id = Model.FollowingId})"
+               class="btn btn-block btn-warning">
+                View Profile
+            </a>
+        </div>
+        <br />
+        @Html.HiddenFor(model => model.FollowingId)
 
         <div class="row">
             <div class="col-lg-12">

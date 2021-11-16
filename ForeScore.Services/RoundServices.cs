@@ -280,7 +280,7 @@ namespace ForeScore.Services
                 var query =
                     ctx
                     .Rounds
-                    .Where(e => e.Id == _userId)
+                    .Where(e => e.Id == _userId && e.IsFeatured == true)
                     .OrderBy(e => e.DateOfRound)
                     .Select(e =>
                 new RoundListItem
@@ -292,6 +292,7 @@ namespace ForeScore.Services
                     IsFeatured = e.IsFeatured,
                     IsPublic = e.IsPublic,
                     Score = e.Score,
+                    RoundId = e.RoundId,
                 });
 
                 return query.ToArray();

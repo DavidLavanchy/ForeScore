@@ -363,6 +363,7 @@
     <Content Include="Views\TeeTime\Create.cshtml" />
     <Content Include="Views\TeeTime\Details.cshtml" />
     <Content Include="Views\TeeTime\Delete.cshtml" />
+    <Content Include="Views\Follow\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

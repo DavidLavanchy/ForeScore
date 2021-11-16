@@ -1,4 +1,7 @@
 ﻿using ForeScore.Data;
+using ForeScore.Models.FollowingModels;
+using ForeScore.Models.PostModels;
+using ForeScore.Models.RoundModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +23,9 @@ namespace ForeScore.Models.UserCareerModels
         public int RoundsPlayed { get; set; }
         public int FairwaysHit { get; set; }
         public int Penalties { get; set; }
-        public virtual ICollection<FollowedBy> FollowedBy { get; set; }
-        public virtual ICollection<Following> Following { get; set; }
+        public IEnumerable<FollowingListItem> Following { get; set; }
+        public IEnumerable<RoundListItem> RoundDetails { get; set; }
+        public IEnumerable<PostListItem> PostDetails { get; set; }
 
     }
 }

@@ -82,6 +82,21 @@ namespace ForeScore.Services
             }
         }
 
+        public string GetUserId(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Following
+                    .Single(e => e.FollowingId == id);
+
+                var userId = entity.UserId;
+
+                return userId;
+            }
+        }
+
         public bool FollowDelete(int id)
         {
             using (var ctx = new ApplicationDbContext())

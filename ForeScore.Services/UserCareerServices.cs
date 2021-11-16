@@ -62,6 +62,7 @@ namespace ForeScore.Services
             }
         }
 
+
         public float GetHandicap(ICollection<RoundDetail> Rounds)
         {
             if (Rounds.Count == 0)
@@ -162,6 +163,10 @@ namespace ForeScore.Services
                 }
             }
 
+            if (overallHoles.Count() == 0 || putts.Sum() == 0)
+            {
+                return 0;
+            }
 
             float averagePutts = putts.Sum() / overallHoles.Count();
 
@@ -199,7 +204,10 @@ namespace ForeScore.Services
                     overallHoles.Add(hole);
                 }
             }
-
+            if(overallHoles.Count() == 0 || drivingDistance.Sum() == 0)
+            {
+                return 0;
+            }
             float averageDrivingDistance = drivingDistance.Sum() / overallHoles.Count();
 
             return averageDrivingDistance;

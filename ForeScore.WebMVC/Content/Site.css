@@ -66,6 +66,16 @@ h2 {
     border: 15px;
     border-color: red;
 }
+.navbar-header {
+    color: #1266F1;
+}
 
+.h2 {
+    color: #1266F1;
+    font-family: Baskerville,Times,'Times New Roman',serif;
+    font-size: 75px;
+    text-align: center;
+    font-weight: bold;
+}
 
 

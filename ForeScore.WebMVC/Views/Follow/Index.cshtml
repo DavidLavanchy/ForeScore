@@ -7,11 +7,15 @@
 
 <div class="container">
     <h2>Social Index</h2>
-    <div class="panel-heading">
-        <a href="/Follow/Create" class="btn btn-primary btn-block">
-            Create New Follow
-        </a>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/Follow/Create" class="btn btn-success btn-block">
+                Create New Follow
+            </a>
+        </div>
     </div>
+    <br />
 
     <div class="row">
 
@@ -39,13 +43,7 @@
                                     <td class="index">
                                         <a href="@Url.Action("Delete", "Follow", new { id = Model.Following[i].FollowingId})"
                                             class="btn btn-block btn-warning">
-                                            Delete Follow
-                                        </a>
-                                    </td>
-                                    <td class="index">
-                                        <a href="@Url.Action("ProfileView", "UserCareer", new { id = Model.Following[i].Id})"
-                                           class="btn btn-block btn-warning">
-                                            View Profile
+                                            Details Follow
                                         </a>
                                     </td>
                                 </tr>
@@ -76,12 +74,6 @@
                                     <td class="index">@Html.DisplayFor(model => model.Followers[i].FullName)</td>
                                     <td class="index">@Html.DisplayFor(model => model.Followers[i].Email)</td>
                                     <td class="index">@Html.HiddenFor(model => model.Followers[i].UserId)</td>
-                                    <td class="index">
-                                        <a href="@Url.Action("ProfileView", "UserCareer", new { id = Model.Followers[i].UserId})"
-                                           class="btn btn-block btn-warning">
-                                            View Profile
-                                        </a>
-                                    </td>
                                 </tr>
                             }
                         </tbody>
