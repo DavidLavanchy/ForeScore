@@ -4,37 +4,51 @@
 
 <div class="jumbotron">
     <h2>ForeScore</h2>
-    <p class="lead">ForeScore is a web application that will allow golfers to log their rounds, view their statistics to see how they can improve on their game, connect with friends and manage their tee times. This application will serve as a home for golf hobbyists and enthusiasts to manage all things golf!</p>
+    <p class="lead">ForeScore is a web application that allows golfers to log their rounds, view their statistics to see how they can improve on their game, connect with friends and manage their tee times. This application serves as a home for golf hobbyists and enthusiasts to manage all things relating to their golf game!</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Add A Course</h2>
-        <p>
-            Begin by adding a few courses to your courses index. That way you can log your rounds and share your stats with Friends!
-        </p>
-        <p>
-            <a href="/Course/Create" class="btn btn-success btn-block">
-                Add A New Course
-            </a>
-        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Add A Course</div>
+            <div class="panel-body">
+                <p>
+                    Begin by adding a few courses to your courses index. That way you can log your rounds and share your stats with Friends!
+                </p>
+                <p>
+                    <a href="/Course/Create" class="btn btn-success btn-block">
+                        Add A New Course
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Find a Friend</h2>
-        <p>Find a friend to follow in order to view their posts and profile</p>
-        <p>
-            <a href="/Index/Follow" class="btn btn-success btn-block">
-                Manage Follows
-            </a>
-        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Add A Friend</div>
+            <div class="panel-body">
+                <p>Find a friend to follow in order to view their posts and profile. You must know that user's email in order to follow them.'</p>
+                <p>
+                    <a href="/Follow/Index" class="btn btn-success btn-block">
+                        Manage Follows
+                    </a>
+                </p>
+            </div>
+        </div>
+
     </div>
     <div class="col-md-4">
-        <h2>Manage Tee Times</h2>
-        <p>You can easily manage your upcoming tee times and view your recent tee times by visiting the "Tee Time" page.</p>
-        <p>
-            <a href="/Course/Create" class="btn btn-success btn-block">
-                View Tee Times
-            </a>
-        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Manage Tee Times</div>
+            <div class="panel-body">
+                <p>You can easily manage your upcoming tee times and view your recent tee times by visiting the "Tee Time" page.</p>
+                <p>
+                    <a href="/TeeTime/Index" class="btn btn-success btn-block">
+                        View Tee Times
+                    </a>
+                </p>
+            </div>
+        </div>
+        
     </div>
 </div>

@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -29,7 +29,6 @@ textarea {
 }
 
 .panel .panel-heading {
-  
 }
 
 .h2 {
@@ -37,11 +36,6 @@ textarea {
     font-family: Baskerville,Times,'Times New Roman',serif;
     font-size: 75px;
     font-weight: bold;
-}
-
-.navbar-header {
-    color: white;
-    font-family: Georgia, serif;
 }
 
 .textboxform-control {
@@ -74,9 +68,8 @@ textarea {
     border: 15px;
     border-color: red;
 }
-.navbar-background {
-    color: mediumblue;
-}
+
+
 
 
 .panel-heading {
