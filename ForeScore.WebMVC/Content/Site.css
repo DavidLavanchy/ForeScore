@@ -58,13 +58,14 @@ h2 {
 }
 
 .true {
-    border: 2px;
+    border: 15px;
     border-color: green;
 }
 
 .false {
-    border: 2px;
+    border: 15px;
     border-color: red;
 }
+
 
 
