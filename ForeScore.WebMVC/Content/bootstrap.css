@@ -5595,10 +5595,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-    color: #ffffff;
-    font-family: Baskerville,Times,'Times New Roman',serif;
-    font-size: 25px;
-    font-weight: bold;
+
 }
 
     .navbar-default .navbar-brand {
@@ -5678,11 +5675,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
     .navbar-default .navbar-toggle:hover,
     .navbar-default .navbar-toggle:focus {
-        background-color: #ddd;
+        background-color: #122778;
     }
 
     .navbar-default .navbar-toggle .icon-bar {
-        background-color: #888;
+        background-color: #eeeeee;
     }
 
 .navbar-default .navbar-collapse,

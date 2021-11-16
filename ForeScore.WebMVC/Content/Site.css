@@ -39,6 +39,11 @@ textarea {
     font-weight: bold;
 }
 
+.navbar-header {
+    color: white;
+    font-family: Georgia, serif;
+}
+
 .textboxform-control {
     width: 4em;
 }
@@ -69,10 +74,8 @@ textarea {
     border: 15px;
     border-color: red;
 }
-.navbar-brand {
-    color: #122778;
-    font-family: Baskerville,Times,'Times New Roman',serif;
-    font-weight: bold;
+.navbar-background {
+    color: mediumblue;
 }
 
 
