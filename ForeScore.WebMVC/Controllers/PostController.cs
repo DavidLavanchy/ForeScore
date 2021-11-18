@@ -39,18 +39,11 @@ namespace ForeScore.WebMVC.Controllers
             return View(viewModel);
         }
 
-        public ActionResult CreatePost(int? id)
+        public ActionResult CreatePost(int id)
         {
             var service = CreateRoundService();
             PostCreate viewModel = new PostCreate();
 
-            if (id == null)
-            {
-                viewModel.RoundDetail = service.CreateNullRound();
-                viewModel.RoundId = null;
-
-                return View(viewModel);
-            }
 
             viewModel.RoundId = id;
             viewModel.RoundDetail = service.GetRoundById(id);

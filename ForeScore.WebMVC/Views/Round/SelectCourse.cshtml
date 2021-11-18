@@ -32,6 +32,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Name)
+                                    @Html.HiddenFor(model => model.CourseDetail.Name)
                                 </dd>
 
                                 <dt>
@@ -40,6 +41,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Par)
+                                    @Html.HiddenFor(model => model.CourseDetail.Par)
                                 </dd>
 
                                 <dt>
@@ -48,6 +50,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Slope)
+                                    @Html.HiddenFor(model => model.CourseDetail.Slope)
                                 </dd>
 
                                 <dt>
@@ -56,6 +59,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Rating)
+                                    @Html.HiddenFor(model => model.CourseDetail.Rating)
                                 </dd>
                             </dl>
                         </div>
@@ -67,6 +71,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Address)
+                                    @Html.HiddenFor(model => model.CourseDetail.Address)
                                 </dd>
 
                                 <dt>
@@ -75,6 +80,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.City)
+                                    @Html.HiddenFor(model => model.CourseDetail.City)
                                 </dd>
 
                                 <dt>
@@ -83,6 +89,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                                    @Html.HiddenFor(model => model.CourseDetail.StateOfResidence)
                                 </dd>
 
                                 <dt>
@@ -91,6 +98,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                                    @Html.HiddenFor(model => model.CourseDetail.ZipCode)
                                 </dd>
                             </dl>
                         </div>
@@ -183,7 +191,7 @@
                                     {
                                         <td>
                                             @Html.DisplayFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
-                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
+                                            @Html.HiddenFor(model => Model.CourseDetail.FrontNine[i].Distance, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
                                     }
                                 </tr>
@@ -196,6 +204,7 @@
 
                                         <td>
                                             @Html.TextBoxFor(model => Model.FrontNine[i].Score, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.FrontNine[i].Score, "", new { @class = "text-danger" })
                                             @Html.HiddenFor(model => Model.FrontNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
 
@@ -265,6 +274,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-primary">
@@ -320,6 +330,7 @@
 
                                         <td>
                                             @Html.TextBoxFor(model => Model.BackNine[i].Score, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.BackNine[i].Score, "", new { @class = "text-danger" })
                                             @Html.HiddenFor(model => Model.BackNine[i].HoleNumber, new { htmlAttributes = new { @class = "form-control", } })
                                         </td>
 

@@ -24,12 +24,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("My Profile", "Index", "UserCareer", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Rounds", "Index", "Round", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Courses", "Index", "Course", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Tee Times", "Index", "TeeTime", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Social", "Index", "Follow", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Feed", "Index", "Post", new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("My Profile", "Index", "UserCareer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Rounds", "Index", "Round", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Course", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Tee Times", "Index", "TeeTime", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Social", "Index", "Follow", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Feed", "Index", "Post", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

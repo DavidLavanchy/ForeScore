@@ -13,7 +13,7 @@ namespace ForeScore.Models.PostModels
     {
         public string Title { get; set; }
         public string Name { get; set; }
-        public int? RoundId { get; set; }
+        public int RoundId { get; set; }
         public string Content { get; set; }
         public ICollection<CommentListItem> Comments { get; set; }
         public RoundDetail RoundDetail { get; set; }

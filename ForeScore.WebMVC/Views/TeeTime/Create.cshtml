@@ -31,7 +31,7 @@
                         <div class="col-lg-6">
                             <dl class="dl-horizontal">
 
-                                @Html.HiddenFor(model => model.CourseDetail.Name)
+                                
                                 @Html.HiddenFor(model => model.CourseDetail.CourseId)
                                 @Html.HiddenFor(model => model.CourseId)
 
@@ -41,6 +41,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Name)
+                                    @Html.HiddenFor(model => model.CourseDetail.Name)
                                 </dd>
 
                                 <dt>
@@ -49,6 +50,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Par)
+                                    @Html.HiddenFor(model => model.CourseDetail.Par)
                                 </dd>
 
                                 <dt>
@@ -57,6 +59,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Slope)
+                                    @Html.HiddenFor(model => model.CourseDetail.Slope)
                                 </dd>
 
                                 <dt>
@@ -65,6 +68,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Rating)
+                                    @Html.HiddenFor(model => model.CourseDetail.Rating)
                                 </dd>
                             </dl>
                         </div>
@@ -76,6 +80,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.Address)
+                                    @Html.HiddenFor(model => model.CourseDetail.Address)
                                 </dd>
 
                                 <dt>
@@ -84,6 +89,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.City)
+                                    @Html.HiddenFor(model => model.CourseDetail.City)
                                 </dd>
 
                                 <dt>
@@ -92,6 +98,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.StateOfResidence)
+                                    @Html.HiddenFor(model => model.CourseDetail.StateOfResidence)
                                 </dd>
 
                                 <dt>
@@ -100,6 +107,7 @@
 
                                 <dd>
                                     @Html.DisplayFor(model => model.CourseDetail.ZipCode)
+                                    @Html.HiddenFor(model => model.CourseDetail.ZipCode)
                                 </dd>
                             </dl>
                         </div>
@@ -115,7 +123,6 @@
                 <div class="panel-heading">Date Of Tee Time</div>
                 <div class="panel-body">
                     <div class="form-group">
-                        Date of Tee Time:
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.DateOfTeeTime, new { htmlAttributes = new { @class = "datetimepicker" } })
                             @Html.ValidationMessageFor(model => model.DateOfTeeTime, "", new { @class = "text-danger" })

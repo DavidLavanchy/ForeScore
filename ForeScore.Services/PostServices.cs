@@ -20,7 +20,7 @@ namespace ForeScore.Services
 
         public bool CreatePost(PostCreate model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = new Post
                 {
@@ -46,40 +46,32 @@ namespace ForeScore.Services
 
         public PostDetail GetPost(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Posts
                     .Single(e => e.PostId == id);
-                    
-                    var post = new PostDetail
-                    {
-                        
-                        Content = entity.Content,
-                        RoundId = entity.RoundId,
-                        Title = entity.Title,
-                        PostId = entity.PostId,
-                        Name = entity.Name,
-                        OwnerId = _userId,
-                    };
+
+                var post = new PostDetail
+                {
+
+                    Content = entity.Content,
+                    RoundId = entity.RoundId,
+                    Title = entity.Title,
+                    PostId = entity.PostId,
+                    Name = entity.Name,
+                    OwnerId = _userId,
+                };
 
                 var service = new CommentServices(_userId);
                 var comments = service.GetCommentsForPost(id);
 
-                if (post.RoundId != null)
-                {
-                    var roundService = new RoundServices(_userId);
-                    var roundDetail = roundService.GetRoundById(post.RoundId);
-                    post.RoundDetail = roundDetail;
-                }
+                var roundService = new RoundServices(_userId);
+                var roundDetail = roundService.GetRoundById(post.RoundId);
+                post.RoundDetail = roundDetail;
 
-                if(post.RoundId == null)
-                {
-                    post.Comments = comments.ToArray();
 
-                    return post;
-                }
 
 
                 post.Comments = comments.ToArray();
@@ -90,7 +82,7 @@ namespace ForeScore.Services
 
         public IEnumerable<PostListItem> GetAllUsersPosts()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -119,13 +111,13 @@ namespace ForeScore.Services
                     .Where(e => _userId == e.Id)
                     .Select(e => e.UserId);
 
-                List<PostListItem> _posts = new List<PostListItem>(); 
+                List<PostListItem> _posts = new List<PostListItem>();
 
                 foreach (var user in query)
                 {
                     var followingsPosts = GetAllFollowingsPosts(user);
 
-                    foreach(var post in followingsPosts)
+                    foreach (var post in followingsPosts)
                     {
                         _posts.Add(post);
                     }
@@ -139,7 +131,7 @@ namespace ForeScore.Services
 
         public bool EditPost(PostEdit model)
         {
-            using(var ctx =  new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -159,14 +151,14 @@ namespace ForeScore.Services
 
         public bool DeletePost(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Posts
                     .Single(e => e.PostId == id && _userId == e.OwnerId);
 
-                if(entity == null)
+                if (entity == null)
                 {
                     return false;
                 }
@@ -180,7 +172,7 @@ namespace ForeScore.Services
                     .Where(e => e.PostId == id)
                     .Select(e => e.CommentId);
 
-                foreach(var commentId in query)
+                foreach (var commentId in query)
                 {
                     var service = new CommentServices(_userId);
                     service.DeleteComment(commentId);

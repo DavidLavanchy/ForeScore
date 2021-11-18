@@ -149,6 +149,26 @@ namespace ForeScore.Services
             }
         }
 
+        public IEnumerable<WhoToFollowListItem> WhoToFollow()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Users
+                    .Where(e=> e.Id != _userId)
+                    .Select(e => 
+                    new WhoToFollowListItem
+                    {
+                        Email = e.Email,
+                        FirstName = e.FirstName,
+                        LastName = e.LastName,
+                    });
+
+                return query.ToArray();
+            }
+        }
+
 
         private bool AddFollower(ApplicationUser model, string id)
         {
@@ -198,5 +218,6 @@ namespace ForeScore.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
     }
 }

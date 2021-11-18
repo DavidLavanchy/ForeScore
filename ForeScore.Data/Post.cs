@@ -15,8 +15,9 @@ namespace ForeScore.Data
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Name { get; set; }
+        [Required]
         [ForeignKey(nameof(Round))]
-        public int? RoundId { get; set; }
+        public int RoundId { get; set; }
         public virtual Round Round { get; set; }
         public string Content { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

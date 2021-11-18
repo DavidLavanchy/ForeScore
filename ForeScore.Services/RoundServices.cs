@@ -26,7 +26,7 @@ namespace ForeScore.Services
             {
                 var course = ctx.Courses.Find(model.CourseDetail.CourseId);
 
-                var score = new List<int>();
+                var score = new List<int?>();
 
                 foreach (var hole in model.FrontNine)
                 {
@@ -308,7 +308,7 @@ namespace ForeScore.Services
                     .Rounds
                     .Single(e => model.RoundId == e.RoundId);
 
-                var score = new List<int>();
+                var score = new List<int?>();
 
                 foreach (var hole in model.FrontNine)
                 {

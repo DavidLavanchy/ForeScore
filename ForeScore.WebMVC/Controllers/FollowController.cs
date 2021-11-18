@@ -49,6 +49,7 @@ namespace ForeScore.WebMVC.Controllers
         {
             var service = CreateFollowingService();
             var viewModel = service.CreateFollowingAddModel();
+            viewModel.WhoToFollow = service.WhoToFollow().Take(10).ToList();
 
             return View(viewModel);
         }

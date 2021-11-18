@@ -48,6 +48,39 @@
 
             </div>
         </div>
+
+        <br />
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Who To Follow</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="indexhead">Name</th>
+                                    <th class="indexhead">Email</th>
+                                    <th class="indexhead"></th>
+                                    <th class="indexhead"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.WhoToFollow.Count; i++)
+                                {
+                                    <tr>
+                                        <td class="index">@Html.DisplayFor(model => model.WhoToFollow[i].FirstName) @Html.DisplayFor(model => model.WhoToFollow[i].LastName)</td>
+                                        <td class="index">@Html.DisplayFor(model => model.WhoToFollow[i].Email)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 }

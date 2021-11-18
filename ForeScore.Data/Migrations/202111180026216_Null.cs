@@ -1,9 +1,9 @@
-namespace ForeScore.Data.Migrations
+﻿namespace ForeScore.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class HoleData : DbMigration
+    public partial class Null : DbMigration
     {
         public override void Up()
         {

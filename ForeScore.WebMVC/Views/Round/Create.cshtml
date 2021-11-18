@@ -15,7 +15,7 @@
         </div>
     </div>
     <br />
-
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
@@ -69,7 +69,10 @@
                                     </td>
 
                                     <td>
-                                        @Html.ActionLink("Select This Course", "SelectCourse", new { id = item.CourseId })
+                                        <a href="@Url.Action("SelectCourse", "Round", new { id = item.CourseId})"
+                                           class="btn btn-block btn-success">
+                                            Select This Course
+                                        </a>
                                     </td>
                                 </tr>
                             }

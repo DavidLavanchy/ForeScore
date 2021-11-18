@@ -19,7 +19,7 @@ namespace ForeScore.Data
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
         public string Description { get; set; }
-        public int Score { get; set; }
+        public int? Score { get; set; }
         public bool? IsPublic { get; set; }
         public bool? IsFeatured { get; set; }
         public DateTimeOffset? DateOfRound { get; set; }

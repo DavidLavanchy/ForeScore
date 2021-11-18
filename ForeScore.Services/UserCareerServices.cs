@@ -63,12 +63,9 @@ namespace ForeScore.Services
         }
 
 
-        public float GetHandicap(ICollection<RoundDetail> Rounds)
+        public float? GetHandicap(ICollection<RoundDetail> Rounds)
         {
-            if (Rounds.Count == 0)
-            {
-                return default;
-            }
+
             if (Rounds.Count < 5)
             {
                 return default;
@@ -76,7 +73,7 @@ namespace ForeScore.Services
 
             if (Rounds.Count <= 20)
             {
-                List<float> list = new List<float>();
+                List<float?> list = new List<float?>();
 
                 foreach (var round in Rounds)
                 {
@@ -84,22 +81,22 @@ namespace ForeScore.Services
                     {
                         float slope = (float)round.CourseDetail.Slope;
                         float rating = (float)round.CourseDetail.Rating;
-                        int score = round.Score;
+                        int? score = round.Score;
 
-                        float scoreDifferential = ((score - rating) * 113) / slope;
+                        float? scoreDifferential = ((score - rating) * 113) / slope;
                         list.Add(scoreDifferential);
                     }
                 }
 
-                float[] orderedScores = list.OrderBy(p => p).ToArray();
+                float?[] orderedScores = list.OrderBy(p => p).ToArray();
 
-                float scoreOne = orderedScores[0];
-                float scoreTwo = orderedScores[1];
-                float scoreThree = orderedScores[2];
+                float? scoreOne = orderedScores[0];
+                float? scoreTwo = orderedScores[1];
+                float? scoreThree = orderedScores[2];
 
-                float averageScoreDiffirential = (scoreOne + scoreTwo + scoreThree) / 3;
+                float? averageScoreDiffirential = (scoreOne + scoreTwo + scoreThree) / 3;
 
-                float handicap = averageScoreDiffirential * 0.96f;
+                float? handicap = averageScoreDiffirential * 0.96f;
 
                 return handicap;
 
@@ -115,7 +112,7 @@ namespace ForeScore.Services
                     {
                         float slope = (float)round.CourseDetail.Slope;
                         float rating = (float)round.CourseDetail.Rating;
-                        int score = round.Score;
+                        int? score = round.Score;
 
                         float? scoreDifferential = ((score - rating) * 113) / slope;
                         list.Add((float)scoreDifferential);
@@ -175,20 +172,18 @@ namespace ForeScore.Services
 
         public int GetAllAces(ICollection<HoleDataDetail> Holes)
         {
-            int aces = 0;
+            List<int> aces = new List<int>();
 
             foreach (var hole in Holes)
             {
                 if (hole.Score == 1)
                 {
-                    aces = +1;
+                    int score = 1;
+                    aces.Add(score);
                 }
-                else
-                {
-                    aces = +0;
-                }
+
             }
-            return aces;
+            return aces.Count();
         }
 
         public float GetAverageDrivingDistance(ICollection<HoleDataDetail> Holes)

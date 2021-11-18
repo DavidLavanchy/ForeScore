@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -61,57 +64,13 @@
     <Compile Include="Hole.cs" />
     <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111080139313_initial.cs" />
-    <Compile Include="Migrations\202111080139313_initial.Designer.cs">
-      <DependentUpon>202111080139313_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202111180016490_initial.cs" />
+    <Compile Include="Migrations\202111180016490_initial.designer.cs">
+      <DependentUpon>202111180016490_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111080151041_HoleData.cs" />
-    <Compile Include="Migrations\202111080151041_HoleData.Designer.cs">
-      <DependentUpon>202111080151041_HoleData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111080153218_HoleDataMigration.cs" />
-    <Compile Include="Migrations\202111080153218_HoleDataMigration.Designer.cs">
-      <DependentUpon>202111080153218_HoleDataMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111080214229_CourseName.cs" />
-    <Compile Include="Migrations\202111080214229_CourseName.Designer.cs">
-      <DependentUpon>202111080214229_CourseName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111081658152_UserIdsToFollowEntities.cs" />
-    <Compile Include="Migrations\202111081658152_UserIdsToFollowEntities.Designer.cs">
-      <DependentUpon>202111081658152_UserIdsToFollowEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111090322462_FollowedBy.cs" />
-    <Compile Include="Migrations\202111090322462_FollowedBy.Designer.cs">
-      <DependentUpon>202111090322462_FollowedBy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111090329153_UpdatedEntities.cs" />
-    <Compile Include="Migrations\202111090329153_UpdatedEntities.Designer.cs">
-      <DependentUpon>202111090329153_UpdatedEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111100053411_Post.cs" />
-    <Compile Include="Migrations\202111100053411_Post.Designer.cs">
-      <DependentUpon>202111100053411_Post.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111100108314_NameProperty.cs" />
-    <Compile Include="Migrations\202111100108314_NameProperty.Designer.cs">
-      <DependentUpon>202111100108314_NameProperty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131444022_CourseName1.cs" />
-    <Compile Include="Migrations\202111131444022_CourseName1.Designer.cs">
-      <DependentUpon>202111131444022_CourseName1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131753095_HoleNumber.cs" />
-    <Compile Include="Migrations\202111131753095_HoleNumber.Designer.cs">
-      <DependentUpon>202111131753095_HoleNumber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131807362_nullpar.cs" />
-    <Compile Include="Migrations\202111131807362_nullpar.Designer.cs">
-      <DependentUpon>202111131807362_nullpar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111152000068_NullTeeTime.cs" />
-    <Compile Include="Migrations\202111152000068_NullTeeTime.Designer.cs">
-      <DependentUpon>202111152000068_NullTeeTime.cs</DependentUpon>
+    <Compile Include="Migrations\202111180026216_Null.cs" />
+    <Compile Include="Migrations\202111180026216_Null.designer.cs">
+      <DependentUpon>202111180026216_Null.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -130,45 +89,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111080139313_initial.resx">
-      <DependentUpon>202111080139313_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111180016490_initial.resx">
+      <DependentUpon>202111180016490_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111080151041_HoleData.resx">
-      <DependentUpon>202111080151041_HoleData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111080153218_HoleDataMigration.resx">
-      <DependentUpon>202111080153218_HoleDataMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111080214229_CourseName.resx">
-      <DependentUpon>202111080214229_CourseName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111081658152_UserIdsToFollowEntities.resx">
-      <DependentUpon>202111081658152_UserIdsToFollowEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111090322462_FollowedBy.resx">
-      <DependentUpon>202111090322462_FollowedBy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111090329153_UpdatedEntities.resx">
-      <DependentUpon>202111090329153_UpdatedEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111100053411_Post.resx">
-      <DependentUpon>202111100053411_Post.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111100108314_NameProperty.resx">
-      <DependentUpon>202111100108314_NameProperty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131444022_CourseName1.resx">
-      <DependentUpon>202111131444022_CourseName1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131753095_HoleNumber.resx">
-      <DependentUpon>202111131753095_HoleNumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131807362_nullpar.resx">
-      <DependentUpon>202111131807362_nullpar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111152000068_NullTeeTime.resx">
-      <DependentUpon>202111152000068_NullTeeTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111180026216_Null.resx">
+      <DependentUpon>202111180026216_Null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

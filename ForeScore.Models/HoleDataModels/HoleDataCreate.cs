@@ -10,7 +10,7 @@ namespace ForeScore.Models.HoleDataModels
     public class HoleDataCreate
     {
         [Required]
-        public int Score { get; set; }
+        public int? Score { get; set; }
         public int? DrivingDistance { get; set; }
         public int? HolePar { get; set; }
         public int? Putts { get; set; }

@@ -151,6 +151,7 @@
                                     {
                                         <td scope="col">
                                             @Html.TextBoxFor(model => Model.FrontNine[i].Par, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.FrontNine[i].Par, "", new { @class = "text-danger" })
                                         </td>
                                     }
                                 </tr>
@@ -163,6 +164,7 @@
                                     {
                                         <td scope="col">
                                             @Html.TextBoxFor(model => Model.FrontNine[i].Distance, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.FrontNine[i].Distance, "", new { @class = "text-danger" })
                                         </td>
                                     }
                                 </tr>
@@ -202,6 +204,7 @@
                                     {
                                         <td scope="col">
                                             @Html.TextBoxFor(model => Model.BackNine[i].Par, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.BackNine[i].Par, "", new { @class = "text-danger" })
                                         </td>
                                     }
                                 </tr>
@@ -214,6 +217,7 @@
                                     {
                                         <td scope="col">
                                             @Html.TextBoxFor(model => Model.BackNine[i].Distance, new { @class = "textboxform-control" })
+                                            @Html.ValidationMessageFor(model => Model.BackNine[i].Distance, "", new { @class = "text-danger" })
                                         </td>
                                     }
                                 </tr>
