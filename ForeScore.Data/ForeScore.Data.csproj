@@ -64,13 +64,9 @@
     <Compile Include="Hole.cs" />
     <Compile Include="HoleData.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111180016490_initial.cs" />
-    <Compile Include="Migrations\202111180016490_initial.designer.cs">
-      <DependentUpon>202111180016490_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111180026216_Null.cs" />
-    <Compile Include="Migrations\202111180026216_Null.designer.cs">
-      <DependentUpon>202111180026216_Null.cs</DependentUpon>
+    <Compile Include="Migrations\202111180213006_initCreate.cs" />
+    <Compile Include="Migrations\202111180213006_initCreate.designer.cs">
+      <DependentUpon>202111180213006_initCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -89,11 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111180016490_initial.resx">
-      <DependentUpon>202111180016490_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111180026216_Null.resx">
-      <DependentUpon>202111180026216_Null.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111180213006_initCreate.resx">
+      <DependentUpon>202111180213006_initCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

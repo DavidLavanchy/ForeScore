@@ -5731,6 +5731,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 #navigation-full {
     background-color: #39C0ED;
     border-color: #39C0ED;
+    color: #39C0ED;
 }
 
 #navigation-inputs {
@@ -5743,7 +5744,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-color: white;
 }
 
-    .navbar-inverse .navbar-brand {
+     .navbar-brand {
         color: white;
     }
 
