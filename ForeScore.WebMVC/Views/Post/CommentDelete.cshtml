@@ -421,32 +421,34 @@
                             <div class="col-lg-10">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">@(String.Format("{0}", comment.Name))</div>
+                                    @if (comment.CommentId != Model.CommentId)
+                                    {
+                                        <div class="panel-body panel-primary">
+                                            <div class="row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-8">
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            @Html.DisplayFor(model => comment.Content, new { htmlAttributes = new { @class = "form-control", } })
+                                                        </div>
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-5">
+                                                            @if (comment.OwnerId == Model.PostDetail.OwnerId)
+                                                            {
+                                                                <a href="@Url.Action("CommentDelete", "Post", new { id = comment.CommentId })"
+                                                                   class="btn btn-block btn-danger col-lg-2">
+                                                                    Delete Comment
+                                                                </a>
+                                                            }
+                                                        </div>
 
-                                    <div class="panel-body panel-primary">
-                                        <div class="row">
-                                            <div class="col-lg-2"></div>
-                                            <div class="col-lg-8">
-                                                <div class="row">
-                                                    <div class="col-lg-5">
-                                                        @Html.DisplayFor(model => comment.Content, new { htmlAttributes = new { @class = "form-control", } })
-                                                    </div>
-                                                    <div class="col-lg-2"></div>
-                                                    <div class="col-lg-5">
-                                                        @if (comment.OwnerId == Model.PostDetail.OwnerId)
-                                                        {
-                                                            <a href="@Url.Action("CommentDelete", "Post", new { id = comment.CommentId })"
-                                                               class="btn btn-block btn-danger col-lg-2">
-                                                                Delete Comment
-                                                            </a>
-                                                        }
                                                     </div>
 
                                                 </div>
-
+                                                <div class="col-lg-2"></div>
                                             </div>
-                                            <div class="col-lg-2"></div>
                                         </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         }
